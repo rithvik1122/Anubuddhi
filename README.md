@@ -40,7 +40,7 @@ The system uses a **cognitive pipeline** with specialized components:
 ┌───────────▼──────┐  ┌────────▼──────────────────────────────┐
 │  Toolbox System  │  │  FreeForm Simulation Agent            │
 │  • Primitives    │  │  • Physics-aware code generation      │
-│  • Composites    │  │  • Learns from successful simulations │
+│  • Composites    │  │  • Uses simulation pattern library    │
 │  • Custom blocks │  │  • Full scientific Python freedom     │
 └──────────────────┘  └───────────────────────────────────────┘
             │                   │
@@ -238,13 +238,13 @@ Two simulation modes:
 - Freedom: Any Python library (NumPy, SciPy, custom models)
 - Flexibility: Chooses appropriate formalism per experiment
 
-### 5. Learning
+### 5. Knowledge Retrieval
 
-The system learns by:
-- Storing successful designs in toolbox as "learned composites"
-- Building embedding index for semantic component search
-- Tracking simulation patterns for different experiment types
-- Accumulating physics knowledge from validated designs
+The system uses existing knowledge:
+- Retrieves proven designs from toolbox as "learned composites"
+- Semantic search via embedding index for similar components
+- Pre-loaded simulation patterns for different experiment types
+- Physics knowledge from validated design library
 
 ## 🧪 Experimental Results
 
