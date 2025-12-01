@@ -60,7 +60,7 @@ The system uses a **cognitive pipeline** with specialized components:
 4. **`toolbox_loader.py`** - Manages primitives and learned composite components
 5. **`simple_optical_table.py`** - 2D optical table renderer with beam routing
 6. **`embedding_retriever.py`** - Semantic search using BGE-M3 embeddings
-7. **`src/agentic_quantum/`** - Quantum primitives library (states, operations, measurements)
+7. **`src/agentic_quantum/`** - Lightweight quantum primitives library (states, operations, LLM client)
 
 ### Design Philosophy
 
@@ -166,10 +166,13 @@ Anubuddhi/
 │   ├── quantum/                   # Quantum states and operations
 │   │   ├── states.py              # Fock, coherent, squeezed states
 │   │   ├── operations.py          # Beam splitters, phase shifts
-│   │   └── measurements.py        # Detection and measurement
+│   │   ├── measurements.py        # Detection and measurement
+│   │   ├── experiment.py          # Experiment construction
+│   │   └── simulator.py           # QuTiP-based simulator
 │   ├── llm/                       # LLM client wrapper
-│   ├── memory/                    # Memory system (optional)
+│   │   └── simple_client.py       # SimpleLLM class
 │   └── visualization/             # Plotting utilities
+│       └── optical_table.py       # Optical table rendering
 │
 ├── toolbox/                       # Component definitions
 │   ├── primitives.json            # Basic optical components
