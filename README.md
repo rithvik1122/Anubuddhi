@@ -70,7 +70,7 @@ The system combines **three cognitive layers**:
 2. **Design Layer**: Component selection, layout generation, and beam path planning
 3. **Validation Layer**: Physics simulation and iterative refinement
 
-Unlike traditional CAD tools, Aṇubuddhi understands physics intent and automatically handles:
+Aṇubuddhi understands physics intent and automatically handles:
 - Component placement and orientation
 - Beam routing and path calculation
 - Physics validation and error detection
