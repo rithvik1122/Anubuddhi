@@ -1,0 +1,412 @@
+{
+  "title": "Continuous-Variable Quantum Teleportation with Squeezed States",
+  "description": "Teleports coherent state quantum information using EPR-entangled squeezed vacuum beams and homodyne detection with feedforward correction",
+  "components": [
+    {
+      "type": "laser",
+      "description": "Main Laser",
+      "position": [
+        0.5,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "wavelength": 1064,
+        "power": 500,
+        "linewidth": 10
+      },
+      "component_number": 1
+    },
+    {
+      "type": "beam_splitter",
+      "description": "BS1",
+      "position": [
+        1.5,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "cube"
+      },
+      "component_number": 2
+    },
+    {
+      "type": "crystal",
+      "description": "OPA Crystal 1",
+      "position": [
+        2.5,
+        4.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "PPLN",
+        "interaction": "OPA",
+        "length": 10,
+        "poling_period": 19.5,
+        "phase_matching": "type-I"
+      },
+      "component_number": 3
+    },
+    {
+      "type": "crystal",
+      "description": "OPA Crystal 2",
+      "position": [
+        2.5,
+        1.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "PPLN",
+        "interaction": "OPA",
+        "length": 10,
+        "poling_period": 19.5,
+        "phase_matching": "type-I"
+      },
+      "component_number": 4
+    },
+    {
+      "type": "phase_shifter",
+      "description": "EPR Phase Lock",
+      "position": [
+        3.5,
+        4.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "description": "Piezo-controlled phase shifter to maintain \u03c0/2 phase relation between squeezed beams for EPR entanglement"
+      },
+      "component_number": 5
+    },
+    {
+      "type": "laser",
+      "description": "Input Signal Laser",
+      "position": [
+        0.5,
+        5.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "wavelength": 1064,
+        "power": 1,
+        "linewidth": 10
+      },
+      "component_number": 6
+    },
+    {
+      "type": "eom",
+      "description": "Input EOM",
+      "position": [
+        1.5,
+        5.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "amplitude",
+        "frequency": 10,
+        "voltage": 5
+      },
+      "component_number": 7
+    },
+    {
+      "type": "beam_splitter",
+      "description": "Alice BS",
+      "position": [
+        5.0,
+        5.0
+      ],
+      "angle": 45,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "50:50 cube"
+      },
+      "component_number": 8
+    },
+    {
+      "type": "laser",
+      "description": "LO Laser Alice",
+      "position": [
+        4.0,
+        3.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "wavelength": 1064,
+        "power": 10
+      },
+      "component_number": 9
+    },
+    {
+      "type": "beam_splitter",
+      "description": "LO BS Alice",
+      "position": [
+        5.0,
+        3.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "50:50 cube"
+      },
+      "component_number": 10
+    },
+    {
+      "type": "beam_splitter",
+      "description": "Homodyne BS X",
+      "position": [
+        6.0,
+        5.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "50:50 cube"
+      },
+      "component_number": 11
+    },
+    {
+      "type": "beam_splitter",
+      "description": "Homodyne BS P",
+      "position": [
+        6.0,
+        4.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "50:50 cube"
+      },
+      "component_number": 12
+    },
+    {
+      "type": "photodiode",
+      "description": "PD X+",
+      "position": [
+        7.0,
+        5.8
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "balanced",
+        "efficiency": 95
+      },
+      "component_number": 13
+    },
+    {
+      "type": "photodiode",
+      "description": "PD X-",
+      "position": [
+        7.0,
+        5.2
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "balanced",
+        "efficiency": 95
+      },
+      "component_number": 14
+    },
+    {
+      "type": "photodiode",
+      "description": "PD P+",
+      "position": [
+        7.0,
+        4.8
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "balanced",
+        "efficiency": 95
+      },
+      "component_number": 15
+    },
+    {
+      "type": "photodiode",
+      "description": "PD P-",
+      "position": [
+        7.0,
+        4.2
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "balanced",
+        "efficiency": 95
+      },
+      "component_number": 16
+    },
+    {
+      "type": "custom_feedforward_electronics",
+      "description": "Feedforward Unit",
+      "position": [
+        7.5,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "description": "Electronic unit processing photodiode outputs from Alice's homodyne detectors and generating real-time feedforward signals to control Bob's displacement EOMs with gain G=\u221a2",
+        "gain": 1.414,
+        "bandwidth": "10 MHz",
+        "latency": "100 ns"
+      },
+      "component_number": 17
+    },
+    {
+      "type": "eom",
+      "description": "Displacement X",
+      "position": [
+        4.5,
+        1.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "amplitude",
+        "voltage": 10
+      },
+      "component_number": 18
+    },
+    {
+      "type": "eom",
+      "description": "Displacement P",
+      "position": [
+        5.0,
+        1.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "phase",
+        "voltage": 10
+      },
+      "component_number": 19
+    },
+    {
+      "type": "beam_splitter",
+      "description": "Bob Homodyne BS",
+      "position": [
+        6.0,
+        1.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "50:50 cube"
+      },
+      "component_number": 20
+    },
+    {
+      "type": "photodiode",
+      "description": "Bob PD+",
+      "position": [
+        7.0,
+        1.8
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "balanced",
+        "efficiency": 95
+      },
+      "component_number": 21
+    },
+    {
+      "type": "photodiode",
+      "description": "Bob PD-",
+      "position": [
+        7.0,
+        1.2
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "balanced",
+        "efficiency": 95
+      },
+      "component_number": 22
+    },
+    {
+      "type": "laser",
+      "description": "LO Laser Bob",
+      "position": [
+        6.0,
+        0.5
+      ],
+      "angle": 90,
+      "parameters": {
+        "wavelength": 1064,
+        "power": 10
+      },
+      "component_number": 23
+    },
+    {
+      "type": "mirror",
+      "description": "Mirror A1",
+      "position": [
+        1.5,
+        4.5
+      ],
+      "angle": 90,
+      "parameters": {},
+      "component_number": 24
+    },
+    {
+      "type": "mirror",
+      "description": "Mirror A2",
+      "position": [
+        4.0,
+        4.5
+      ],
+      "angle": 0,
+      "parameters": {},
+      "component_number": 25
+    },
+    {
+      "type": "mirror",
+      "description": "Mirror B",
+      "position": [
+        4.0,
+        1.5
+      ],
+      "angle": 0,
+      "parameters": {},
+      "component_number": 26
+    },
+    {
+      "type": "mirror",
+      "description": "Mirror Input",
+      "position": [
+        2.5,
+        5.5
+      ],
+      "angle": 0,
+      "parameters": {},
+      "component_number": 27
+    },
+    {
+      "type": "phase_shifter",
+      "description": "LO Phase X",
+      "position": [
+        5.5,
+        4.0
+      ],
+      "angle": 90,
+      "parameters": {
+        "description": "Controls LO phase for X quadrature measurement"
+      },
+      "component_number": 28
+    },
+    {
+      "type": "phase_shifter",
+      "description": "LO Phase P",
+      "position": [
+        5.5,
+        3.0
+      ],
+      "angle": 90,
+      "parameters": {
+        "description": "Controls LO phase for P quadrature measurement at 90 degrees to X"
+      },
+      "component_number": 29
+    }
+  ],
+  "beam_paths": [],
+  "physics_explanation": "Two PPLN crystals generate squeezed vacuum states via optical parametric amplification, which are combined with \u03c0/2 phase difference to create EPR-entangled beams shared between Alice and Bob. Alice interferes the input coherent state (carrying information to teleport) with her EPR mode on a 50:50 beam splitter, producing two outputs that are each measured with separate balanced homodyne detectors (one for X quadrature, one for P quadrature) using phase-controlled local oscillator beams. The measurement results are electronically processed by feedforward electronics that apply displacement operations (gain G=\u221a2) to Bob's EPR mode via EOMs, reconstructing the input state. Bob's homodyne detector verifies the teleported state by measuring the displaced mode.",
+  "expected_outcome": "Teleportation fidelity F > 0.5 (classical limit) demonstrates quantum advantage, with F approaching unity as squeezing increases. With ~10dB squeezing, expect F \u2248 0.7-0.8. Balanced homodyne detection at Bob's station (difference between PD+ and PD-) shows high overlap with Alice's input state. Variance measurements confirm noise reduction below shot noise level due to EPR correlations. Feedforward gain optimization maximizes fidelity by balancing measurement information extraction against added noise. Electronic signals from Alice's photodiodes to Bob's EOMs enable real-time quantum state transfer.",
+  "note": "Component numbers match the labels shown in 07_optical_setup.png (1-indexed)"
+}

@@ -1,0 +1,573 @@
+{
+  "title": "Hyperentangled Photon Source with Polarization and Time-Bin Entanglement",
+  "description": "Generates photon pairs entangled in both polarization and time-bin degrees of freedom using Type-II SPDC with independent Mach-Zehnder interferometers for each photon",
+  "components": [
+    {
+      "type": "laser",
+      "name": "405nm Pump Laser",
+      "x": 0.5,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "wavelength": 405,
+        "power": 200,
+        "linewidth": 1000
+      }
+    },
+    {
+      "type": "lens",
+      "name": "Pump Focusing Lens",
+      "x": 1.5,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "focal_length": 100,
+        "diameter": 25
+      }
+    },
+    {
+      "type": "bbo_crystal",
+      "name": "Type-II BBO Crystal",
+      "x": 2.5,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "type": "BBO",
+        "interaction": "SPDC",
+        "phase_matching": "type-II",
+        "length": 2,
+        "cut_angle": 29.2
+      }
+    },
+    {
+      "type": "lens",
+      "name": "Collection Lens",
+      "x": 3.5,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "focal_length": 150,
+        "diameter": 50
+      }
+    },
+    {
+      "type": "filter",
+      "name": "810nm Bandpass Filter",
+      "x": 4.0,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "wavelength": 810,
+        "bandwidth": 10,
+        "optical_depth": 6
+      }
+    },
+    {
+      "type": "polarizing_beam_splitter",
+      "name": "PBS Separator",
+      "x": 4.8,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "extinction_ratio": 1000
+      }
+    },
+    {
+      "type": "mirror",
+      "name": "H-Photon Steering Mirror",
+      "x": 4.8,
+      "y": 4.0,
+      "angle": 0,
+      "parameters": {
+        "reflectivity": 0.99
+      }
+    },
+    {
+      "type": "beam_splitter",
+      "name": "H-Path BS1",
+      "x": 5.8,
+      "y": 4.0,
+      "angle": 0,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "cube"
+      }
+    },
+    {
+      "type": "mirror",
+      "name": "H-Upper Mirror 1",
+      "x": 5.8,
+      "y": 5.0,
+      "angle": 0,
+      "parameters": {
+        "reflectivity": 0.99
+      }
+    },
+    {
+      "type": "mirror",
+      "name": "H-Upper Mirror 2",
+      "x": 7.3,
+      "y": 5.0,
+      "angle": 180,
+      "parameters": {
+        "reflectivity": 0.99
+      }
+    },
+    {
+      "type": "mirror",
+      "name": "H-Upper Mirror 3",
+      "x": 7.3,
+      "y": 4.0,
+      "angle": 270,
+      "parameters": {
+        "reflectivity": 0.99
+      }
+    },
+    {
+      "type": "mirror",
+      "name": "H-Lower Mirror 1",
+      "x": 6.5,
+      "y": 4.0,
+      "angle": 0,
+      "parameters": {
+        "reflectivity": 0.99
+      }
+    },
+    {
+      "type": "beam_splitter",
+      "name": "H-Path BS2",
+      "x": 8.0,
+      "y": 4.0,
+      "angle": 0,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "cube"
+      }
+    },
+    {
+      "type": "polarizing_beam_splitter",
+      "name": "PBS Output A",
+      "x": 9.0,
+      "y": 4.0,
+      "angle": 0,
+      "parameters": {
+        "extinction_ratio": 1000
+      }
+    },
+    {
+      "type": "detector",
+      "name": "Detector A-H",
+      "x": 10.0,
+      "y": 4.0,
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 65,
+        "dark_count_rate": 100,
+        "timing_resolution": 50
+      }
+    },
+    {
+      "type": "detector",
+      "name": "Detector A-V",
+      "x": 9.0,
+      "y": 5.0,
+      "angle": 90,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 65,
+        "dark_count_rate": 100,
+        "timing_resolution": 50
+      }
+    },
+    {
+      "type": "mirror",
+      "name": "V-Photon Steering Mirror 1",
+      "x": 5.5,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "reflectivity": 0.99
+      }
+    },
+    {
+      "type": "mirror",
+      "name": "V-Photon Steering Mirror 2",
+      "x": 5.5,
+      "y": 2.0,
+      "angle": 270,
+      "parameters": {
+        "reflectivity": 0.99
+      }
+    },
+    {
+      "type": "beam_splitter",
+      "name": "V-Path BS1",
+      "x": 5.8,
+      "y": 2.0,
+      "angle": 0,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "cube"
+      }
+    },
+    {
+      "type": "mirror",
+      "name": "V-Upper Mirror 1",
+      "x": 6.5,
+      "y": 2.0,
+      "angle": 0,
+      "parameters": {
+        "reflectivity": 0.99
+      }
+    },
+    {
+      "type": "mirror",
+      "name": "V-Lower Mirror 1",
+      "x": 5.8,
+      "y": 1.0,
+      "angle": 270,
+      "parameters": {
+        "reflectivity": 0.99
+      }
+    },
+    {
+      "type": "mirror",
+      "name": "V-Lower Mirror 2",
+      "x": 7.3,
+      "y": 1.0,
+      "angle": 0,
+      "parameters": {
+        "reflectivity": 0.99
+      }
+    },
+    {
+      "type": "mirror",
+      "name": "V-Lower Mirror 3",
+      "x": 7.3,
+      "y": 2.0,
+      "angle": 90,
+      "parameters": {
+        "reflectivity": 0.99
+      }
+    },
+    {
+      "type": "beam_splitter",
+      "name": "V-Path BS2",
+      "x": 8.0,
+      "y": 2.0,
+      "angle": 0,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "cube"
+      }
+    },
+    {
+      "type": "polarizing_beam_splitter",
+      "name": "PBS Output B",
+      "x": 9.0,
+      "y": 2.0,
+      "angle": 0,
+      "parameters": {
+        "extinction_ratio": 1000
+      }
+    },
+    {
+      "type": "detector",
+      "name": "Detector B-H",
+      "x": 10.0,
+      "y": 2.0,
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 65,
+        "dark_count_rate": 100,
+        "timing_resolution": 50
+      }
+    },
+    {
+      "type": "detector",
+      "name": "Detector B-V",
+      "x": 9.0,
+      "y": 1.0,
+      "angle": 270,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 65,
+        "dark_count_rate": 100,
+        "timing_resolution": 50
+      }
+    },
+    {
+      "type": "custom_coincidence_logic",
+      "name": "4-Fold Coincidence Counter",
+      "x": 9.5,
+      "y": 0.3,
+      "angle": 0,
+      "parameters": {
+        "description": "Electronic coincidence logic unit that processes all four SPAD outputs to identify 4-fold, 3-fold, and 2-fold coincidence events within timing window for hyperentanglement verification. Measures correlations in both polarization and time-bin degrees of freedom.",
+        "channels": 4,
+        "timing_resolution": "50ps",
+        "coincidence_window": "3ns"
+      }
+    }
+  ],
+  "beam_path": [
+    [
+      [
+        0.5,
+        3.0
+      ],
+      [
+        1.5,
+        3.0
+      ],
+      [
+        2.5,
+        3.0
+      ],
+      [
+        3.5,
+        3.0
+      ],
+      [
+        4.0,
+        3.0
+      ],
+      [
+        4.8,
+        3.0
+      ],
+      [
+        4.8,
+        4.0
+      ],
+      [
+        5.8,
+        4.0
+      ],
+      [
+        5.8,
+        5.0
+      ],
+      [
+        7.3,
+        5.0
+      ],
+      [
+        7.3,
+        4.0
+      ],
+      [
+        8.0,
+        4.0
+      ],
+      [
+        9.0,
+        4.0
+      ],
+      [
+        10.0,
+        4.0
+      ]
+    ],
+    [
+      [
+        0.5,
+        3.0
+      ],
+      [
+        1.5,
+        3.0
+      ],
+      [
+        2.5,
+        3.0
+      ],
+      [
+        3.5,
+        3.0
+      ],
+      [
+        4.0,
+        3.0
+      ],
+      [
+        4.8,
+        3.0
+      ],
+      [
+        4.8,
+        4.0
+      ],
+      [
+        5.8,
+        4.0
+      ],
+      [
+        6.5,
+        4.0
+      ],
+      [
+        8.0,
+        4.0
+      ],
+      [
+        9.0,
+        4.0
+      ],
+      [
+        9.0,
+        5.0
+      ]
+    ],
+    [
+      [
+        0.5,
+        3.0
+      ],
+      [
+        1.5,
+        3.0
+      ],
+      [
+        2.5,
+        3.0
+      ],
+      [
+        3.5,
+        3.0
+      ],
+      [
+        4.0,
+        3.0
+      ],
+      [
+        4.8,
+        3.0
+      ],
+      [
+        5.5,
+        3.0
+      ],
+      [
+        5.5,
+        2.0
+      ],
+      [
+        5.8,
+        2.0
+      ],
+      [
+        6.5,
+        2.0
+      ],
+      [
+        8.0,
+        2.0
+      ],
+      [
+        9.0,
+        2.0
+      ],
+      [
+        10.0,
+        2.0
+      ]
+    ],
+    [
+      [
+        0.5,
+        3.0
+      ],
+      [
+        1.5,
+        3.0
+      ],
+      [
+        2.5,
+        3.0
+      ],
+      [
+        3.5,
+        3.0
+      ],
+      [
+        4.0,
+        3.0
+      ],
+      [
+        4.8,
+        3.0
+      ],
+      [
+        5.5,
+        3.0
+      ],
+      [
+        5.5,
+        2.0
+      ],
+      [
+        5.8,
+        2.0
+      ],
+      [
+        5.8,
+        1.0
+      ],
+      [
+        7.3,
+        1.0
+      ],
+      [
+        7.3,
+        2.0
+      ],
+      [
+        8.0,
+        2.0
+      ],
+      [
+        9.0,
+        2.0
+      ],
+      [
+        9.0,
+        1.0
+      ]
+    ]
+  ],
+  "physics_explanation": "Type-II SPDC creates polarization-entangled photon pairs in the state |\u03c8\u27e9_pol = (|HV\u27e9 + |VH\u27e9)/\u221a2. A PBS separates H and V photons into distinct spatial channels, each entering its own unbalanced Mach-Zehnder interferometer. The path length difference in each MZ creates time-bin entanglement: |\u03c8\u27e9_time = (|early,late\u27e9 + |late,early\u27e9)/\u221a2, where photon arrival times are correlated. The total state is hyperentangled: |\u03a8\u27e9 = |\u03c8\u27e9_pol \u2297 |\u03c8\u27e9_time, providing entanglement in two independent degrees of freedom. Four-fold coincidence measurements with high timing resolution verify both polarization correlations (via PBS analysis) and temporal correlations (via arrival time statistics).",
+  "component_justifications": {
+    "405nm Pump Laser": "Provides 405nm pump photons to drive Type-II SPDC in the BBO crystal, with sufficient power (200mW) for measurable pair generation rates",
+    "Pump Focusing Lens": "Focuses pump beam into the BBO crystal to increase intensity and enhance SPDC efficiency while maintaining phase-matching conditions",
+    "Type-II BBO Crystal": "Generates polarization-entangled photon pairs via Type-II SPDC where signal and idler have orthogonal polarizations (H and V), creating the initial polarization entanglement |HV\u27e9 + |VH\u27e9",
+    "Collection Lens": "Collects down-converted photon pairs from the crystal cone overlap region and collimates them for subsequent optics",
+    "810nm Bandpass Filter": "Blocks residual 405nm pump light while transmitting 810nm down-converted photons with high optical depth (OD=6) for clean signal",
+    "PBS Separator": "Spatially separates H-polarized and V-polarized photons into two distinct paths, enabling independent time-bin encoding for each photon",
+    "H-Photon Steering Mirror": "Redirects H-polarized photons from PBS output upward into the H-photon Mach-Zehnder interferometer",
+    "H-Path BS1": "First beam splitter of H-photon MZ interferometer, creating superposition of short (direct) and long (upper loop) paths for time-bin encoding",
+    "H-Upper Mirror 1": "First mirror in long path of H-photon MZ, directing light upward to create path length difference",
+    "H-Upper Mirror 2": "Second mirror in long path, extending the optical delay for time-bin separation",
+    "H-Upper Mirror 3": "Third mirror completing the long path and directing light back to recombination beam splitter",
+    "H-Lower Mirror 1": "Single mirror defining the short (reference) path in H-photon MZ interferometer",
+    "H-Path BS2": "Recombination beam splitter for H-photon MZ, creating coherent superposition of early and late time bins",
+    "PBS Output A": "Analyzes polarization state of H-path photon after time-bin encoding, separating H and V components for detection",
+    "Detector A-H": "SPAD with 50ps timing resolution to measure H-polarized photons and resolve time-bin arrival statistics",
+    "Detector A-V": "SPAD measuring V-polarized component from H-path, enabling polarization analysis with high temporal resolution",
+    "V-Photon Steering Mirror 1": "First steering mirror redirecting V-polarized photons from PBS toward V-photon interferometer",
+    "V-Photon Steering Mirror 2": "Second steering mirror directing V-photons downward into their dedicated MZ interferometer",
+    "V-Path BS1": "First beam splitter of V-photon MZ interferometer, creating time-bin superposition independently from H-photon",
+    "V-Upper Mirror 1": "Mirror defining short path in V-photon MZ interferometer",
+    "V-Lower Mirror 1": "First mirror in long path of V-photon MZ, creating path length difference for time-bin encoding",
+    "V-Lower Mirror 2": "Second mirror extending the long path to match time-bin separation with H-photon interferometer",
+    "V-Lower Mirror 3": "Third mirror completing long path and directing light to recombination beam splitter",
+    "V-Path BS2": "Recombination beam splitter for V-photon MZ, creating coherent time-bin superposition",
+    "PBS Output B": "Analyzes polarization of V-path photon after time-bin encoding, enabling polarization correlation measurements",
+    "Detector B-H": "SPAD measuring H-polarized component from V-path with 50ps timing resolution for time-bin analysis",
+    "Detector B-V": "SPAD measuring V-polarized photons from V-path, completing the four-detector configuration for hyperentanglement verification",
+    "4-Fold Coincidence Counter": "Electronic unit processing all four SPAD outputs to identify coincidence events, measuring correlations in both polarization (H/V analysis via PBS) and time-bin (arrival time statistics) degrees of freedom to verify hyperentanglement"
+  },
+  "expected_outcome": "Four-fold coincidence measurements reveal correlations in both polarization and time-bin degrees of freedom. Polarization correlations show anti-correlation (when A detects H, B detects V and vice versa), confirming the |HV\u27e9 + |VH\u27e9 entanglement with visibility >90%. Time-bin correlations show bunching when both photons take the same path length (both early or both late), creating the time-bin entangled state |early,late\u27e9 + |late,early\u27e9 with high visibility. The hyperentangled state enables violation of Bell inequalities in a 4-dimensional Hilbert space (2\u00d72 from polarization and time-bin), demonstrating quantum correlations stronger than any 2D entanglement alone. Adjusting MZ path lengths allows control over time-bin coherence, while PBS angles control polarization measurement basis."
+}

@@ -1,0 +1,450 @@
+{
+  "title": "Franson Interferometer for Time-Bin Entanglement",
+  "description": "Demonstrates energy-time entanglement using unbalanced Mach-Zehnder interferometers in both photon paths with time-bin encoded states",
+  "components": [
+    {
+      "type": "laser",
+      "name": "Pump Laser",
+      "x": 0.5,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "wavelength": 405,
+        "power": 50,
+        "linewidth": 1000
+      }
+    },
+    {
+      "type": "crystal",
+      "name": "PPLN Crystal",
+      "x": 1.5,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "type": "PPLN",
+        "interaction": "SPDC",
+        "length": 10,
+        "poling_period": 19.5,
+        "phase_matching": "type-II"
+      }
+    },
+    {
+      "type": "polarizing_beam_splitter",
+      "name": "PBS Separator",
+      "x": 2.5,
+      "y": 3.0,
+      "angle": 45,
+      "parameters": {
+        "description": "Separates orthogonally polarized signal and idler photons to different spatial modes"
+      }
+    },
+    {
+      "type": "mirror",
+      "name": "Mirror to Signal Arm",
+      "x": 2.5,
+      "y": 4.0,
+      "angle": 270,
+      "parameters": {
+        "description": "Directs signal photons toward signal interferometer"
+      }
+    },
+    {
+      "type": "beam_splitter",
+      "name": "BS1 Signal",
+      "x": 3.5,
+      "y": 4.5,
+      "angle": 45,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "cube"
+      }
+    },
+    {
+      "type": "beam_splitter",
+      "name": "BS1 Idler",
+      "x": 3.5,
+      "y": 1.5,
+      "angle": 45,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "cube"
+      }
+    },
+    {
+      "type": "mirror",
+      "name": "Mirror S-Short",
+      "x": 4.5,
+      "y": 4.5,
+      "angle": 180,
+      "parameters": {
+        "description": "Short arm mirror for signal path"
+      }
+    },
+    {
+      "type": "mirror",
+      "name": "Mirror S-Long-1",
+      "x": 3.5,
+      "y": 5.5,
+      "angle": 90,
+      "parameters": {
+        "description": "First mirror in long arm for signal path"
+      }
+    },
+    {
+      "type": "mirror",
+      "name": "Mirror S-Long-2",
+      "x": 4.5,
+      "y": 5.5,
+      "angle": 270,
+      "parameters": {
+        "description": "Second mirror in long arm for signal path"
+      }
+    },
+    {
+      "type": "mirror",
+      "name": "Mirror I-Short",
+      "x": 4.5,
+      "y": 1.5,
+      "angle": 180,
+      "parameters": {
+        "description": "Short arm mirror for idler path"
+      }
+    },
+    {
+      "type": "mirror",
+      "name": "Mirror I-Long-1",
+      "x": 3.5,
+      "y": 0.5,
+      "angle": 270,
+      "parameters": {
+        "description": "First mirror in long arm for idler path"
+      }
+    },
+    {
+      "type": "mirror",
+      "name": "Mirror I-Long-2",
+      "x": 4.5,
+      "y": 0.5,
+      "angle": 90,
+      "parameters": {
+        "description": "Second mirror in long arm for idler path"
+      }
+    },
+    {
+      "type": "beam_splitter",
+      "name": "BS2 Signal",
+      "x": 5.5,
+      "y": 4.5,
+      "angle": 45,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "cube"
+      }
+    },
+    {
+      "type": "beam_splitter",
+      "name": "BS2 Idler",
+      "x": 5.5,
+      "y": 1.5,
+      "angle": 45,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "cube"
+      }
+    },
+    {
+      "type": "phase_shifter",
+      "name": "Phase Shifter Signal",
+      "x": 6.0,
+      "y": 4.5,
+      "angle": 0,
+      "parameters": {
+        "description": "Piezo-controlled phase shifter for signal interference"
+      }
+    },
+    {
+      "type": "phase_shifter",
+      "name": "Phase Shifter Idler",
+      "x": 6.0,
+      "y": 1.5,
+      "angle": 0,
+      "parameters": {
+        "description": "Piezo-controlled phase shifter for idler interference"
+      }
+    },
+    {
+      "type": "filter",
+      "name": "Filter Signal",
+      "x": 7.0,
+      "y": 4.5,
+      "angle": 0,
+      "parameters": {
+        "wavelength": 810,
+        "bandwidth": 3,
+        "description": "Narrow-band filter for signal photons"
+      }
+    },
+    {
+      "type": "filter",
+      "name": "Filter Idler",
+      "x": 7.0,
+      "y": 1.5,
+      "angle": 0,
+      "parameters": {
+        "wavelength": 810,
+        "bandwidth": 3,
+        "description": "Narrow-band filter for idler photons"
+      }
+    },
+    {
+      "type": "detector",
+      "name": "SPAD Signal",
+      "x": 8.0,
+      "y": 4.5,
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 70,
+        "dark_count_rate": 100,
+        "timing_resolution": 50
+      }
+    },
+    {
+      "type": "detector",
+      "name": "SPAD Idler",
+      "x": 8.0,
+      "y": 1.5,
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 70,
+        "dark_count_rate": 100,
+        "timing_resolution": 50
+      }
+    },
+    {
+      "type": "custom_coincidence_counter",
+      "name": "Coincidence Counter",
+      "x": 8.5,
+      "y": 4.5,
+      "angle": 0,
+      "parameters": {
+        "description": "Electronic unit processing both SPAD outputs to identify coincidence events and measure two-photon interference visibility",
+        "channels": 2,
+        "timing_resolution": "200ps",
+        "coincidence_window": "1ns"
+      }
+    }
+  ],
+  "beam_path": [
+    [
+      [
+        0.5,
+        3.0
+      ],
+      [
+        1.5,
+        3.0
+      ],
+      [
+        2.5,
+        3.0
+      ],
+      [
+        2.5,
+        4.0
+      ],
+      [
+        3.5,
+        4.5
+      ],
+      [
+        4.5,
+        4.5
+      ],
+      [
+        5.5,
+        4.5
+      ],
+      [
+        6.0,
+        4.5
+      ],
+      [
+        7.0,
+        4.5
+      ],
+      [
+        8.0,
+        4.5
+      ],
+      [
+        8.5,
+        4.5
+      ]
+    ],
+    [
+      [
+        0.5,
+        3.0
+      ],
+      [
+        1.5,
+        3.0
+      ],
+      [
+        2.5,
+        3.0
+      ],
+      [
+        2.5,
+        4.0
+      ],
+      [
+        3.5,
+        4.5
+      ],
+      [
+        3.5,
+        5.5
+      ],
+      [
+        4.5,
+        5.5
+      ],
+      [
+        5.5,
+        4.5
+      ],
+      [
+        6.0,
+        4.5
+      ],
+      [
+        7.0,
+        4.5
+      ],
+      [
+        8.0,
+        4.5
+      ],
+      [
+        8.5,
+        4.5
+      ]
+    ],
+    [
+      [
+        0.5,
+        3.0
+      ],
+      [
+        1.5,
+        3.0
+      ],
+      [
+        2.5,
+        3.0
+      ],
+      [
+        3.5,
+        1.5
+      ],
+      [
+        4.5,
+        1.5
+      ],
+      [
+        5.5,
+        1.5
+      ],
+      [
+        6.0,
+        1.5
+      ],
+      [
+        7.0,
+        1.5
+      ],
+      [
+        8.0,
+        1.5
+      ],
+      [
+        8.5,
+        4.5
+      ]
+    ],
+    [
+      [
+        0.5,
+        3.0
+      ],
+      [
+        1.5,
+        3.0
+      ],
+      [
+        2.5,
+        3.0
+      ],
+      [
+        3.5,
+        1.5
+      ],
+      [
+        3.5,
+        0.5
+      ],
+      [
+        4.5,
+        0.5
+      ],
+      [
+        5.5,
+        1.5
+      ],
+      [
+        6.0,
+        1.5
+      ],
+      [
+        7.0,
+        1.5
+      ],
+      [
+        8.0,
+        1.5
+      ],
+      [
+        8.5,
+        4.5
+      ]
+    ]
+  ],
+  "physics_explanation": "SPDC creates entangled photon pairs in a superposition of being created at early or late times. The PBS separates orthogonally polarized signal and idler photons into different spatial paths. Each photon passes through an unbalanced Mach-Zehnder interferometer with path length difference \u0394L much longer than the coherence length, erasing individual photon interference. However, the time-bin entangled state |\u03c8\u27e9 = (|early,early\u27e9 + e^(i\u03c6)|late,late\u27e9)/\u221a2 produces two-photon interference visible only in coincidence measurements when both interferometer phase differences are scanned. The narrow-band filters (coherence time > \u0394L/c) ensure indistinguishability of the early and late emission times, enabling violation of Bell inequalities and demonstrating energy-time entanglement through the Franson interference pattern.",
+  "component_justifications": {
+    "Pump Laser": "405nm CW pump laser for continuous SPDC generation with moderate linewidth to create energy-time entangled photon pairs",
+    "PPLN Crystal": "Periodically-poled lithium niobate crystal for efficient Type-II SPDC, generating orthogonally polarized signal and idler photons at 810nm with energy-time entanglement",
+    "PBS Separator": "Polarizing beam splitter separates Type-II SPDC signal (H-polarized) and idler (V-polarized) photons into different spatial modes for independent interferometers",
+    "Mirror to Signal Arm": "Redirects H-polarized signal photons upward to the signal interferometer path",
+    "BS1 Signal": "First 50:50 beam splitter in signal arm creates superposition of short and long paths (time bins)",
+    "BS1 Idler": "First 50:50 beam splitter in idler arm creates superposition of short and long paths (time bins)",
+    "Mirror S-Short": "Reflects signal photon in short arm of signal interferometer",
+    "Mirror S-Long-1": "First mirror directing signal photon through extended long arm for time delay",
+    "Mirror S-Long-2": "Second mirror in long arm returning signal photon to recombination beam splitter",
+    "Mirror I-Short": "Reflects idler photon in short arm of idler interferometer",
+    "Mirror I-Long-1": "First mirror directing idler photon through extended long arm for time delay",
+    "Mirror I-Long-2": "Second mirror in long arm returning idler photon to recombination beam splitter",
+    "BS2 Signal": "Second 50:50 beam splitter recombines short and long paths in signal interferometer",
+    "BS2 Idler": "Second 50:50 beam splitter recombines short and long paths in idler interferometer",
+    "Phase Shifter Signal": "Piezo-mounted mirror or phase modulator to scan relative phase \u03c6_S between signal interferometer arms",
+    "Phase Shifter Idler": "Piezo-mounted mirror or phase modulator to scan relative phase \u03c6_I between idler interferometer arms",
+    "Filter Signal": "Narrow-band interference filter (3nm bandwidth) increases coherence time to exceed path delay, making early/late emission times indistinguishable",
+    "Filter Idler": "Narrow-band interference filter (3nm bandwidth) increases coherence time to exceed path delay, making early/late emission times indistinguishable",
+    "SPAD Signal": "Single-photon avalanche photodiode with sub-nanosecond timing resolution for detecting signal photons and providing electrical timing signals",
+    "SPAD Idler": "Single-photon avalanche photodiode with sub-nanosecond timing resolution for detecting idler photons and providing electrical timing signals",
+    "Coincidence Counter": "Time-tagging electronics receives electrical signals from both SPADs to measure coincidence counts as function of phase settings, revealing two-photon interference pattern characteristic of energy-time entanglement"
+  },
+  "expected_outcome": "When scanning both phase shifters, coincidence counts show sinusoidal interference pattern with visibility V > 70% (ideally approaching 1/\u221a2 \u2248 71% for maximally entangled state). Single detector counts show no interference (flat). Maximum coincidences occur when \u03c6_S + \u03c6_I = 0, minimum at \u03c6_S + \u03c6_I = \u03c0. Violation of Bell inequality (S > 2) confirms energy-time entanglement. The path length difference should be ~30cm (1ns delay), much longer than pump coherence length (~300\u03bcm) but shorter than filtered photon coherence length (~100mm with 3nm filter)."
+}

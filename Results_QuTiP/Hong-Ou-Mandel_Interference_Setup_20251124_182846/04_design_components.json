@@ -1,0 +1,266 @@
+{
+  "title": "Hong-Ou-Mandel Interference Setup",
+  "description": "Demonstrates quantum interference of indistinguishable photons at a beam splitter, showing the quantum bunching effect.",
+  "components": [
+    {
+      "type": "laser",
+      "name": "Pump Laser",
+      "x": 1.0,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "wavelength": 405,
+        "power": 200,
+        "linewidth": 1000
+      }
+    },
+    {
+      "type": "crystal",
+      "name": "PPLN Crystal",
+      "x": 2.5,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "type": "PPLN",
+        "interaction": "SPDC",
+        "length": 10,
+        "poling_period": 19.5,
+        "phase_matching": "type-II"
+      }
+    },
+    {
+      "type": "dichroic_mirror",
+      "name": "Pump Filter",
+      "x": 3.5,
+      "y": 3.0,
+      "angle": 45,
+      "parameters": {
+        "wavelength": 810,
+        "bandwidth": 50
+      }
+    },
+    {
+      "type": "polarizing_beam_splitter",
+      "name": "PBS",
+      "x": 4.5,
+      "y": 3.0,
+      "angle": 45,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "cube"
+      }
+    },
+    {
+      "type": "mirror",
+      "name": "Upper Mirror",
+      "x": 5.5,
+      "y": 4.5,
+      "angle": 225,
+      "parameters": {}
+    },
+    {
+      "type": "mirror",
+      "name": "Lower Mirror",
+      "x": 5.5,
+      "y": 1.5,
+      "angle": 135,
+      "parameters": {}
+    },
+    {
+      "type": "delay_stage",
+      "name": "Upper Delay Stage",
+      "x": 6.5,
+      "y": 4.5,
+      "angle": 0,
+      "parameters": {}
+    },
+    {
+      "type": "delay_stage",
+      "name": "Lower Delay Stage",
+      "x": 6.5,
+      "y": 1.5,
+      "angle": 0,
+      "parameters": {}
+    },
+    {
+      "type": "half_wave_plate",
+      "name": "HWP Upper",
+      "x": 7.5,
+      "y": 4.5,
+      "angle": 22.5,
+      "parameters": {
+        "order": "zero-order",
+        "wavelength": 810
+      }
+    },
+    {
+      "type": "half_wave_plate",
+      "name": "HWP Lower",
+      "x": 7.5,
+      "y": 1.5,
+      "angle": 22.5,
+      "parameters": {
+        "order": "zero-order",
+        "wavelength": 810
+      }
+    },
+    {
+      "type": "mirror",
+      "name": "Upper Steering Mirror",
+      "x": 8.0,
+      "y": 4.5,
+      "angle": 315,
+      "parameters": {}
+    },
+    {
+      "type": "mirror",
+      "name": "Lower Steering Mirror",
+      "x": 8.0,
+      "y": 1.5,
+      "angle": 45,
+      "parameters": {}
+    },
+    {
+      "type": "beam_splitter",
+      "name": "50:50 BS",
+      "x": 8.5,
+      "y": 3.0,
+      "angle": 45,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "cube"
+      }
+    },
+    {
+      "type": "detector",
+      "name": "SPAD Detector 1",
+      "x": 10.0,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 85,
+        "dark_count_rate": 100,
+        "timing_resolution": 50
+      }
+    },
+    {
+      "type": "detector",
+      "name": "SPAD Detector 2",
+      "x": 8.5,
+      "y": 4.5,
+      "angle": 90,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 85,
+        "dark_count_rate": 100,
+        "timing_resolution": 50
+      }
+    }
+  ],
+  "beam_path": [
+    [
+      [
+        1.0,
+        3.0
+      ],
+      [
+        2.5,
+        3.0
+      ],
+      [
+        3.5,
+        3.0
+      ],
+      [
+        4.5,
+        3.0
+      ],
+      [
+        5.5,
+        4.5
+      ],
+      [
+        6.5,
+        4.5
+      ],
+      [
+        7.5,
+        4.5
+      ],
+      [
+        8.0,
+        4.5
+      ],
+      [
+        8.5,
+        3.0
+      ],
+      [
+        10.0,
+        3.0
+      ]
+    ],
+    [
+      [
+        1.0,
+        3.0
+      ],
+      [
+        2.5,
+        3.0
+      ],
+      [
+        3.5,
+        3.0
+      ],
+      [
+        4.5,
+        3.0
+      ],
+      [
+        5.5,
+        1.5
+      ],
+      [
+        6.5,
+        1.5
+      ],
+      [
+        7.5,
+        1.5
+      ],
+      [
+        8.0,
+        1.5
+      ],
+      [
+        8.5,
+        3.0
+      ],
+      [
+        8.5,
+        4.5
+      ]
+    ]
+  ],
+  "physics_explanation": "A pump laser generates orthogonally polarized photon pairs via type-II SPDC in a PPLN crystal. The PBS separates the pairs by polarization into upper and lower interferometer arms. Half-wave plates rotate both photons to the same polarization, making them indistinguishable. When these indistinguishable photons interfere at the 50:50 beam splitter, quantum interference causes photon bunching - they preferentially exit together from the same output port rather than separating.",
+  "component_justifications": {
+    "Pump Laser": "405nm continuous-wave laser provides pump photons for the SPDC process, with sufficient power and narrow linewidth for stable photon pair generation",
+    "PPLN Crystal": "Periodically-poled lithium niobate crystal efficiently generates correlated photon pairs at 810nm through type-II SPDC with precise phase matching",
+    "Pump Filter": "Dichroic mirror reflects 405nm pump light while transmitting 810nm SPDC photons, eliminating pump contamination from the interference measurement",
+    "PBS": "Polarizing beam splitter separates the orthogonally polarized SPDC photon pairs into distinct spatial modes for the two interferometer arms",
+    "Upper Mirror": "Directs one photon from the SPDC pair along the upper interferometer arm toward the delay stage",
+    "Lower Mirror": "Directs the second photon from the SPDC pair along the lower interferometer arm toward the delay stage",
+    "Upper Delay Stage": "Motorized delay stage provides precise optical path length control for the upper arm to achieve temporal overlap",
+    "Lower Delay Stage": "Motorized delay stage provides precise optical path length control for the lower arm to achieve temporal overlap",
+    "HWP Upper": "Half-wave plate rotates the polarization of the upper arm photon to ensure indistinguishability with the lower arm photon",
+    "HWP Lower": "Half-wave plate rotates the polarization of the lower arm photon to ensure indistinguishability with the upper arm photon",
+    "Upper Steering Mirror": "Redirects the upper arm photon toward the 50:50 beam splitter for Hong-Ou-Mandel interference",
+    "Lower Steering Mirror": "Redirects the lower arm photon toward the 50:50 beam splitter for Hong-Ou-Mandel interference",
+    "50:50 BS": "Non-polarizing 50:50 beam splitter where quantum interference occurs - indistinguishable photons exhibit bunching due to bosonic statistics",
+    "SPAD Detector 1": "Single-photon avalanche photodiode detects photons from transmission port of beam splitter with high timing resolution for coincidence measurements",
+    "SPAD Detector 2": "Second SPAD detector at reflection port of beam splitter enables coincidence counting to measure the HOM interference visibility"
+  },
+  "expected_outcome": "When the delay stages achieve perfect temporal overlap and the half-wave plates make photons indistinguishable, coincidence counts between detectors drop to near zero (HOM dip), demonstrating quantum interference. The visibility of this dip depends on photon indistinguishability. Scanning the delay reveals the characteristic dip width related to photon coherence time, typically showing >90% visibility for high-quality SPDC sources."
+}

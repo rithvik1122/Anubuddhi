@@ -1,0 +1,159 @@
+{
+  "components": {
+    "custom_pdh_lock": {
+      "name": "PDH Lock Box",
+      "description": "Pound-Drever-Hall frequency locking electronics that processes reflected pump light from PDH Detector and generates error signal to stabilize cavity resonance via piezo feedback to Output Coupler",
+      "added_date": "2025-11-27T14:02:05.430898",
+      "last_used": "2025-11-28T18:41:38.713554",
+      "usage_count": 7,
+      "parameters": {
+        "description": "Pound-Drever-Hall frequency locking electronics that processes reflected pump light from PDH Detector and generates error signal to stabilize cavity resonance via piezo feedback to Output Coupler",
+        "servo_bandwidth": "100 kHz",
+        "lock_point": "cavity resonance"
+      }
+    },
+    "custom_spectrum_analyzer": {
+      "name": "RF Spectrum Analyzer",
+      "description": "Electronic spectrum analyzer measuring the difference photocurrent from balanced homodyne detector (Photodiode 1 minus Photodiode 2) to observe noise reduction below shot noise limit indicating squeezing",
+      "added_date": "2025-11-27T14:02:05.431104",
+      "last_used": "2025-11-28T19:33:10.643462",
+      "usage_count": 8,
+      "parameters": {
+        "description": "Electronic spectrum analyzer measuring the difference photocurrent from balanced homodyne detector (Photodiode 1 minus Photodiode 2) to observe noise reduction below shot noise limit indicating squeezing",
+        "frequency_range": "1-100 MHz",
+        "resolution_bandwidth": "100 kHz"
+      }
+    },
+    "custom_coincidence_counter": {
+      "name": "Coincidence Counter",
+      "description": "Time-to-digital converter electronically processing outputs from SPAD 1 and SPAD 2 to measure coincidence events within 1ns timing window as delay stage is scanned",
+      "added_date": "2025-11-28T13:45:02.205897",
+      "last_used": "2025-11-29T14:27:13.838185",
+      "usage_count": 9,
+      "parameters": {
+        "description": "Time-to-digital converter electronically processing outputs from SPAD 1 and SPAD 2 to measure coincidence events within 1ns timing window as delay stage is scanned",
+        "channels": 2,
+        "timing_resolution": "50ps",
+        "coincidence_window": "1ns"
+      }
+    },
+    "custom_classical_channel": {
+      "name": "Classical Communication",
+      "description": "Classical channel transmitting Alice's Bell measurement results (which of 4 detectors fired) to Bob to determine correct unitary correction operations on his photon",
+      "added_date": "2025-11-28T17:23:23.605716",
+      "last_used": "2025-11-28T18:53:00.765003",
+      "usage_count": 2,
+      "parameters": {
+        "description": "Classical channel transmitting Alice's Bell measurement results (which of 4 detectors fired) to Bob to determine correct unitary correction operations on his photon",
+        "bandwidth": "1 MHz",
+        "latency": "100 ns"
+      }
+    },
+    "custom_active_polarization_encoder": {
+      "name": "Alice Encoder",
+      "description": "Active polarization encoder using Pockels cells or liquid crystal modulators to randomly prepare photons in H, V, +45, or -45 polarization states based on random basis and bit selection",
+      "added_date": "2025-11-28T18:53:00.763584",
+      "last_used": "2025-11-28T18:53:00.763594",
+      "usage_count": 1,
+      "parameters": {
+        "description": "Active polarization encoder using Pockels cells or liquid crystal modulators to randomly prepare photons in H, V, +45, or -45 polarization states based on random basis and bit selection",
+        "states": "H, V, +45deg, -45deg",
+        "switching_time": "1us",
+        "control": "random number generator"
+      }
+    },
+    "custom_timing_electronics": {
+      "name": "Timing & Sifting Unit",
+      "description": "Electronic system that timestamps all detector events, performs basis reconciliation via classical channel, calculates QBER for eavesdropping detection, and executes error correction and privacy amplification to generate final secure key",
+      "added_date": "2025-11-28T18:53:00.764738",
+      "last_used": "2025-11-28T18:53:00.764744",
+      "usage_count": 1,
+      "parameters": {
+        "description": "Electronic system that timestamps all detector events, performs basis reconciliation via classical channel, calculates QBER for eavesdropping detection, and executes error correction and privacy amplification to generate final secure key",
+        "channels": 4,
+        "timing_resolution": "50ps",
+        "functions": "timestamping, basis sifting, QBER calculation, error correction, privacy amplification"
+      }
+    },
+    "custom_fiber_network": {
+      "name": "5-Mode Interferometer",
+      "description": "Integrated photonic chip implementing programmable 5-mode unitary transformation using Reck decomposition: 8 tunable beam splitters arranged in 2 layers with 5 phase shifters between layers. Transmittances: BS1=0.67, BS2=0.5, BS3=0.33, BS4=0.5, BS5-8=0.5. Phase shifters provide 0-360 degree control for arbitrary unitary matrix implementation.",
+      "added_date": "2025-11-28T19:20:08.354142",
+      "last_used": "2025-11-28T19:20:08.354169",
+      "usage_count": 1,
+      "parameters": {
+        "description": "Integrated photonic chip implementing programmable 5-mode unitary transformation using Reck decomposition: 8 tunable beam splitters arranged in 2 layers with 5 phase shifters between layers. Transmittances: BS1=0.67, BS2=0.5, BS3=0.33, BS4=0.5, BS5-8=0.5. Phase shifters provide 0-360 degree control for arbitrary unitary matrix implementation.",
+        "modes": 5,
+        "depth": 2,
+        "beam_splitters": 8,
+        "phase_shifters": 5,
+        "technology": "silica-on-silicon waveguide"
+      }
+    },
+    "custom_feedforward_electronics": {
+      "name": "Feedforward Unit",
+      "description": "Electronic system that processes homodyne measurement results (X and P quadratures) from Alice's Bell detection and generates real-time feedforward signals with gain G to control displacement operations at Bob's station. Receives electrical signals from Homodyne X and Homodyne P detectors and outputs control voltages to Displacement X and Displacement P EOMs.",
+      "added_date": "2025-11-28T19:33:10.642488",
+      "last_used": "2025-11-29T13:21:28.685112",
+      "usage_count": 2,
+      "parameters": {
+        "description": "Electronic system that processes homodyne measurement results (X and P quadratures) from Alice's Bell detection and generates real-time feedforward signals with gain G to control displacement operations at Bob's station. Receives electrical signals from Homodyne X and Homodyne P detectors and outputs control voltages to Displacement X and Displacement P EOMs.",
+        "bandwidth": "10 MHz",
+        "gain_x": 1.0,
+        "gain_p": 1.0,
+        "delay": "100 ns"
+      }
+    },
+    "custom_oam_sorter": {
+      "name": "OAM Sorter H",
+      "description": "Phase mask and mode converter that spatially separates photons by OAM charge into +\u2113 and -\u2113 output ports using geometric phase elements",
+      "added_date": "2025-11-29T13:31:47.332342",
+      "last_used": "2025-11-29T13:31:47.333172",
+      "usage_count": 2,
+      "parameters": {
+        "description": "Phase mask and mode converter that spatially separates photons by OAM charge into +\u2113 and -\u2113 output ports using geometric phase elements",
+        "oam_modes": "\u00b1\u2113",
+        "efficiency": 85
+      }
+    },
+    "custom_lock_in_amplifier": {
+      "name": "Lock-In Amplifier",
+      "description": "Phase-sensitive detector that measures probe transmission while coupling laser is modulated, extracting the EIT signal from background absorption",
+      "added_date": "2025-11-29T13:55:09.529934",
+      "last_used": "2025-11-29T13:55:09.529943",
+      "usage_count": 1,
+      "parameters": {
+        "description": "Phase-sensitive detector that measures probe transmission while coupling laser is modulated, extracting the EIT signal from background absorption",
+        "frequency_range": "1 Hz - 100 kHz",
+        "sensitivity": "1 nV"
+      }
+    },
+    "custom_frequency_controller": {
+      "name": "Laser Frequency Control",
+      "description": "Dual-channel frequency stabilization and scanning system that locks probe laser to Rb D2 line 5S_1/2(F=1) to 5P_3/2 transition and coupling laser to 5S_1/2(F=2) to 5P_3/2 transition, creating a Lambda-system with both lasers coupling to the same excited state. Scans probe detuning across EIT resonance.",
+      "added_date": "2025-11-29T13:55:09.530725",
+      "last_used": "2025-11-29T13:55:09.530732",
+      "usage_count": 1,
+      "parameters": {
+        "description": "Dual-channel frequency stabilization and scanning system that locks probe laser to Rb D2 line 5S_1/2(F=1) to 5P_3/2 transition and coupling laser to 5S_1/2(F=2) to 5P_3/2 transition, creating a Lambda-system with both lasers coupling to the same excited state. Scans probe detuning across EIT resonance.",
+        "scan_range": "\u00b1500 MHz",
+        "stability": "100 kHz"
+      }
+    },
+    "custom_temperature_controller": {
+      "name": "Cell Heater",
+      "description": "Precision temperature controller maintaining vapor cell at 60\u00b0C to achieve optimal atomic density (~10^11 atoms/cm\u00b3) for EIT observation. Heater wraps around vapor cell and maintains uniform temperature distribution.",
+      "added_date": "2025-11-29T13:55:09.531680",
+      "last_used": "2025-11-29T14:27:13.835728",
+      "usage_count": 2,
+      "parameters": {
+        "description": "Precision temperature controller maintaining vapor cell at 60\u00b0C to achieve optimal atomic density (~10^11 atoms/cm\u00b3) for EIT observation. Heater wraps around vapor cell and maintains uniform temperature distribution.",
+        "stability": "\u00b10.1\u00b0C",
+        "range": "20-100\u00b0C"
+      }
+    }
+  },
+  "_description": "Custom components defined by LLM for specialized equipment not in standard library",
+  "_total_custom": 12,
+  "_last_updated": "2025-11-29T14:27:13.838189"
+}

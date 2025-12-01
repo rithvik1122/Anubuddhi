@@ -1,0 +1,207 @@
+{
+  "title": "Hong-Ou-Mandel Interference Experiment",
+  "description": "Demonstrates quantum interference between indistinguishable photons at a beam splitter, showing photon bunching.",
+  "components": [
+    {
+      "type": "laser",
+      "name": "Pump Laser",
+      "x": 1.0,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "wavelength": 405,
+        "power": 50,
+        "linewidth": 1000
+      }
+    },
+    {
+      "type": "crystal",
+      "name": "PPLN Crystal",
+      "x": 2.5,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "type": "PPLN",
+        "interaction": "SPDC",
+        "length": 10,
+        "poling_period": 6.9,
+        "phase_matching": "type-I"
+      }
+    },
+    {
+      "type": "mirror",
+      "name": "Mirror 1",
+      "x": 3.5,
+      "y": 4.0,
+      "angle": 315,
+      "parameters": {}
+    },
+    {
+      "type": "mirror",
+      "name": "Mirror 2",
+      "x": 3.5,
+      "y": 2.0,
+      "angle": 45,
+      "parameters": {}
+    },
+    {
+      "type": "delay_stage",
+      "name": "Delay Stage",
+      "x": 5.0,
+      "y": 4.5,
+      "angle": 0,
+      "parameters": {
+        "range": 100
+      }
+    },
+    {
+      "type": "filter",
+      "name": "Bandpass Filter 1",
+      "x": 6.0,
+      "y": 4.5,
+      "angle": 0,
+      "parameters": {
+        "wavelength": 810,
+        "bandwidth": 10
+      }
+    },
+    {
+      "type": "filter",
+      "name": "Bandpass Filter 2",
+      "x": 5.0,
+      "y": 1.5,
+      "angle": 0,
+      "parameters": {
+        "wavelength": 810,
+        "bandwidth": 10
+      }
+    },
+    {
+      "type": "mirror",
+      "name": "Mirror 3",
+      "x": 6.5,
+      "y": 4.0,
+      "angle": 225,
+      "parameters": {}
+    },
+    {
+      "type": "mirror",
+      "name": "Mirror 4",
+      "x": 6.0,
+      "y": 2.0,
+      "angle": 315,
+      "parameters": {}
+    },
+    {
+      "type": "beam_splitter",
+      "name": "50:50 BS",
+      "x": 7.0,
+      "y": 3.0,
+      "angle": 45,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "cube"
+      }
+    },
+    {
+      "type": "detector",
+      "name": "SPAD 1",
+      "x": 8.0,
+      "y": 4.0,
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 0.65,
+        "dark_count_rate": 100,
+        "timing_resolution": 50
+      }
+    },
+    {
+      "type": "detector",
+      "name": "SPAD 2",
+      "x": 8.0,
+      "y": 2.0,
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 0.65,
+        "dark_count_rate": 100,
+        "timing_resolution": 50
+      }
+    }
+  ],
+  "beam_path": [
+    [
+      [
+        2.5,
+        3.0
+      ],
+      [
+        3.5,
+        4.0
+      ],
+      [
+        5.0,
+        4.5
+      ],
+      [
+        6.0,
+        4.5
+      ],
+      [
+        6.5,
+        4.0
+      ],
+      [
+        7.0,
+        3.0
+      ],
+      [
+        8.0,
+        4.0
+      ]
+    ],
+    [
+      [
+        2.5,
+        3.0
+      ],
+      [
+        3.5,
+        2.0
+      ],
+      [
+        5.0,
+        1.5
+      ],
+      [
+        6.0,
+        2.0
+      ],
+      [
+        7.0,
+        3.0
+      ],
+      [
+        8.0,
+        2.0
+      ]
+    ]
+  ],
+  "physics_explanation": "A pump laser creates photon pairs via type-I SPDC in a PPLN crystal with identical polarizations, making them naturally indistinguishable. The photons are separated into two arms with variable delay control and spectral filtering to enhance indistinguishability. When these identical photons arrive simultaneously at the beam splitter, quantum interference causes them to bunch together and exit from the same output port, resulting in zero coincidence counts and demonstrating bosonic behavior.",
+  "component_justifications": {
+    "Pump Laser": "405nm continuous-wave laser provides pump photons for the SPDC process to generate correlated photon pairs",
+    "PPLN Crystal": "Periodically-poled lithium niobate crystal enables efficient type-I SPDC to create photon pairs at 810nm with identical polarizations for natural indistinguishability",
+    "Mirror 1": "Directs one photon from the pair to the upper arm of the interferometer at 315\u00b0 angle to achieve proper beam steering",
+    "Mirror 2": "Directs the other photon from the pair to the lower arm of the interferometer at 45\u00b0 angle for symmetric path separation",
+    "Delay Stage": "Provides variable optical delay to control the relative arrival time of photons at the beam splitter for temporal matching",
+    "Bandpass Filter 1": "Narrows spectral bandwidth of photons in upper arm to improve indistinguishability by reducing frequency distinguishability",
+    "Bandpass Filter 2": "Matches the spectral filtering in the lower arm to ensure symmetric conditions and equal spectral profiles",
+    "Mirror 3": "Redirects upper arm photons toward the beam splitter at 225\u00b0 angle for proper alignment",
+    "Mirror 4": "Steers lower arm photons toward the beam splitter at 315\u00b0 angle to achieve convergent paths",
+    "50:50 BS": "The central component where Hong-Ou-Mandel interference occurs - indistinguishable photons interfere destructively for coincidence detection",
+    "SPAD 1": "Single-photon avalanche photodiode detects photons from the reflection port of the beam splitter for coincidence measurements",
+    "SPAD 2": "Second SPAD detector for the transmission port enables coincidence counting to measure the HOM dip"
+  },
+  "expected_outcome": "A characteristic Hong-Ou-Mandel dip in coincidence counts as a function of delay, with minimum coincidences when photons arrive simultaneously. The visibility of the dip indicates the degree of photon indistinguishability, reaching up to 100% for ideal single photons, demonstrating the quantum nature of light and bosonic bunching behavior."
+}

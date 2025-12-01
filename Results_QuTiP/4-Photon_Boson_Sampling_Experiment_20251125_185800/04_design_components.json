@@ -1,0 +1,668 @@
+{
+  "title": "4-Photon Boson Sampling Experiment",
+  "description": "Demonstrates quantum computational advantage by interfering 4 indistinguishable photons through a 4-mode linear optical network and measuring output statistics",
+  "components": [
+    {
+      "type": "laser",
+      "name": "Pump Laser 1",
+      "x": 0.5,
+      "y": 4.5,
+      "angle": 0,
+      "parameters": {
+        "wavelength": 405,
+        "power": 150,
+        "linewidth": 1000
+      }
+    },
+    {
+      "type": "laser",
+      "name": "Pump Laser 2",
+      "x": 0.5,
+      "y": 1.5,
+      "angle": 0,
+      "parameters": {
+        "wavelength": 405,
+        "power": 150,
+        "linewidth": 1000
+      }
+    },
+    {
+      "type": "crystal",
+      "name": "SPDC Crystal 1",
+      "x": 1.5,
+      "y": 4.5,
+      "angle": 0,
+      "parameters": {
+        "type": "PPLN",
+        "interaction": "SPDC",
+        "length": 10,
+        "poling_period": 19.5,
+        "phase_matching": "type-0"
+      }
+    },
+    {
+      "type": "crystal",
+      "name": "SPDC Crystal 2",
+      "x": 1.5,
+      "y": 1.5,
+      "angle": 0,
+      "parameters": {
+        "type": "PPLN",
+        "interaction": "SPDC",
+        "length": 10,
+        "poling_period": 19.5,
+        "phase_matching": "type-0"
+      }
+    },
+    {
+      "type": "filter",
+      "name": "Filter 1",
+      "x": 2.2,
+      "y": 4.5,
+      "angle": 0,
+      "parameters": {
+        "wavelength": 810,
+        "bandwidth": 3,
+        "optical_depth": 6
+      }
+    },
+    {
+      "type": "filter",
+      "name": "Filter 2",
+      "x": 2.2,
+      "y": 1.5,
+      "angle": 0,
+      "parameters": {
+        "wavelength": 810,
+        "bandwidth": 3,
+        "optical_depth": 6
+      }
+    },
+    {
+      "type": "fiber_coupler",
+      "name": "Fiber Coupler 1",
+      "x": 2.8,
+      "y": 4.5,
+      "angle": 0,
+      "parameters": {
+        "efficiency": 0.85,
+        "mode": "single-mode"
+      }
+    },
+    {
+      "type": "fiber_coupler",
+      "name": "Fiber Coupler 2",
+      "x": 2.8,
+      "y": 1.5,
+      "angle": 0,
+      "parameters": {
+        "efficiency": 0.85,
+        "mode": "single-mode"
+      }
+    },
+    {
+      "type": "beam_splitter",
+      "name": "Input BS 1",
+      "x": 3.5,
+      "y": 4.5,
+      "angle": 45,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "fiber-coupled"
+      }
+    },
+    {
+      "type": "beam_splitter",
+      "name": "Input BS 2",
+      "x": 3.5,
+      "y": 1.5,
+      "angle": 45,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "fiber-coupled"
+      }
+    },
+    {
+      "type": "phase_shifter",
+      "name": "Phase 1",
+      "x": 4.2,
+      "y": 5.0,
+      "angle": 0,
+      "parameters": {
+        "range": "0-2\u03c0",
+        "type": "fiber-stretcher"
+      }
+    },
+    {
+      "type": "phase_shifter",
+      "name": "Phase 2",
+      "x": 4.2,
+      "y": 4.0,
+      "angle": 0,
+      "parameters": {
+        "range": "0-2\u03c0",
+        "type": "fiber-stretcher"
+      }
+    },
+    {
+      "type": "phase_shifter",
+      "name": "Phase 3",
+      "x": 4.2,
+      "y": 2.0,
+      "angle": 0,
+      "parameters": {
+        "range": "0-2\u03c0",
+        "type": "fiber-stretcher"
+      }
+    },
+    {
+      "type": "phase_shifter",
+      "name": "Phase 4",
+      "x": 4.2,
+      "y": 1.0,
+      "angle": 0,
+      "parameters": {
+        "range": "0-2\u03c0",
+        "type": "fiber-stretcher"
+      }
+    },
+    {
+      "type": "beam_splitter",
+      "name": "Network BS 1-2",
+      "x": 5.0,
+      "y": 4.5,
+      "angle": 45,
+      "parameters": {
+        "transmittance": 0.33,
+        "type": "fiber-coupled"
+      }
+    },
+    {
+      "type": "beam_splitter",
+      "name": "Network BS 2-3",
+      "x": 5.0,
+      "y": 3.0,
+      "angle": 45,
+      "parameters": {
+        "transmittance": 0.67,
+        "type": "fiber-coupled"
+      }
+    },
+    {
+      "type": "beam_splitter",
+      "name": "Network BS 3-4",
+      "x": 5.0,
+      "y": 1.5,
+      "angle": 45,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "fiber-coupled"
+      }
+    },
+    {
+      "type": "phase_shifter",
+      "name": "Phase 5",
+      "x": 5.8,
+      "y": 5.0,
+      "angle": 0,
+      "parameters": {
+        "range": "0-2\u03c0",
+        "type": "fiber-stretcher"
+      }
+    },
+    {
+      "type": "phase_shifter",
+      "name": "Phase 6",
+      "x": 5.8,
+      "y": 4.0,
+      "angle": 0,
+      "parameters": {
+        "range": "0-2\u03c0",
+        "type": "fiber-stretcher"
+      }
+    },
+    {
+      "type": "phase_shifter",
+      "name": "Phase 7",
+      "x": 5.8,
+      "y": 2.0,
+      "angle": 0,
+      "parameters": {
+        "range": "0-2\u03c0",
+        "type": "fiber-stretcher"
+      }
+    },
+    {
+      "type": "phase_shifter",
+      "name": "Phase 8",
+      "x": 5.8,
+      "y": 1.0,
+      "angle": 0,
+      "parameters": {
+        "range": "0-2\u03c0",
+        "type": "fiber-stretcher"
+      }
+    },
+    {
+      "type": "beam_splitter",
+      "name": "Output BS 1-2",
+      "x": 6.6,
+      "y": 4.5,
+      "angle": 45,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "fiber-coupled"
+      }
+    },
+    {
+      "type": "beam_splitter",
+      "name": "Output BS 2-3",
+      "x": 6.6,
+      "y": 3.0,
+      "angle": 45,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "fiber-coupled"
+      }
+    },
+    {
+      "type": "beam_splitter",
+      "name": "Output BS 3-4",
+      "x": 6.6,
+      "y": 1.5,
+      "angle": 45,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "fiber-coupled"
+      }
+    },
+    {
+      "type": "detector",
+      "name": "SNSPD 1",
+      "x": 7.5,
+      "y": 5.0,
+      "angle": 0,
+      "parameters": {
+        "type": "SNSPD",
+        "efficiency": 0.85,
+        "dark_count_rate": 10,
+        "timing_resolution": 50
+      }
+    },
+    {
+      "type": "detector",
+      "name": "SNSPD 2",
+      "x": 7.5,
+      "y": 4.0,
+      "angle": 0,
+      "parameters": {
+        "type": "SNSPD",
+        "efficiency": 0.85,
+        "dark_count_rate": 10,
+        "timing_resolution": 50
+      }
+    },
+    {
+      "type": "detector",
+      "name": "SNSPD 3",
+      "x": 7.5,
+      "y": 2.0,
+      "angle": 0,
+      "parameters": {
+        "type": "SNSPD",
+        "efficiency": 0.85,
+        "dark_count_rate": 10,
+        "timing_resolution": 50
+      }
+    },
+    {
+      "type": "detector",
+      "name": "SNSPD 4",
+      "x": 7.5,
+      "y": 1.0,
+      "angle": 0,
+      "parameters": {
+        "type": "SNSPD",
+        "efficiency": 0.85,
+        "dark_count_rate": 10,
+        "timing_resolution": 50
+      }
+    },
+    {
+      "type": "custom_coincidence_counter",
+      "name": "4-Channel Coincidence Logic",
+      "x": 8.5,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "description": "Time-tagging module that records all 4 detector outputs with sub-nanosecond resolution and identifies 4-fold coincidence events to construct output probability distribution",
+        "channels": 4,
+        "timing_resolution": "100ps",
+        "coincidence_window": "2ns"
+      }
+    }
+  ],
+  "beam_path": [
+    [
+      [
+        0.5,
+        4.5
+      ],
+      [
+        1.5,
+        4.5
+      ],
+      [
+        2.2,
+        4.5
+      ],
+      [
+        2.8,
+        4.5
+      ],
+      [
+        3.5,
+        4.5
+      ],
+      [
+        4.2,
+        5.0
+      ],
+      [
+        5.0,
+        4.5
+      ],
+      [
+        5.8,
+        5.0
+      ],
+      [
+        6.6,
+        4.5
+      ],
+      [
+        7.5,
+        5.0
+      ],
+      [
+        8.5,
+        3.0
+      ]
+    ],
+    [
+      [
+        0.5,
+        4.5
+      ],
+      [
+        1.5,
+        4.5
+      ],
+      [
+        2.2,
+        4.5
+      ],
+      [
+        2.8,
+        4.5
+      ],
+      [
+        3.5,
+        4.5
+      ],
+      [
+        4.2,
+        4.0
+      ],
+      [
+        5.0,
+        4.5
+      ],
+      [
+        5.8,
+        4.0
+      ],
+      [
+        6.6,
+        4.5
+      ],
+      [
+        7.5,
+        4.0
+      ],
+      [
+        8.5,
+        3.0
+      ]
+    ],
+    [
+      [
+        3.5,
+        4.5
+      ],
+      [
+        4.2,
+        4.0
+      ],
+      [
+        5.0,
+        3.0
+      ],
+      [
+        5.8,
+        4.0
+      ],
+      [
+        6.6,
+        3.0
+      ],
+      [
+        7.5,
+        4.0
+      ],
+      [
+        8.5,
+        3.0
+      ]
+    ],
+    [
+      [
+        5.0,
+        3.0
+      ],
+      [
+        5.8,
+        2.0
+      ],
+      [
+        6.6,
+        3.0
+      ],
+      [
+        7.5,
+        2.0
+      ],
+      [
+        8.5,
+        3.0
+      ]
+    ],
+    [
+      [
+        0.5,
+        1.5
+      ],
+      [
+        1.5,
+        1.5
+      ],
+      [
+        2.2,
+        1.5
+      ],
+      [
+        2.8,
+        1.5
+      ],
+      [
+        3.5,
+        1.5
+      ],
+      [
+        4.2,
+        2.0
+      ],
+      [
+        5.0,
+        1.5
+      ],
+      [
+        5.8,
+        2.0
+      ],
+      [
+        6.6,
+        1.5
+      ],
+      [
+        7.5,
+        2.0
+      ],
+      [
+        8.5,
+        3.0
+      ]
+    ],
+    [
+      [
+        0.5,
+        1.5
+      ],
+      [
+        1.5,
+        1.5
+      ],
+      [
+        2.2,
+        1.5
+      ],
+      [
+        2.8,
+        1.5
+      ],
+      [
+        3.5,
+        1.5
+      ],
+      [
+        4.2,
+        1.0
+      ],
+      [
+        5.0,
+        1.5
+      ],
+      [
+        5.8,
+        1.0
+      ],
+      [
+        6.6,
+        1.5
+      ],
+      [
+        7.5,
+        1.0
+      ],
+      [
+        8.5,
+        3.0
+      ]
+    ],
+    [
+      [
+        3.5,
+        1.5
+      ],
+      [
+        4.2,
+        2.0
+      ],
+      [
+        5.0,
+        3.0
+      ],
+      [
+        5.8,
+        2.0
+      ],
+      [
+        6.6,
+        3.0
+      ],
+      [
+        7.5,
+        2.0
+      ],
+      [
+        8.5,
+        3.0
+      ]
+    ],
+    [
+      [
+        5.0,
+        1.5
+      ],
+      [
+        5.8,
+        1.0
+      ],
+      [
+        6.6,
+        1.5
+      ],
+      [
+        7.5,
+        1.0
+      ],
+      [
+        8.5,
+        3.0
+      ]
+    ]
+  ],
+  "physics_explanation": "Two SPDC sources generate four heralded single photons at 810nm that are coupled into single-mode fibers to ensure spatial and temporal indistinguishability. Each photon pair is split by input beam splitters to populate all four input modes of a linear optical network. The network consists of three layers of beam splitters with programmable phase shifters that implement a random unitary transformation U. Quantum interference causes the photons to evolve according to the permanent of the 4\u00d74 matrix U, a computation that is classically intractable. Superconducting nanowire detectors measure all four output modes, and coincidence logic identifies 4-photon events, producing a probability distribution that validates quantum computational advantage.",
+  "component_justifications": {
+    "Pump Laser 1": "405nm CW laser pumps first SPDC source to generate photon pairs at 810nm through frequency down-conversion",
+    "Pump Laser 2": "Second independent 405nm pump laser for second SPDC source to generate additional photon pairs",
+    "SPDC Crystal 1": "PPLN crystal with type-0 phase matching generates spectrally pure heralded single photons via spontaneous parametric down-conversion",
+    "SPDC Crystal 2": "Second PPLN crystal produces additional photon pairs, enabling 4-photon input state when heralded",
+    "Filter 1": "Narrowband interference filter at 810nm blocks pump light and selects desired SPDC wavelength with 3nm bandwidth",
+    "Filter 2": "Second narrowband filter ensures spectral indistinguishability between photons from different sources",
+    "Fiber Coupler 1": "Single-mode fiber coupling ensures spatial mode matching and temporal indistinguishability of photons",
+    "Fiber Coupler 2": "Second fiber coupler for photons from second source, maintaining mode quality",
+    "Input BS 1": "Splits first photon pair into modes 1 and 2 to populate upper two input modes of the 4-mode network",
+    "Input BS 2": "Splits second photon pair into modes 3 and 4 to populate lower two input modes of the 4-mode network",
+    "Phase 1": "First layer phase shifter for mode 1 provides 0-2\u03c0 phase control for implementing arbitrary unitary",
+    "Phase 2": "First layer phase shifter for mode 2 enables independent phase control",
+    "Phase 3": "First layer phase shifter for mode 3 provides phase tuning capability",
+    "Phase 4": "First layer phase shifter for mode 4 completes first layer phase control across all modes",
+    "Network BS 1-2": "Couples modes 1 and 2 with 33% transmittance to create interference between upper modes",
+    "Network BS 2-3": "Couples modes 2 and 3 with 67% transmittance for central mode interference",
+    "Network BS 3-4": "Couples modes 3 and 4 with 50:50 splitting for lower mode interference",
+    "Phase 5": "Second layer phase shifter for mode 1 after first beam splitter layer",
+    "Phase 6": "Second layer phase shifter for mode 2 provides additional phase control",
+    "Phase 7": "Second layer phase shifter for mode 3 enables complex unitary transformations",
+    "Phase 8": "Second layer phase shifter for mode 4 completes two-layer phase control",
+    "Output BS 1-2": "Final layer 50:50 beam splitter couples modes 1 and 2 for output interference",
+    "Output BS 2-3": "Final layer 50:50 beam splitter couples modes 2 and 3 for output interference",
+    "Output BS 3-4": "Final layer 50:50 beam splitter couples modes 3 and 4 for output interference",
+    "SNSPD 1": "Superconducting nanowire single-photon detector for mode 1 with 85% efficiency and 50ps timing resolution",
+    "SNSPD 2": "High-efficiency SNSPD for mode 2 enables low-loss photon detection",
+    "SNSPD 3": "SNSPD for mode 3 with minimal dark counts for high-fidelity measurements",
+    "SNSPD 4": "SNSPD for mode 4 with excellent timing resolution for coincidence detection",
+    "4-Channel Coincidence Logic": "Time-tagging electronics process all detector signals to identify 4-fold coincidence events within 2ns window and construct output probability distribution for comparison with permanent calculation"
+  },
+  "expected_outcome": "The measured 4-photon output distribution will show characteristic boson bunching patterns that match the permanent of the network's 4\u00d74 unitary matrix. Certain output configurations will have enhanced or suppressed probabilities compared to distinguishable particles. The distribution cannot be efficiently simulated classically, demonstrating quantum computational advantage. Validation involves comparing measured statistics with permanent calculations for the implemented unitary transformation."
+}

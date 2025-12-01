@@ -1,0 +1,287 @@
+{
+  "title": "Franson Interferometer for Time-Bin Entanglement",
+  "description": "Demonstrates energy-time entanglement using unbalanced Mach-Zehnder interferometers in each arm to create and measure time-bin entangled photon pairs",
+  "components": [
+    {
+      "type": "laser",
+      "description": "405nm Pump Laser",
+      "position": [
+        0.5,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "wavelength": 405,
+        "power": 50,
+        "linewidth": 1000
+      },
+      "component_number": 1
+    },
+    {
+      "type": "crystal",
+      "description": "PPLN Crystal",
+      "position": [
+        1.5,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "PPLN",
+        "interaction": "SPDC",
+        "length": 10,
+        "poling_period": 19.5,
+        "phase_matching": "type-II"
+      },
+      "component_number": 2
+    },
+    {
+      "type": "dichroic_mirror",
+      "description": "Dichroic Mirror",
+      "position": [
+        2.5,
+        3.0
+      ],
+      "angle": 45,
+      "parameters": {
+        "reflects": 405,
+        "transmits": 810
+      },
+      "component_number": 3
+    },
+    {
+      "type": "polarizing_beam_splitter",
+      "description": "PBS Separator",
+      "position": [
+        3.5,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "polarizing"
+      },
+      "component_number": 4
+    },
+    {
+      "type": "mirror",
+      "description": "Mirror to Signal Arm",
+      "position": [
+        3.5,
+        3.8
+      ],
+      "angle": 90,
+      "parameters": {},
+      "component_number": 5
+    },
+    {
+      "type": "mirror",
+      "description": "Mirror to Idler Arm",
+      "position": [
+        3.5,
+        2.2
+      ],
+      "angle": 270,
+      "parameters": {},
+      "component_number": 6
+    },
+    {
+      "type": "beam_splitter",
+      "description": "BS1 Signal",
+      "position": [
+        3.5,
+        4.5
+      ],
+      "angle": 45,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "cube"
+      },
+      "component_number": 7
+    },
+    {
+      "type": "mirror",
+      "description": "Mirror S-Short",
+      "position": [
+        5.0,
+        4.5
+      ],
+      "angle": 180,
+      "parameters": {},
+      "component_number": 8
+    },
+    {
+      "type": "mirror",
+      "description": "Mirror S-Long-1",
+      "position": [
+        3.5,
+        5.5
+      ],
+      "angle": 90,
+      "parameters": {},
+      "component_number": 9
+    },
+    {
+      "type": "mirror",
+      "description": "Mirror S-Long-2",
+      "position": [
+        5.0,
+        5.5
+      ],
+      "angle": 0,
+      "parameters": {},
+      "component_number": 10
+    },
+    {
+      "type": "phase_shifter",
+      "description": "Phase \u03c6_S",
+      "position": [
+        4.25,
+        5.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "range": "0-2\u03c0"
+      },
+      "component_number": 11
+    },
+    {
+      "type": "beam_splitter",
+      "description": "BS2 Signal",
+      "position": [
+        6.0,
+        4.5
+      ],
+      "angle": 45,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "cube"
+      },
+      "component_number": 12
+    },
+    {
+      "type": "beam_splitter",
+      "description": "BS1 Idler",
+      "position": [
+        3.5,
+        1.5
+      ],
+      "angle": 45,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "cube"
+      },
+      "component_number": 13
+    },
+    {
+      "type": "mirror",
+      "description": "Mirror I-Short",
+      "position": [
+        5.0,
+        1.5
+      ],
+      "angle": 180,
+      "parameters": {},
+      "component_number": 14
+    },
+    {
+      "type": "mirror",
+      "description": "Mirror I-Long-1",
+      "position": [
+        3.5,
+        0.5
+      ],
+      "angle": 270,
+      "parameters": {},
+      "component_number": 15
+    },
+    {
+      "type": "mirror",
+      "description": "Mirror I-Long-2",
+      "position": [
+        5.0,
+        0.5
+      ],
+      "angle": 0,
+      "parameters": {},
+      "component_number": 16
+    },
+    {
+      "type": "phase_shifter",
+      "description": "Phase \u03c6_I",
+      "position": [
+        4.25,
+        0.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "range": "0-2\u03c0"
+      },
+      "component_number": 17
+    },
+    {
+      "type": "beam_splitter",
+      "description": "BS2 Idler",
+      "position": [
+        6.0,
+        1.5
+      ],
+      "angle": 45,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "cube"
+      },
+      "component_number": 18
+    },
+    {
+      "type": "detector",
+      "description": "SPAD Signal",
+      "position": [
+        7.0,
+        4.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 50,
+        "dark_count_rate": 100,
+        "timing_resolution": 50
+      },
+      "component_number": 19
+    },
+    {
+      "type": "detector",
+      "description": "SPAD Idler",
+      "position": [
+        7.0,
+        1.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 50,
+        "dark_count_rate": 100,
+        "timing_resolution": 50
+      },
+      "component_number": 20
+    },
+    {
+      "type": "custom_coincidence_counter",
+      "description": "Coincidence Counter",
+      "position": [
+        7.5,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "description": "Electronic unit processing outputs from both SPADs to measure two-photon coincidence events as a function of phase settings, revealing energy-time entanglement through violation of Bell inequality",
+        "channels": 2,
+        "timing_resolution": "1ns",
+        "coincidence_window": "2ns"
+      },
+      "component_number": 21
+    }
+  ],
+  "beam_paths": [],
+  "physics_explanation": "The 405nm pump creates entangled photon pairs at 810nm via Type-II SPDC in PPLN crystal, with energy-time entanglement where the pair creation time is quantum mechanically uncertain. The PBS separator uses orthogonal polarizations from Type-II SPDC to spatially separate signal and idler photons into upper and lower paths. Each photon enters an unbalanced Mach-Zehnder interferometer with path length difference \u0394L creating a time delay \u0394t = \u0394L/c. When \u0394t exceeds the photon coherence time but is less than the pump coherence time, individual photons show no interference, but coincidence counts exhibit two-photon interference fringes as phases \u03c6_S and \u03c6_I are varied, violating the CHSH inequality and confirming energy-time entanglement in the state |\u03c8\u27e9 = (|early,early\u27e9 + e^(i\u03c6)|late,late\u27e9)/\u221a2. The detectors convert photon arrivals to electronic signals that feed into the coincidence counter for correlation analysis.",
+  "expected_outcome": "When the path length difference in each interferometer creates a delay exceeding the individual photon coherence time (~1\u03bcm for SPDC photons) but less than the pump coherence time, single-detector count rates show no interference fringes as phases are varied. However, the coincidence count rate exhibits sinusoidal two-photon interference fringes with visibility >71% as \u03c6_S and \u03c6_I are scanned, violating the classical bound and confirming energy-time entanglement. The coincidence pattern C(\u03c6_S, \u03c6_I) \u221d 1 + V\u00b7cos(\u03c6_S + \u03c6_I) demonstrates quantum correlation between photon arrival times despite individual photon paths being indistinguishable.",
+  "note": "Component numbers match the labels shown in 07_optical_setup.png (1-indexed)"
+}

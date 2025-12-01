@@ -1,0 +1,235 @@
+{
+  "title": "BB84 Quantum Key Distribution Setup",
+  "description": "Implements the BB84 protocol for secure quantum key distribution using polarization-encoded single photons",
+  "components": [
+    {
+      "type": "laser",
+      "name": "Polarized Laser",
+      "x": 0.5,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "wavelength": 810,
+        "power": 1,
+        "linewidth": 1000
+      }
+    },
+    {
+      "type": "polarizer",
+      "name": "Alice Input Polarizer",
+      "x": 1.3,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "angle": 0,
+        "extinction_ratio": 100000
+      }
+    },
+    {
+      "type": "attenuator",
+      "name": "Variable Attenuator",
+      "x": 2.1,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "optical_depth": 10
+      }
+    },
+    {
+      "type": "half_wave_plate",
+      "name": "Alice State Encoder",
+      "x": 3.0,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "order": "zero-order",
+        "wavelength": 810
+      }
+    },
+    {
+      "type": "fiber_coupler",
+      "name": "Alice Fiber Output",
+      "x": 3.9,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "coupling_efficiency": 0.8,
+        "fiber_type": "single-mode"
+      }
+    },
+    {
+      "type": "custom_quantum_channel",
+      "name": "Quantum Channel",
+      "x": 5.0,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "description": "Single-mode optical fiber transmitting quantum states from Alice to Bob with 10km length and 0.2dB/km loss",
+        "length_km": 10,
+        "loss_db_per_km": 0.2,
+        "channel_type": "single-mode fiber"
+      }
+    },
+    {
+      "type": "fiber_coupler",
+      "name": "Bob Fiber Input",
+      "x": 6.1,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "coupling_efficiency": 0.8,
+        "fiber_type": "single-mode"
+      }
+    },
+    {
+      "type": "half_wave_plate",
+      "name": "Bob Basis Selector",
+      "x": 7.0,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "order": "zero-order",
+        "wavelength": 810
+      }
+    },
+    {
+      "type": "polarizing_beam_splitter",
+      "name": "Bob PBS",
+      "x": 7.9,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "polarizing",
+        "extinction_ratio": 100000
+      }
+    },
+    {
+      "type": "detector",
+      "name": "Bob Detector 0",
+      "x": 8.9,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 0.65,
+        "dark_count_rate": 100,
+        "timing_resolution": 50
+      }
+    },
+    {
+      "type": "detector",
+      "name": "Bob Detector 1",
+      "x": 7.9,
+      "y": 4.0,
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 0.65,
+        "dark_count_rate": 100,
+        "timing_resolution": 50
+      }
+    }
+  ],
+  "beam_path": [
+    [
+      [
+        0.5,
+        3.0
+      ],
+      [
+        1.3,
+        3.0
+      ],
+      [
+        2.1,
+        3.0
+      ],
+      [
+        3.0,
+        3.0
+      ],
+      [
+        3.9,
+        3.0
+      ],
+      [
+        5.0,
+        3.0
+      ],
+      [
+        6.1,
+        3.0
+      ],
+      [
+        7.0,
+        3.0
+      ],
+      [
+        7.9,
+        3.0
+      ],
+      [
+        8.9,
+        3.0
+      ]
+    ],
+    [
+      [
+        0.5,
+        3.0
+      ],
+      [
+        1.3,
+        3.0
+      ],
+      [
+        2.1,
+        3.0
+      ],
+      [
+        3.0,
+        3.0
+      ],
+      [
+        3.9,
+        3.0
+      ],
+      [
+        5.0,
+        3.0
+      ],
+      [
+        6.1,
+        3.0
+      ],
+      [
+        7.0,
+        3.0
+      ],
+      [
+        7.9,
+        3.0
+      ],
+      [
+        7.9,
+        4.0
+      ]
+    ]
+  ],
+  "physics_explanation": "Alice prepares single photons in one of four polarization states (H, V, D, A) by first ensuring horizontal polarization, then rotating with a motorized half-wave plate to encode both basis choice and bit value. The photons travel through a quantum channel to Bob, who independently randomly selects his measurement basis using his own HWP before the PBS performs polarization measurement. When bases match (50% probability), Bob's measurement perfectly correlates with Alice's bit due to quantum state projection. The no-cloning theorem ensures any eavesdropper introduces detectable errors. After transmission, Alice and Bob publicly compare bases via classical channel, keep matching results (sifted key), estimate QBER to detect eavesdropping, then perform error correction and privacy amplification to generate a provably secure shared key.",
+  "component_justifications": {
+    "Polarized Laser": "810nm laser source provides coherent polarized light that will be attenuated to single-photon level for quantum state preparation",
+    "Alice Input Polarizer": "Ensures all photons start in well-defined horizontal polarization state before attenuation and encoding - critical for state preparation fidelity",
+    "Variable Attenuator": "Reduces mean photon number to \u03bc < 0.1 per pulse after polarization to approximate single-photon states and prevent photon-number-splitting attacks",
+    "Alice State Encoder": "Motorized half-wave plate encodes all four BB84 states - HWP at 0\u00b0 gives H, 45\u00b0 gives V, 22.5\u00b0 gives D, 67.5\u00b0 gives A polarization",
+    "Alice Fiber Output": "Couples prepared single photons into single-mode fiber for quantum channel transmission with high efficiency",
+    "Quantum Channel": "10km single-mode fiber transmits quantum states from Alice to Bob with inherent loss but no measurement - the insecure channel where eavesdropping could occur",
+    "Bob Fiber Input": "Receives photons from quantum channel and couples them into free-space measurement apparatus for basis selection and detection",
+    "Bob Basis Selector": "Motorized HWP randomly switched between 0\u00b0 (rectilinear basis measurement H/V) and 22.5\u00b0 (diagonal basis measurement D/A) for random basis choice",
+    "Bob PBS": "Polarizing beam splitter performs polarization measurement - transmits one polarization component to Detector 0 and reflects orthogonal component to Detector 1",
+    "Bob Detector 0": "SPAD measures transmitted photons (H in rectilinear basis or D in diagonal basis) corresponding to bit 0 with high efficiency and low dark counts",
+    "Bob Detector 1": "SPAD measures reflected photons (V in rectilinear basis or A in diagonal basis) corresponding to bit 1 - second detector enables unambiguous bit determination"
+  },
+  "expected_outcome": "After transmitting approximately 1 million photons, Alice and Bob publicly compare their basis choices via authenticated classical channel and retain approximately 50% where bases matched (sifted key of ~500k bits). If QBER < 11%, indicating no significant eavesdropping, they perform error correction to create identical bit strings, then privacy amplification to distill a provably secure shared secret key of ~100k-200k bits. Any eavesdropping attempt increases QBER above threshold, alerting them to abort. The final key achieves information-theoretic security guaranteed by quantum mechanics for one-time-pad encryption or other cryptographic applications."
+}

@@ -1,0 +1,138 @@
+{
+  "title": "Michelson Interferometer",
+  "description": "Creates interference fringes by splitting a coherent beam into two perpendicular arms and recombining them to measure phase differences.",
+  "components": [
+    {
+      "type": "laser",
+      "name": "HeNe Laser",
+      "x": 1.0,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "wavelength": 632.8,
+        "power": 5,
+        "linewidth": 1000
+      }
+    },
+    {
+      "type": "beam_expander",
+      "name": "Beam Expander",
+      "x": 2.5,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "magnification": 3,
+        "input_diameter": 1
+      }
+    },
+    {
+      "type": "beam_splitter",
+      "name": "50:50 Beam Splitter",
+      "x": 4.0,
+      "y": 3.0,
+      "angle": 45,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "cube"
+      }
+    },
+    {
+      "type": "mirror",
+      "name": "Fixed Mirror M1",
+      "x": 7.0,
+      "y": 3.0,
+      "angle": 180,
+      "parameters": {
+        "reflectivity": 0.99,
+        "diameter": 25
+      }
+    },
+    {
+      "type": "piezo_mirror",
+      "name": "Movable Mirror M2",
+      "x": 4.0,
+      "y": 5.5,
+      "angle": 270,
+      "parameters": {
+        "reflectivity": 0.99,
+        "diameter": 25,
+        "travel_range": 100
+      }
+    },
+    {
+      "type": "screen",
+      "name": "Interference Screen",
+      "x": 4.0,
+      "y": 1.0,
+      "angle": 0,
+      "parameters": {
+        "size": "50x50mm",
+        "type": "frosted_glass"
+      }
+    }
+  ],
+  "beam_path": [
+    [
+      [
+        1.0,
+        3.0
+      ],
+      [
+        2.5,
+        3.0
+      ],
+      [
+        4.0,
+        3.0
+      ],
+      [
+        7.0,
+        3.0
+      ],
+      [
+        4.0,
+        3.0
+      ],
+      [
+        4.0,
+        1.0
+      ]
+    ],
+    [
+      [
+        1.0,
+        3.0
+      ],
+      [
+        2.5,
+        3.0
+      ],
+      [
+        4.0,
+        3.0
+      ],
+      [
+        4.0,
+        5.5
+      ],
+      [
+        4.0,
+        3.0
+      ],
+      [
+        4.0,
+        1.0
+      ]
+    ]
+  ],
+  "physics_explanation": "Coherent laser light is split into two perpendicular arms by a 50:50 beam splitter. Each beam reflects from a mirror and returns to the beam splitter where they interfere. The relative phase between the arms depends on the optical path difference, creating constructive or destructive interference patterns. Moving one mirror changes the path length and shifts the fringe pattern.",
+  "component_justifications": {
+    "HeNe Laser": "Provides highly coherent 632.8nm light with long coherence length necessary for stable interference fringes",
+    "Beam Expander": "Increases beam diameter to create larger, more visible interference patterns and reduces beam divergence",
+    "50:50 Beam Splitter": "Splits incident beam into equal intensity arms and recombines returning beams for interference",
+    "Fixed Mirror M1": "Reflects horizontal arm beam back toward beam splitter with high reflectivity to maintain intensity",
+    "Movable Mirror M2": "Piezo-controlled mirror allows precise path length adjustment to scan through interference fringes",
+    "Interference Screen": "Displays the resulting interference pattern as bright and dark fringes that shift with mirror movement"
+  },
+  "expected_outcome": "Circular or linear interference fringes appear on the screen, with fringe spacing \u03bb/2 per mirror displacement. Moving the piezo mirror causes fringes to shift, demonstrating phase sensitivity to path length changes on the order of the wavelength."
+}

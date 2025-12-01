@@ -1,0 +1,683 @@
+{
+  "title": "3-Photon GHZ State Generator via Sequential Entanglement Swapping",
+  "description": "Generates genuine 3-photon GHZ states by performing sequential Bell state measurements on shared photons from three independent SPDC sources to create tripartite entanglement through quantum swapping",
+  "components": [
+    {
+      "type": "laser",
+      "name": "Pump Laser 1",
+      "x": 0.5,
+      "y": 5.0,
+      "angle": 0,
+      "parameters": {
+        "wavelength": 405,
+        "power": 150
+      }
+    },
+    {
+      "type": "laser",
+      "name": "Pump Laser 2",
+      "x": 0.5,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "wavelength": 405,
+        "power": 150
+      }
+    },
+    {
+      "type": "laser",
+      "name": "Pump Laser 3",
+      "x": 0.5,
+      "y": 1.0,
+      "angle": 0,
+      "parameters": {
+        "wavelength": 405,
+        "power": 150
+      }
+    },
+    {
+      "type": "crystal",
+      "name": "BBO Crystal 1",
+      "x": 1.5,
+      "y": 5.0,
+      "angle": 0,
+      "parameters": {
+        "type": "BBO",
+        "interaction": "SPDC",
+        "length": 5,
+        "phase_matching": "type-II"
+      }
+    },
+    {
+      "type": "crystal",
+      "name": "BBO Crystal 2",
+      "x": 1.5,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "type": "BBO",
+        "interaction": "SPDC",
+        "length": 5,
+        "phase_matching": "type-II"
+      }
+    },
+    {
+      "type": "crystal",
+      "name": "BBO Crystal 3",
+      "x": 1.5,
+      "y": 1.0,
+      "angle": 0,
+      "parameters": {
+        "type": "BBO",
+        "interaction": "SPDC",
+        "length": 5,
+        "phase_matching": "type-II"
+      }
+    },
+    {
+      "type": "lens",
+      "name": "Collection Lens 1",
+      "x": 2.5,
+      "y": 5.0,
+      "angle": 0,
+      "parameters": {
+        "focal_length": 50,
+        "diameter": 25
+      }
+    },
+    {
+      "type": "lens",
+      "name": "Collection Lens 2",
+      "x": 2.5,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "focal_length": 50,
+        "diameter": 25
+      }
+    },
+    {
+      "type": "lens",
+      "name": "Collection Lens 3",
+      "x": 2.5,
+      "y": 1.0,
+      "angle": 0,
+      "parameters": {
+        "focal_length": 50,
+        "diameter": 25
+      }
+    },
+    {
+      "type": "filter",
+      "name": "Bandpass Filter 1",
+      "x": 3.0,
+      "y": 5.0,
+      "angle": 0,
+      "parameters": {
+        "wavelength": 810,
+        "bandwidth": 20
+      }
+    },
+    {
+      "type": "filter",
+      "name": "Bandpass Filter 2",
+      "x": 3.0,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "wavelength": 810,
+        "bandwidth": 20
+      }
+    },
+    {
+      "type": "filter",
+      "name": "Bandpass Filter 3",
+      "x": 3.0,
+      "y": 1.0,
+      "angle": 0,
+      "parameters": {
+        "wavelength": 810,
+        "bandwidth": 20
+      }
+    },
+    {
+      "type": "beam_splitter",
+      "name": "BS1",
+      "x": 3.8,
+      "y": 5.0,
+      "angle": 0,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "cube"
+      }
+    },
+    {
+      "type": "beam_splitter",
+      "name": "BS2",
+      "x": 3.8,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "cube"
+      }
+    },
+    {
+      "type": "beam_splitter",
+      "name": "BS3",
+      "x": 3.8,
+      "y": 1.0,
+      "angle": 0,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "cube"
+      }
+    },
+    {
+      "type": "mirror",
+      "name": "Mirror A1",
+      "x": 4.5,
+      "y": 5.5,
+      "angle": 45
+    },
+    {
+      "type": "mirror",
+      "name": "Mirror A2",
+      "x": 4.5,
+      "y": 4.5,
+      "angle": 45
+    },
+    {
+      "type": "mirror",
+      "name": "Mirror B1",
+      "x": 4.5,
+      "y": 3.5,
+      "angle": 45
+    },
+    {
+      "type": "mirror",
+      "name": "Mirror B2",
+      "x": 4.5,
+      "y": 2.5,
+      "angle": 45
+    },
+    {
+      "type": "mirror",
+      "name": "Mirror C1",
+      "x": 4.5,
+      "y": 1.5,
+      "angle": 45
+    },
+    {
+      "type": "mirror",
+      "name": "Mirror C2",
+      "x": 4.5,
+      "y": 0.5,
+      "angle": 45
+    },
+    {
+      "type": "half_wave_plate",
+      "name": "HWP 1",
+      "x": 5.2,
+      "y": 3.8,
+      "angle": 0,
+      "parameters": {
+        "order": "zero-order",
+        "wavelength": 810
+      }
+    },
+    {
+      "type": "half_wave_plate",
+      "name": "HWP 2",
+      "x": 5.2,
+      "y": 2.2,
+      "angle": 0,
+      "parameters": {
+        "order": "zero-order",
+        "wavelength": 810
+      }
+    },
+    {
+      "type": "polarizing_beam_splitter",
+      "name": "Bell PBS 1",
+      "x": 5.8,
+      "y": 3.8,
+      "angle": 0,
+      "parameters": {
+        "transmittance": 0.5
+      }
+    },
+    {
+      "type": "polarizing_beam_splitter",
+      "name": "Bell PBS 2",
+      "x": 5.8,
+      "y": 2.2,
+      "angle": 0,
+      "parameters": {
+        "transmittance": 0.5
+      }
+    },
+    {
+      "type": "detector",
+      "name": "Bell Detector 1A",
+      "x": 6.8,
+      "y": 4.1,
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 0.9,
+        "timing_resolution": 50
+      }
+    },
+    {
+      "type": "detector",
+      "name": "Bell Detector 1B",
+      "x": 6.8,
+      "y": 3.5,
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 0.9,
+        "timing_resolution": 50
+      }
+    },
+    {
+      "type": "detector",
+      "name": "Bell Detector 2A",
+      "x": 6.8,
+      "y": 2.5,
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 0.9,
+        "timing_resolution": 50
+      }
+    },
+    {
+      "type": "detector",
+      "name": "Bell Detector 2B",
+      "x": 6.8,
+      "y": 1.9,
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 0.9,
+        "timing_resolution": 50
+      }
+    },
+    {
+      "type": "mirror",
+      "name": "Mirror GHZ A",
+      "x": 5.0,
+      "y": 5.5,
+      "angle": -45
+    },
+    {
+      "type": "mirror",
+      "name": "Mirror GHZ B",
+      "x": 5.0,
+      "y": 2.5,
+      "angle": -45
+    },
+    {
+      "type": "mirror",
+      "name": "Mirror GHZ C",
+      "x": 5.0,
+      "y": 0.5,
+      "angle": -45
+    },
+    {
+      "type": "polarizer",
+      "name": "Polarizer A",
+      "x": 7.0,
+      "y": 5.0,
+      "angle": 0,
+      "parameters": {
+        "angle": 0
+      }
+    },
+    {
+      "type": "polarizer",
+      "name": "Polarizer B",
+      "x": 7.0,
+      "y": 2.5,
+      "angle": 0,
+      "parameters": {
+        "angle": 0
+      }
+    },
+    {
+      "type": "polarizer",
+      "name": "Polarizer C",
+      "x": 7.0,
+      "y": 0.5,
+      "angle": 0,
+      "parameters": {
+        "angle": 0
+      }
+    },
+    {
+      "type": "detector",
+      "name": "GHZ Detector A",
+      "x": 8.0,
+      "y": 5.0,
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 0.9,
+        "timing_resolution": 50
+      }
+    },
+    {
+      "type": "detector",
+      "name": "GHZ Detector B",
+      "x": 8.0,
+      "y": 2.5,
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 0.9,
+        "timing_resolution": 50
+      }
+    },
+    {
+      "type": "detector",
+      "name": "GHZ Detector C",
+      "x": 8.0,
+      "y": 0.5,
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 0.9,
+        "timing_resolution": 50
+      }
+    },
+    {
+      "type": "custom_entanglement_swapping_unit",
+      "name": "Swapping Controller",
+      "x": 9.0,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "description": "Electronic control unit that processes Bell state measurement outcomes from 4 Bell detectors and gates the final 3-photon GHZ measurements. Performs real-time feedforward to identify successful swapping events and herald genuine GHZ state generation.",
+        "channels": 7,
+        "timing_resolution": "1ns",
+        "coincidence_window": "2ns",
+        "feedforward": "bell_state_gating"
+      }
+    }
+  ],
+  "beam_path": [
+    [
+      [
+        0.5,
+        5.0
+      ],
+      [
+        1.5,
+        5.0
+      ],
+      [
+        2.5,
+        5.0
+      ],
+      [
+        3.0,
+        5.0
+      ],
+      [
+        3.8,
+        5.0
+      ],
+      [
+        4.5,
+        5.5
+      ],
+      [
+        5.0,
+        5.5
+      ],
+      [
+        7.0,
+        5.0
+      ],
+      [
+        8.0,
+        5.0
+      ]
+    ],
+    [
+      [
+        0.5,
+        5.0
+      ],
+      [
+        1.5,
+        5.0
+      ],
+      [
+        2.5,
+        5.0
+      ],
+      [
+        3.0,
+        5.0
+      ],
+      [
+        3.8,
+        5.0
+      ],
+      [
+        4.5,
+        4.5
+      ],
+      [
+        5.2,
+        3.8
+      ],
+      [
+        5.8,
+        3.8
+      ],
+      [
+        6.8,
+        4.1
+      ]
+    ],
+    [
+      [
+        0.5,
+        3.0
+      ],
+      [
+        1.5,
+        3.0
+      ],
+      [
+        2.5,
+        3.0
+      ],
+      [
+        3.0,
+        3.0
+      ],
+      [
+        3.8,
+        3.0
+      ],
+      [
+        4.5,
+        3.5
+      ],
+      [
+        5.2,
+        3.8
+      ],
+      [
+        5.8,
+        3.8
+      ],
+      [
+        6.8,
+        3.5
+      ]
+    ],
+    [
+      [
+        0.5,
+        3.0
+      ],
+      [
+        1.5,
+        3.0
+      ],
+      [
+        2.5,
+        3.0
+      ],
+      [
+        3.0,
+        3.0
+      ],
+      [
+        3.8,
+        3.0
+      ],
+      [
+        4.5,
+        2.5
+      ],
+      [
+        5.0,
+        2.5
+      ],
+      [
+        7.0,
+        2.5
+      ],
+      [
+        8.0,
+        2.5
+      ]
+    ],
+    [
+      [
+        0.5,
+        1.0
+      ],
+      [
+        1.5,
+        1.0
+      ],
+      [
+        2.5,
+        1.0
+      ],
+      [
+        3.0,
+        1.0
+      ],
+      [
+        3.8,
+        1.0
+      ],
+      [
+        4.5,
+        1.5
+      ],
+      [
+        5.2,
+        2.2
+      ],
+      [
+        5.8,
+        2.2
+      ],
+      [
+        6.8,
+        2.5
+      ]
+    ],
+    [
+      [
+        0.5,
+        1.0
+      ],
+      [
+        1.5,
+        1.0
+      ],
+      [
+        2.5,
+        1.0
+      ],
+      [
+        3.0,
+        1.0
+      ],
+      [
+        3.8,
+        1.0
+      ],
+      [
+        4.5,
+        0.5
+      ],
+      [
+        5.0,
+        0.5
+      ],
+      [
+        7.0,
+        0.5
+      ],
+      [
+        8.0,
+        0.5
+      ]
+    ]
+  ],
+  "physics_explanation": "Three independent SPDC sources create Bell pairs (A1,A2), (B1,B2), and (C1,C2). Sequential Bell state measurements on the shared photons (A2,B1) at Bell PBS 1 and (B2,C1) at Bell PBS 2 perform entanglement swapping, projecting the remaining photons A1, B2, C2 into a genuine 3-photon GHZ state |GHZ\u27e9 = (|HHH\u27e9 + |VVV\u27e9)/\u221a2. The Bell measurement outcomes determine which local unitary operations are needed to obtain the desired GHZ state.",
+  "component_justifications": {
+    "Pump Laser 1": "405nm pump for first SPDC source generating Bell pair (A1,A2)",
+    "Pump Laser 2": "405nm pump for second SPDC source generating Bell pair (B1,B2)",
+    "Pump Laser 3": "405nm pump for third SPDC source generating Bell pair (C1,C2)",
+    "BBO Crystal 1": "Type-II SPDC crystal creating entangled photon pair A1-A2",
+    "BBO Crystal 2": "Type-II SPDC crystal creating entangled photon pair B1-B2",
+    "BBO Crystal 3": "Type-II SPDC crystal creating entangled photon pair C1-C2",
+    "Collection Lens 1": "Collects and focuses SPDC photons from first crystal",
+    "Collection Lens 2": "Collects and focuses SPDC photons from second crystal",
+    "Collection Lens 3": "Collects and focuses SPDC photons from third crystal",
+    "Bandpass Filter 1": "Filters 810nm down-converted photons, blocks pump light",
+    "Bandpass Filter 2": "Filters 810nm down-converted photons, blocks pump light",
+    "Bandpass Filter 3": "Filters 810nm down-converted photons, blocks pump light",
+    "BS1": "Separates photon pair A1-A2 from first SPDC source",
+    "BS2": "Separates photon pair B1-B2 from second SPDC source",
+    "BS3": "Separates photon pair C1-C2 from third SPDC source",
+    "Mirror A1": "Routes photon A1 to final GHZ detection path",
+    "Mirror A2": "Routes photon A2 to first Bell measurement station",
+    "Mirror B1": "Routes photon B1 to first Bell measurement station",
+    "Mirror B2": "Routes photon B2 to second Bell measurement station",
+    "Mirror C1": "Routes photon C1 to second Bell measurement station",
+    "Mirror C2": "Routes photon C2 to final GHZ detection path",
+    "Bell PBS 1": "Performs Bell state measurement on photons A2 and B1 for first swapping operation",
+    "Bell PBS 2": "Performs Bell state measurement on photons B2 and C1 for second swapping operation",
+    "HWP 1": "Rotates polarization for optimal Bell state measurement at first PBS",
+    "HWP 2": "Rotates polarization for optimal Bell state measurement at second PBS",
+    "Bell Detector 1A": "Detects one output of first Bell state measurement",
+    "Bell Detector 1B": "Detects other output of first Bell state measurement",
+    "Bell Detector 2A": "Detects one output of second Bell state measurement",
+    "Bell Detector 2B": "Detects other output of second Bell state measurement",
+    "Mirror GHZ A": "Routes final GHZ photon A1 to analysis station",
+    "Mirror GHZ B": "Routes final GHZ photon B2 to analysis station",
+    "Mirror GHZ C": "Routes final GHZ photon C2 to analysis station",
+    "Polarizer A": "Analyzes polarization of final GHZ photon A1",
+    "Polarizer B": "Analyzes polarization of final GHZ photon B2",
+    "Polarizer C": "Analyzes polarization of final GHZ photon C2",
+    "GHZ Detector A": "Measures final GHZ state photon A1",
+    "GHZ Detector B": "Measures final GHZ state photon B2",
+    "GHZ Detector C": "Measures final GHZ state photon C2",
+    "Swapping Controller": "Processes Bell measurement outcomes and gates GHZ detection events to herald successful 3-photon entanglement generation"
+  },
+  "expected_outcome": "Successful Bell state measurements on shared photons herald generation of 3-photon GHZ states. Triple coincidence measurements on the remaining photons show correlations violating Mermin's inequality, confirming genuine tripartite entanglement with visibility >70%."
+}

@@ -1,0 +1,285 @@
+{
+  "title": "Quantum Frequency Converter: Telecom to Visible",
+  "description": "Converts single photons from telecom wavelength (1550nm) to visible (630nm) using sum-frequency generation in PPLN waveguide while preserving quantum coherence",
+  "components": [
+    {
+      "type": "source",
+      "description": "Telecom Photon Source",
+      "position": [
+        0.5,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "wavelength": 1550,
+        "type": "single-photon",
+        "description": "Single telecom photons at 1550nm from quantum memory or entangled source"
+      },
+      "component_number": 1
+    },
+    {
+      "type": "fiber_coupler",
+      "description": "Input Fiber Coupler",
+      "position": [
+        1.5,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "wavelength": 1550,
+        "coupling_efficiency": 0.95,
+        "mode": "single-mode"
+      },
+      "component_number": 2
+    },
+    {
+      "type": "laser",
+      "description": "Pump Laser",
+      "position": [
+        2.0,
+        5.0
+      ],
+      "angle": -90,
+      "parameters": {
+        "wavelength": 980,
+        "power": 500,
+        "linewidth": 1,
+        "description": "Continuous-wave pump for sum-frequency generation"
+      },
+      "component_number": 3
+    },
+    {
+      "type": "optical_isolator",
+      "description": "Pump Isolator",
+      "position": [
+        2.0,
+        4.3
+      ],
+      "angle": -90,
+      "parameters": {
+        "wavelength": 980,
+        "isolation": 30
+      },
+      "component_number": 4
+    },
+    {
+      "type": "lens",
+      "description": "Pump Focusing Lens",
+      "position": [
+        2.0,
+        3.8
+      ],
+      "angle": 0,
+      "parameters": {
+        "focal_length": 50,
+        "diameter": 25,
+        "coating": "AR@980nm"
+      },
+      "component_number": 5
+    },
+    {
+      "type": "dichroic_mirror",
+      "description": "Pump Combiner",
+      "position": [
+        2.5,
+        3.0
+      ],
+      "angle": 45,
+      "parameters": {
+        "reflection_wavelength": 980,
+        "transmission_wavelength": 1550,
+        "type": "dichroic"
+      },
+      "component_number": 6
+    },
+    {
+      "type": "lens",
+      "description": "Input Coupling Lens",
+      "position": [
+        3.2,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "focal_length": 40,
+        "diameter": 25,
+        "coating": "AR@980/1550nm"
+      },
+      "component_number": 7
+    },
+    {
+      "type": "crystal",
+      "description": "PPLN Waveguide",
+      "position": [
+        4.0,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "PPLN",
+        "interaction": "SFG",
+        "length": 40,
+        "poling_period": 19.5,
+        "phase_matching": "quasi-phase-matched",
+        "waveguide": true,
+        "temperature": 50,
+        "description": "Periodically-poled lithium niobate waveguide for 1550nm + 980nm \u2192 630nm conversion"
+      },
+      "component_number": 8
+    },
+    {
+      "type": "custom_temperature_controller",
+      "description": "Crystal Temperature Control",
+      "position": [
+        4.0,
+        2.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "description": "Precision TEC maintaining PPLN at 50\u00b0C \u00b1 0.01\u00b0C for optimal quasi-phase-matching condition",
+        "setpoint": 50,
+        "stability": 0.01
+      },
+      "component_number": 9
+    },
+    {
+      "type": "lens",
+      "description": "Output Collimating Lens",
+      "position": [
+        4.8,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "focal_length": 40,
+        "diameter": 25,
+        "coating": "AR@630/980/1550nm"
+      },
+      "component_number": 10
+    },
+    {
+      "type": "dichroic_mirror",
+      "description": "Pump Filter 1",
+      "position": [
+        5.5,
+        3.0
+      ],
+      "angle": 45,
+      "parameters": {
+        "reflection_wavelength": 980,
+        "transmission_wavelength": 630,
+        "type": "dichroic"
+      },
+      "component_number": 11
+    },
+    {
+      "type": "dichroic_mirror",
+      "description": "Telecom Filter",
+      "position": [
+        6.2,
+        3.0
+      ],
+      "angle": 45,
+      "parameters": {
+        "reflection_wavelength": 1550,
+        "transmission_wavelength": 630,
+        "type": "dichroic"
+      },
+      "component_number": 12
+    },
+    {
+      "type": "filter",
+      "description": "Bandpass Filter",
+      "position": [
+        7.0,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "wavelength": 630,
+        "bandwidth": 3,
+        "optical_depth": 6,
+        "description": "Narrow bandpass to remove residual pump and telecom photons"
+      },
+      "component_number": 13
+    },
+    {
+      "type": "lens",
+      "description": "Detector Coupling Lens",
+      "position": [
+        7.8,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "focal_length": 30,
+        "diameter": 25,
+        "coating": "AR@630nm"
+      },
+      "component_number": 14
+    },
+    {
+      "type": "detector",
+      "description": "SPAD Detector",
+      "position": [
+        9.0,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 70,
+        "dark_count_rate": 50,
+        "timing_resolution": 50,
+        "wavelength": 630,
+        "description": "Silicon SPAD optimized for visible wavelengths"
+      },
+      "component_number": 15
+    },
+    {
+      "type": "beam_dump",
+      "description": "Pump Dump",
+      "position": [
+        5.5,
+        4.2
+      ],
+      "angle": 0,
+      "parameters": {
+        "description": "Absorbs reflected 980nm pump light"
+      },
+      "component_number": 16
+    },
+    {
+      "type": "beam_dump",
+      "description": "Telecom Dump",
+      "position": [
+        6.2,
+        4.2
+      ],
+      "angle": 0,
+      "parameters": {
+        "description": "Absorbs unconverted 1550nm telecom photons"
+      },
+      "component_number": 17
+    },
+    {
+      "type": "custom_coincidence_counter",
+      "description": "Timing Electronics",
+      "position": [
+        9.0,
+        1.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "description": "Time-tagging module measuring photon arrival times and conversion efficiency by correlating input telecom photon heralding with output visible photon detection",
+        "timing_resolution": "50ps",
+        "channels": 2
+      },
+      "component_number": 18
+    }
+  ],
+  "beam_paths": [],
+  "physics_explanation": "Single telecom photons at 1550nm undergo sum-frequency generation (SFG) with a strong 980nm pump field in a PPLN waveguide crystal, producing upconverted photons at 630nm (visible red). The process |\u03c9_telecom\u27e9 + |\u03c9_pump\u27e9 \u2192 |\u03c9_signal\u27e9 preserves quantum coherence and entanglement through the parametric interaction \u03c7\u207d\u00b2\u207e. Quasi-phase-matching via periodic poling compensates for momentum mismatch, enabling efficient conversion while maintaining single-photon characteristics. Multiple dichroic mirrors and spectral filters remove unconverted photons and pump light, isolating the converted visible photons for detection with high-efficiency silicon SPADs.",
+  "expected_outcome": "Conversion efficiency of 30-60% from 1550nm to 630nm while preserving quantum statistics (g\u207d\u00b2\u207e(0) < 0.5 demonstrating single-photon character). Time-correlated detection between input heralding and output visible photons confirms successful quantum frequency conversion. The converted photons enable interfacing between telecom-wavelength quantum memories/communication and visible-wavelength atomic systems or high-efficiency silicon detectors.",
+  "note": "Component numbers match the labels shown in 07_optical_setup.png (1-indexed)"
+}

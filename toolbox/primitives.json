@@ -1,0 +1,454 @@
+{
+  "_description": "Basic optical components - hard-coded primitives that cannot be modified",
+  "_version": "1.0",
+  
+  "light_sources": {
+    "laser": {
+      "name": "Laser",
+      "description": "Coherent light source with specific wavelength",
+      "parameters": ["wavelength (nm)", "power (mW)", "linewidth (kHz, optional)"],
+      "typical_use": "Pump source for nonlinear optics, coherent light for interferometry"
+    },
+    "source": {
+      "name": "General Light Source",
+      "description": "Generic light source (incoherent or partially coherent)",
+      "parameters": ["wavelength (nm)", "power (mW)"],
+      "typical_use": "Incoherent sources, thermal light, placeholder sources"
+    },
+    "point_source": {
+      "name": "Point Source",
+      "description": "Idealized point emitter",
+      "parameters": ["wavelength (nm)"],
+      "typical_use": "Theoretical models, single emitters"
+    }
+  },
+  
+  "beam_splitting": {
+    "beam_splitter": {
+      "name": "Beam Splitter",
+      "description": "Splits incoming light into transmitted and reflected beams",
+      "parameters": ["transmittance (0-1)", "type (cube, pellicle, polarizing)"],
+      "typical_use": "Creating interferometers, dividing light paths, Hong-Ou-Mandel interference"
+    },
+    "dichroic_mirror": {
+      "name": "Dichroic Mirror / Dichroic",
+      "description": "Wavelength-selective mirror (reflects one wavelength, transmits another)",
+      "parameters": ["cutoff_wavelength (nm)", "type (shortpass, longpass)"],
+      "typical_use": "Separating pump from signal/idler in SPDC, filtering wavelengths"
+    },
+    "pellicle_beam_splitter": {
+      "name": "Pellicle Beam Splitter",
+      "description": "Ultra-thin membrane beam splitter with minimal ghosting",
+      "parameters": ["transmittance (0-1)"],
+      "typical_use": "High-precision interferometry where ghost reflections are problematic"
+    },
+    "polarizing_beam_splitter": {
+      "name": "Polarizing Beam Splitter (PBS)",
+      "description": "Splits light by polarization (H transmitted, V reflected, or vice versa)",
+      "parameters": ["type (cube, plate)"],
+      "typical_use": "Separating orthogonal polarizations, Type-II SPDC output separation"
+    }
+  },
+  
+  "mirrors": {
+    "mirror": {
+      "name": "Mirror",
+      "description": "Reflects light at any angle",
+      "parameters": ["reflectivity (0-1, optional, default 0.99)"],
+      "typical_use": "Steering beams, creating optical paths, interferometer arms"
+    },
+    "concave_mirror": {
+      "name": "Concave/Curved Mirror",
+      "description": "Curved mirror for focusing or collimating",
+      "parameters": ["radius_of_curvature (mm)", "focal_length (mm)"],
+      "typical_use": "Cavity mirrors, beam focusing, optical cavities"
+    },
+    "faraday_mirror": {
+      "name": "Faraday Mirror",
+      "description": "Rotates polarization by 45° on reflection to compensate birefringence",
+      "parameters": [],
+      "typical_use": "Polarization-insensitive interferometry, fiber optics"
+    },
+    "piezo_mirror": {
+      "name": "Piezo Mirror",
+      "description": "Mirror with piezo-actuated fine position control",
+      "parameters": ["range (μm)", "bandwidth (Hz)"],
+      "typical_use": "Phase stabilization, active feedback, path length control"
+    }
+  },
+  
+  "lenses": {
+    "lens": {
+      "name": "Lens",
+      "description": "Converging or diverging lens for beam manipulation",
+      "parameters": ["focal_length (mm)", "diameter (mm, optional)"],
+      "typical_use": "Focusing, collimating, imaging, mode matching"
+    },
+    "convex_lens": {
+      "name": "Convex Lens",
+      "description": "Converging lens (positive focal length)",
+      "parameters": ["focal_length (mm)", "diameter (mm, optional)"],
+      "typical_use": "Focusing beams, creating beam waists"
+    },
+    "concave_lens": {
+      "name": "Concave Lens",
+      "description": "Diverging lens (negative focal length)",
+      "parameters": ["focal_length (mm)", "diameter (mm, optional)"],
+      "typical_use": "Beam expansion, diverging light"
+    },
+    "cylindrical_lens": {
+      "name": "Cylindrical Lens",
+      "description": "Focuses in one dimension only (astigmatic)",
+      "parameters": ["focal_length (mm)", "orientation (horizontal, vertical)"],
+      "typical_use": "Astigmatism correction, line focusing, anamorphic beam shaping"
+    }
+  },
+  
+  "phase_polarization": {
+    "phase_shifter": {
+      "name": "Phase Shifter",
+      "description": "Introduces optical path delay (phase shift)",
+      "parameters": ["phase (radians or degrees)"],
+      "typical_use": "Interferometry, controlling relative phase between paths"
+    },
+    "polarizer": {
+      "name": "Polarizer",
+      "description": "Transmits only one polarization direction",
+      "parameters": ["angle (degrees)", "extinction_ratio (dB, optional)"],
+      "typical_use": "Defining polarization axis, filtering polarization states"
+    },
+    "half_wave_plate": {
+      "name": "Half-Wave Plate (HWP)",
+      "description": "Rotates linear polarization by 2× the plate angle",
+      "parameters": ["angle (degrees)", "order (zero-order, multi-order)", "wavelength (nm)"],
+      "typical_use": "Polarization rotation, making photons indistinguishable for HOM"
+    },
+    "quarter_wave_plate": {
+      "name": "Quarter-Wave Plate (QWP)",
+      "description": "Converts linear ↔ circular polarization",
+      "parameters": ["angle (degrees)", "order (zero-order, multi-order)", "wavelength (nm)"],
+      "typical_use": "Creating circular polarization, polarization state manipulation"
+    },
+    "wave_plate": {
+      "name": "Generic Wave Plate",
+      "description": "Retardation plate with arbitrary phase delay",
+      "parameters": ["retardance (degrees or nm)", "wavelength (nm)"],
+      "typical_use": "Custom polarization transformations"
+    },
+    "faraday_rotator": {
+      "name": "Faraday Rotator",
+      "description": "Non-reciprocal polarization rotator (uses magnetic field)",
+      "parameters": ["rotation_angle (degrees)"],
+      "typical_use": "Optical isolators, non-reciprocal devices"
+    },
+    "pockels_cell": {
+      "name": "Pockels Cell",
+      "description": "Voltage-controlled birefringence (fast polarization modulation)",
+      "parameters": ["voltage (V)", "aperture (mm)", "rise_time (ns)"],
+      "typical_use": "Fast switching, Q-switching, pulse picking, modulation"
+    }
+  },
+  
+  "intensity_control": {
+    "filter": {
+      "name": "Optical Filter",
+      "description": "Wavelength-selective transmission",
+      "parameters": ["center_wavelength (nm)", "bandwidth (nm)", "optical_depth (OD, optional)"],
+      "typical_use": "Blocking unwanted wavelengths, spectral filtering"
+    },
+    "attenuator": {
+      "name": "Variable Attenuator",
+      "description": "Reduces light intensity without affecting other properties",
+      "parameters": ["attenuation (dB or transmission 0-1)"],
+      "typical_use": "Power control, preventing detector saturation"
+    },
+    "nd_filter": {
+      "name": "Neutral Density Filter",
+      "description": "Wavelength-independent attenuation",
+      "parameters": ["optical_density (OD)"],
+      "typical_use": "Broadband intensity reduction"
+    },
+    "beam_dump": {
+      "name": "Beam Dump / Absorber",
+      "description": "Absorbs unwanted light paths",
+      "parameters": [],
+      "typical_use": "Terminating unused beams, preventing reflections"
+    },
+    "optical_isolator": {
+      "name": "Optical Isolator",
+      "description": "Allows light to pass in only one direction (Faraday rotator + polarizers)",
+      "parameters": ["isolation (dB)"],
+      "typical_use": "Protecting lasers from back-reflections, preventing feedback"
+    },
+    "circulator": {
+      "name": "Optical Circulator",
+      "description": "Routes light between three or more ports in one direction",
+      "parameters": ["ports (3 or 4)", "isolation (dB)"],
+      "typical_use": "Fiber-optic routing, separating forward/backward light"
+    }
+  },
+  
+  "beam_shaping": {
+    "aperture": {
+      "name": "Aperture / Iris",
+      "description": "Limits beam diameter",
+      "parameters": ["diameter (mm)"],
+      "typical_use": "Spatial filtering, controlling beam size, blocking stray light"
+    },
+    "spatial_filter": {
+      "name": "Spatial Filter",
+      "description": "Lens-pinhole-lens system for cleaning beam profile",
+      "parameters": ["pinhole_diameter (μm)"],
+      "typical_use": "Removing higher-order spatial modes, creating clean Gaussian beams"
+    },
+    "pinhole": {
+      "name": "Pinhole",
+      "description": "Small aperture for spatial mode selection",
+      "parameters": ["diameter (μm)"],
+      "typical_use": "Single-mode coupling, point-like aperture"
+    },
+    "beam_expander": {
+      "name": "Beam Expander / Telescope",
+      "description": "Two-lens system to expand or compress beam diameter",
+      "parameters": ["magnification", "input_diameter (mm)"],
+      "typical_use": "Matching beam sizes, filling apertures"
+    },
+    "collimator": {
+      "name": "Collimator",
+      "description": "Converts diverging light into parallel beam",
+      "parameters": ["focal_length (mm)", "aperture (mm)"],
+      "typical_use": "Fiber output collimation, creating plane waves"
+    },
+    "spatial_light_modulator": {
+      "name": "Spatial Light Modulator (SLM)",
+      "description": "Programmable phase/amplitude mask for wavefront shaping",
+      "parameters": ["resolution (pixels)", "type (phase, amplitude)"],
+      "typical_use": "Beam steering, aberration correction, holography, orbital angular momentum"
+    },
+    "dmd": {
+      "name": "Digital Micromirror Device (DMD)",
+      "description": "Array of tiny mirrors for binary amplitude modulation",
+      "parameters": ["resolution (pixels)"],
+      "typical_use": "Fast binary masking, structured illumination"
+    }
+  },
+  
+  "nonlinear_optics": {
+    "crystal": {
+      "name": "Nonlinear Crystal",
+      "description": "Material for frequency conversion via nonlinear processes",
+      "parameters": ["type (BBO, PPLN, KTP, LBO, BiBO)", "interaction (SPDC, SHG, SFG, DFG)", "length (mm)", "poling_period (μm for PPLN)", "phase_matching (type-I, type-II)"],
+      "typical_use": "Spontaneous parametric down-conversion (SPDC), second-harmonic generation (SHG), sum/difference frequency generation"
+    },
+    "bbo_crystal": {
+      "name": "BBO Crystal (β-Barium Borate)",
+      "description": "Widely used for SPDC and SHG (UV-visible range)",
+      "parameters": ["interaction (SPDC, SHG)", "length (mm)", "phase_matching (type-I, type-II)", "cut_angle (degrees)"],
+      "typical_use": "Entangled photon pair generation, UV/visible SPDC"
+    },
+    "ppln_crystal": {
+      "name": "PPLN Crystal (Periodically Poled Lithium Niobate)",
+      "description": "Quasi-phase-matched crystal for near-IR nonlinear optics",
+      "parameters": ["interaction (SPDC, SHG, SFG, DFG)", "length (mm)", "poling_period (μm)", "temperature (°C, optional)"],
+      "typical_use": "Telecom-wavelength SPDC, efficient near-IR frequency conversion"
+    },
+    "ktp_crystal": {
+      "name": "KTP Crystal (Potassium Titanyl Phosphate)",
+      "description": "Common for green laser SHG (532nm from 1064nm)",
+      "parameters": ["interaction (SHG, SFG)", "length (mm)", "phase_matching"],
+      "typical_use": "Visible laser generation, frequency doubling"
+    }
+  },
+  
+  "detection": {
+    "detector": {
+      "name": "Generic Detector",
+      "description": "General photodetector (placeholder)",
+      "parameters": ["efficiency (%)", "type (optional)"],
+      "typical_use": "Generic detection without specific type"
+    },
+    "photodiode": {
+      "name": "Photodiode",
+      "description": "Standard semiconductor photodetector for classical light",
+      "parameters": ["efficiency (%)", "active_area (mm²)", "bandwidth (MHz)"],
+      "typical_use": "Classical light detection, intensity measurements"
+    },
+    "apd": {
+      "name": "Avalanche Photodiode (APD)",
+      "description": "High-gain photodiode with internal amplification",
+      "parameters": ["efficiency (%)", "gain", "dark_count_rate (Hz)"],
+      "typical_use": "Low-light detection, photon counting mode"
+    },
+    "spad": {
+      "name": "Single-Photon Avalanche Diode (SPAD)",
+      "description": "Geiger-mode APD for single-photon detection",
+      "parameters": ["efficiency (%)", "dark_count_rate (Hz)", "dead_time (ns)", "timing_resolution (ps)"],
+      "typical_use": "Single-photon counting, coincidence measurements, quantum key distribution"
+    },
+    "pmt": {
+      "name": "Photomultiplier Tube (PMT)",
+      "description": "Vacuum tube with electron multiplication for single-photon sensitivity",
+      "parameters": ["efficiency (%)", "gain", "dark_count_rate (Hz)"],
+      "typical_use": "Low-light spectroscopy, single-photon detection (visible-UV)"
+    },
+    "snspd": {
+      "name": "Superconducting Nanowire Single-Photon Detector (SNSPD)",
+      "description": "Ultra-fast, high-efficiency single-photon detector (requires cryogenics)",
+      "parameters": ["efficiency (%)", "dark_count_rate (Hz)", "timing_resolution (ps)", "operating_temperature (K)"],
+      "typical_use": "Quantum communication, near-IR single-photon detection, ultra-fast timing"
+    },
+    "sipm": {
+      "name": "Silicon Photomultiplier (SiPM)",
+      "description": "Array of SPADs with analog summation (compact, room-temperature)",
+      "parameters": ["efficiency (%)", "dark_count_rate (Hz)", "gain"],
+      "typical_use": "Photon counting with large area, LIDAR, PET scanners"
+    },
+    "homodyne_detector": {
+      "name": "Homodyne Detector",
+      "description": "Balanced detector for measuring quadratures of quantum light",
+      "parameters": ["local_oscillator_power (mW)", "visibility (%)", "bandwidth (MHz)"],
+      "typical_use": "Squeezed light measurement, continuous variable quantum optics"
+    },
+    "heterodyne_detector": {
+      "name": "Heterodyne Detector",
+      "description": "Detector with frequency-shifted local oscillator",
+      "parameters": ["if_frequency (MHz)", "local_oscillator_power (mW)"],
+      "typical_use": "Measuring both quadratures simultaneously, phase-sensitive detection"
+    },
+    "camera": {
+      "name": "Camera (CCD/CMOS)",
+      "description": "Array detector for imaging",
+      "parameters": ["resolution (pixels)", "sensor_type (CCD, CMOS, sCMOS, EMCCD)", "quantum_efficiency (%)"],
+      "typical_use": "Beam profiling, imaging, spatial mode analysis"
+    },
+    "screen": {
+      "name": "Viewing Screen",
+      "description": "Visualization surface (not electronic detection)",
+      "parameters": [],
+      "typical_use": "Alignment, visualizing interference patterns"
+    }
+  },
+  
+  "interference_diffraction": {
+    "slit": {
+      "name": "Single Slit",
+      "description": "Single aperture for diffraction experiments",
+      "parameters": ["width (μm)"],
+      "typical_use": "Diffraction patterns, spatial filtering"
+    },
+    "double_slit": {
+      "name": "Double Slit",
+      "description": "Two parallel slits for interference experiments",
+      "parameters": ["slit_width (μm)", "slit_spacing (μm)"],
+      "typical_use": "Young's double-slit experiment, interference demonstrations"
+    },
+    "grating": {
+      "name": "Diffraction Grating",
+      "description": "Periodic structure for wavelength dispersion",
+      "parameters": ["lines_per_mm", "blaze_angle (degrees, optional)", "type (transmission, reflection)"],
+      "typical_use": "Spectroscopy, wavelength separation, pulse compression"
+    },
+    "etalon": {
+      "name": "Etalon / Fabry-Pérot",
+      "description": "Two parallel partially-reflective surfaces for wavelength filtering",
+      "parameters": ["free_spectral_range (GHz)", "finesse", "thickness (μm or mm)"],
+      "typical_use": "Narrow-band filtering, cavity-based wavelength selection"
+    },
+    "prism": {
+      "name": "Prism",
+      "description": "Dispersive element for wavelength separation via refraction",
+      "parameters": ["material (BK7, fused_silica)", "apex_angle (degrees)"],
+      "typical_use": "Dispersion, wavelength routing, pulse compression"
+    }
+  },
+  
+  "timing_delay": {
+    "delay_stage": {
+      "name": "Delay Stage",
+      "description": "Mechanical translation stage for optical path length tuning",
+      "parameters": ["range (mm)", "resolution (nm or μm)", "type (manual, motorized, piezo)"],
+      "typical_use": "Temporal delay control, path length matching, scanning interferometry"
+    }
+  },
+  
+  "modulation": {
+    "modulator": {
+      "name": "Generic Modulator",
+      "description": "Electro-optic or acousto-optic modulation device",
+      "parameters": ["type (EOM, AOM)", "frequency (MHz)", "modulation_depth (%)"],
+      "typical_use": "Intensity, phase, or frequency modulation"
+    },
+    "eom": {
+      "name": "Electro-Optic Modulator (EOM)",
+      "description": "Voltage-controlled refractive index modulation",
+      "parameters": ["frequency (MHz)", "voltage (V)", "type (phase, amplitude, polarization)"],
+      "typical_use": "Fast phase/amplitude modulation, sideband generation"
+    },
+    "aom": {
+      "name": "Acousto-Optic Modulator (AOM)",
+      "description": "Acoustic wave creates diffraction grating for frequency shifting",
+      "parameters": ["frequency (MHz)", "efficiency (%)", "diffraction_order"],
+      "typical_use": "Frequency shifting, beam steering, intensity modulation, Q-switching"
+    }
+  },
+  
+  "coupling": {
+    "fiber": {
+      "name": "Optical Fiber",
+      "description": "Waveguide for light transmission",
+      "parameters": ["type (single-mode, multi-mode, polarization-maintaining)", "core_diameter (μm)", "length (m)"],
+      "typical_use": "Fiber-optic coupling, long-distance transmission, spatial filtering"
+    },
+    "fiber_coupler": {
+      "name": "Fiber Coupler",
+      "description": "Evanescent-wave coupling between fibers (acts as fiber beam splitter)",
+      "parameters": ["splitting_ratio", "type (fused, polished)"],
+      "typical_use": "Fiber-based interferometry, splitting fiber signals"
+    }
+  },
+  
+  "cavities": {
+    "optical_cavity": {
+      "name": "Optical Cavity",
+      "description": "Resonator formed by mirrors for light storage",
+      "parameters": ["finesse", "free_spectral_range (GHz)", "length (mm)", "mirror_reflectivity"],
+      "typical_use": "Laser cavities, nonlinear optics enhancement, filtering"
+    },
+    "fabry_perot_cavity": {
+      "name": "Fabry-Pérot Cavity",
+      "description": "Two-mirror linear cavity",
+      "parameters": ["finesse", "fsr (GHz)", "length (mm)", "mirror_reflectivity"],
+      "typical_use": "High-resolution spectroscopy, wavelength locking, cavity QED"
+    },
+    "ring_cavity": {
+      "name": "Ring Cavity",
+      "description": "Closed-loop resonator (no back-reflection)",
+      "parameters": ["finesse", "fsr (GHz)", "perimeter (mm)"],
+      "typical_use": "Unidirectional lasing, optical gyroscopes"
+    }
+  },
+  
+  "atomic_systems": {
+    "vapor_cell": {
+      "name": "Vapor Cell",
+      "description": "Gas cell containing atomic vapor",
+      "parameters": ["atomic_species (Rb-87, Cs-133, Na, K)", "temperature (°C)", "length (mm)", "pressure (Torr, optional)"],
+      "typical_use": "Atomic spectroscopy, frequency references, quantum memory"
+    },
+    "atomic_filter": {
+      "name": "Atomic Filter",
+      "description": "Narrow-band filter using atomic absorption",
+      "parameters": ["atomic_species", "temperature (°C)", "bandwidth (MHz)"],
+      "typical_use": "Ultra-narrow filtering, Faraday anomalous dispersion optical filter (FADOF)"
+    }
+  },
+  
+  "measurement": {
+    "spectrometer": {
+      "name": "Spectrometer",
+      "description": "Measures wavelength/frequency spectrum",
+      "parameters": ["resolution (nm or pm)", "wavelength_range (nm)", "type (grating, Fourier-transform)"],
+      "typical_use": "Spectral analysis, wavelength characterization"
+    }
+  }
+}

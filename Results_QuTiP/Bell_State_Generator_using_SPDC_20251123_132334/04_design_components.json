@@ -1,0 +1,245 @@
+{
+  "title": "Bell State Generator using SPDC",
+  "description": "Generates polarization-entangled photon pairs in Bell states through type-II spontaneous parametric down-conversion with proper pump blocking and phase control.",
+  "components": [
+    {
+      "type": "laser",
+      "name": "Pump Laser",
+      "x": 1.0,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "wavelength": 405,
+        "power": 100,
+        "linewidth": 1000
+      }
+    },
+    {
+      "type": "lens",
+      "name": "Focusing Lens",
+      "x": 2.0,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "focal_length": 100,
+        "diameter": 25
+      }
+    },
+    {
+      "type": "crystal",
+      "name": "BBO Crystal",
+      "x": 3.5,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "type": "BBO",
+        "interaction": "SPDC",
+        "length": 1,
+        "phase_matching": "type-II"
+      }
+    },
+    {
+      "type": "beam_dump",
+      "name": "Pump Beam Dump",
+      "x": 4.2,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {}
+    },
+    {
+      "type": "filter",
+      "name": "810nm Filter",
+      "x": 4.8,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "wavelength": 810,
+        "bandwidth": 10,
+        "optical_depth": 6
+      }
+    },
+    {
+      "type": "lens",
+      "name": "Collection Lens",
+      "x": 5.5,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "focal_length": 150,
+        "diameter": 50
+      }
+    },
+    {
+      "type": "half_wave_plate",
+      "name": "Phase Control HWP",
+      "x": 6.2,
+      "y": 3.0,
+      "angle": 22.5,
+      "parameters": {
+        "order": "zero-order",
+        "wavelength": 810
+      }
+    },
+    {
+      "type": "polarizing_beam_splitter",
+      "name": "Polarizing PBS",
+      "x": 7.0,
+      "y": 3.0,
+      "angle": 45,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "polarizing"
+      }
+    },
+    {
+      "type": "mirror",
+      "name": "Mirror A",
+      "x": 7.0,
+      "y": 4.5,
+      "angle": 45,
+      "parameters": {}
+    },
+    {
+      "type": "mirror",
+      "name": "Mirror B",
+      "x": 8.5,
+      "y": 3.0,
+      "angle": 45,
+      "parameters": {}
+    },
+    {
+      "type": "polarizer",
+      "name": "Polarizer A",
+      "x": 8.5,
+      "y": 4.5,
+      "angle": 0,
+      "parameters": {
+        "angle": 0
+      }
+    },
+    {
+      "type": "polarizer",
+      "name": "Polarizer B",
+      "x": 8.5,
+      "y": 1.5,
+      "angle": 0,
+      "parameters": {
+        "angle": 0
+      }
+    },
+    {
+      "type": "detector",
+      "name": "SPAD A",
+      "x": 9.5,
+      "y": 4.5,
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 65,
+        "dark_count_rate": 100,
+        "timing_resolution": 50
+      }
+    },
+    {
+      "type": "detector",
+      "name": "SPAD B",
+      "x": 9.5,
+      "y": 1.5,
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 65,
+        "dark_count_rate": 100,
+        "timing_resolution": 50
+      }
+    }
+  ],
+  "beam_path": [
+    [
+      [
+        3.5,
+        3.0
+      ],
+      [
+        4.8,
+        3.0
+      ],
+      [
+        5.5,
+        3.0
+      ],
+      [
+        6.2,
+        3.0
+      ],
+      [
+        7.0,
+        3.0
+      ],
+      [
+        7.0,
+        4.5
+      ],
+      [
+        8.5,
+        4.5
+      ],
+      [
+        9.5,
+        4.5
+      ]
+    ],
+    [
+      [
+        3.5,
+        3.0
+      ],
+      [
+        4.8,
+        3.0
+      ],
+      [
+        5.5,
+        3.0
+      ],
+      [
+        6.2,
+        3.0
+      ],
+      [
+        7.0,
+        3.0
+      ],
+      [
+        8.5,
+        3.0
+      ],
+      [
+        8.5,
+        1.5
+      ],
+      [
+        9.5,
+        1.5
+      ]
+    ]
+  ],
+  "physics_explanation": "A 405nm pump laser undergoes type-II SPDC in a BBO crystal, creating entangled photon pairs at 810nm with orthogonal polarizations in the state |\u03c8\u27e9 = (|H\u27e9\u2081|V\u27e9\u2082 + e^(i\u03c6)|V\u27e9\u2081|H\u27e9\u2082)/\u221a2. The half-wave plate controls the relative phase \u03c6 between the two components, enabling generation of different Bell states. The polarizing beam splitter separates the orthogonally polarized photons into different spatial modes, while adjustable polarizers enable measurement in different polarization bases for Bell inequality tests.",
+  "component_justifications": {
+    "Pump Laser": "405nm CW laser provides pump photons with sufficient energy to generate 810nm photon pairs through SPDC while maintaining good beam quality",
+    "Focusing Lens": "Focuses pump beam into BBO crystal to increase conversion efficiency and optimize spatial mode matching for SPDC process",
+    "BBO Crystal": "Type-II Beta Barium Borate crystal generates polarization-entangled photon pairs where signal and idler have orthogonal polarizations",
+    "Pump Beam Dump": "Absorbs residual 405nm pump light to prevent interference with down-converted photon detection and reduce background",
+    "810nm Filter": "Bandpass filter blocks any remaining pump light and selects only the 810nm down-converted photons for clean detection",
+    "Collection Lens": "Collects and collimates the down-converted photon pairs emerging from crystal with proper numerical aperture matching",
+    "Phase Control HWP": "Half-wave plate at 22.5\u00b0 rotation controls the relative phase between |HV\u27e9 and |VH\u27e9 components, enabling Bell state selection",
+    "Polarizing PBS": "Separates the orthogonally polarized entangled photons into two distinct spatial paths for independent polarization analysis",
+    "Mirror A": "Redirects H-polarized photons from PBS reflection port to upper detector arm with proper 45\u00b0 angle for beam steering",
+    "Mirror B": "Redirects V-polarized photons from PBS transmission port to lower detector arm maintaining beam alignment",
+    "Polarizer A": "Enables polarization analysis of photons in upper arm - rotation allows measurement in different polarization bases",
+    "Polarizer B": "Enables polarization analysis of photons in lower arm - rotation enables Bell inequality tests and state tomography",
+    "SPAD A": "Single-photon avalanche photodiode with timing resolution for coincidence measurements and high quantum efficiency",
+    "SPAD B": "Second SPAD detector enables coincidence counting necessary for Bell state verification and entanglement characterization"
+  },
+  "expected_outcome": "Coincidence counts between detectors will show strong correlation when polarizers are parallel and anti-correlation when perpendicular, violating Bell inequalities with visibility >85% confirming quantum entanglement. Half-wave plate rotation enables generation of all four Bell states."
+}

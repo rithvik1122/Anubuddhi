@@ -1,0 +1,16 @@
+Experiment,Alignment_Score,Models_Design,Physics_Quality,Rating,Verdict
+"Delayed Choice Quantum Eraser Experiment",9,True,exact,6,FAIR
+"Bb84 Quantum Key Distribution System",9,True,exact,8,GOOD
+"Mach-Zehnder Interferometer",9,True,exact,6,FAIR
+"Franson Interferometer For Time-Bin Entanglement",9,True,exact,6,FAIR
+"Hong-Ou-Mandel Interference Experiment",9,True,exact,8,GOOD
+"Hyperentangled Photon Source With Polarization And Oam Via Cascaded Spdc",9,True,exact,4,POOR
+"Michelson Interferometer",8,True,close,4,POOR
+"Three-Photon Ghz State Generator Via Type-Ii Spdc And Photon Fusion",8,True,close,4,POOR
+"Continuous-Variable Quantum Teleportation With Squeezed States",4,False,approximate,4,POOR
+"4-Photon Boson Sampling Experiment",3,False,wrong,4,POOR
+"Bell State Generator Using Spontaneous Parametric Down-Conversion",3,False,wrong,4,POOR
+"Quantum Frequency Converter  Telecom To Visible",3,False,wrong,4,POOR
+"Quantum Teleportation Experiment",3,False,wrong,3,POOR
+"Squeezed Light Source Via Optical Parametric Oscillation",3,False,wrong,3,POOR
+"Electromagnetically Induced Transparency (Eit) In Warm Rb-87 Vapor",3,False,wrong,3,POOR

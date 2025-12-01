@@ -1,0 +1,147 @@
+{
+  "title": "Mach-Zehnder Interferometer",
+  "description": "Creates interference fringes by splitting a coherent beam into two parallel arms and recombining them to measure phase differences and demonstrate wave-particle duality",
+  "components": [
+    {
+      "type": "laser",
+      "description": "Coherent Source",
+      "position": [
+        1.0,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "wavelength": 632.8,
+        "power": 5,
+        "linewidth": 1
+      },
+      "component_number": 1
+    },
+    {
+      "type": "beam_splitter",
+      "description": "BS1",
+      "position": [
+        3.0,
+        3.0
+      ],
+      "angle": 45,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "cube"
+      },
+      "component_number": 2
+    },
+    {
+      "type": "mirror",
+      "description": "Mirror Upper",
+      "position": [
+        3.0,
+        5.0
+      ],
+      "angle": 270,
+      "parameters": {
+        "reflectivity": 0.99
+      },
+      "component_number": 3
+    },
+    {
+      "type": "phase_shifter",
+      "description": "Phase Shifter",
+      "position": [
+        5.5,
+        5.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "range": "0-2\u03c0",
+        "type": "piezo-mounted mirror"
+      },
+      "component_number": 4
+    },
+    {
+      "type": "mirror",
+      "description": "Mirror Lower",
+      "position": [
+        3.0,
+        1.0
+      ],
+      "angle": 90,
+      "parameters": {
+        "reflectivity": 0.99
+      },
+      "component_number": 5
+    },
+    {
+      "type": "mirror",
+      "description": "Mirror Upper Corner",
+      "position": [
+        8.0,
+        5.0
+      ],
+      "angle": 180,
+      "parameters": {
+        "reflectivity": 0.99
+      },
+      "component_number": 6
+    },
+    {
+      "type": "mirror",
+      "description": "Mirror Lower Corner",
+      "position": [
+        8.0,
+        1.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "reflectivity": 0.99
+      },
+      "component_number": 7
+    },
+    {
+      "type": "beam_splitter",
+      "description": "BS2",
+      "position": [
+        8.0,
+        3.0
+      ],
+      "angle": 45,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "cube"
+      },
+      "component_number": 8
+    },
+    {
+      "type": "detector",
+      "description": "Detector 1",
+      "position": [
+        10.0,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "photodiode",
+        "efficiency": 95
+      },
+      "component_number": 9
+    },
+    {
+      "type": "detector",
+      "description": "Detector 2",
+      "position": [
+        8.0,
+        0.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "photodiode",
+        "efficiency": 95
+      },
+      "component_number": 10
+    }
+  ],
+  "beam_paths": [],
+  "physics_explanation": "A coherent laser beam enters the first 50:50 beam splitter (BS1) which creates a quantum superposition |\u03c8\u27e9 = (|upper\u27e9 + i|lower\u27e9)/\u221a2. The two paths traverse different optical path lengths, with the upper arm containing a tunable phase shifter that introduces a relative phase \u03c6. At the second beam splitter (BS2), the paths recombine and interfere, producing complementary intensity patterns at the two output ports following I\u2081 \u221d cos\u00b2(\u03c6/2) and I\u2082 \u221d sin\u00b2(\u03c6/2). This demonstrates quantum interference and the wave nature of light, with visibility approaching 100% for perfect coherence.",
+  "expected_outcome": "As the phase shifter is scanned, Detector 1 and Detector 2 show complementary sinusoidal interference fringes with near 100% visibility for perfect alignment. The sum of both detector signals remains constant (energy conservation), while individual detectors oscillate between maximum and minimum intensity. A phase shift of \u03c0 completely switches the output from one detector to the other. This demonstrates quantum interference, phase sensitivity of ~\u03bb/100 for precision measurements, and can be used to detect minute changes in optical path length, refractive index, or verify single-photon wave-particle duality when operated at single-photon level.",
+  "note": "Component numbers match the labels shown in 07_optical_setup.png (1-indexed)"
+}

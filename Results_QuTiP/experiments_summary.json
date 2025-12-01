@@ -1,0 +1,192 @@
+[
+  {
+    "name": "3-Photon GHZ State Generator via Sequential Entanglement Swapping",
+    "rating": 2,
+    "rating_label": "POOR",
+    "key_insight": "Bell measurement projectors must match the dimensionality of the full state space - this simulation fails due to basic tensor algebra errors.",
+    "conclusion": "\u26a0\ufe0f Simulation could not fully capture the design's intended physics.",
+    "has_simulation_limitations": true,
+    "category": "Entanglement",
+    "directory": "3-Photon_GHZ_State_Generator_via_Sequential_Entanglement_Swapping_20251125_152732"
+  },
+  {
+    "name": "4-Photon Boson Sampling Experiment",
+    "rating": 7,
+    "rating_label": "GOOD",
+    "key_insight": "Simulation perfectly validates the mathematical structure of boson sampling (permanent-based interference) but cannot assess experimental feasibility due to missing temporal/spectral distinguishability physics and realistic loss models.",
+    "conclusion": "\u2705 Simulation successfully captured the design's intended physics.",
+    "has_simulation_limitations": true,
+    "category": "Quantum Computation",
+    "directory": "4-Photon_Boson_Sampling_Experiment_20251125_185800"
+  },
+  {
+    "name": "BB84 Quantum Key Distribution Setup",
+    "rating": 7,
+    "rating_label": "GOOD",
+    "key_insight": "The simulation perfectly validates BB84's quantum polarization mechanics but completely misses the multi-photon security vulnerabilities that dominate real-world QKD implementations.",
+    "conclusion": "\u2705 Simulation successfully captured the design's intended physics.",
+    "has_simulation_limitations": true,
+    "category": "Quantum Communication",
+    "directory": "BB84_Quantum_Key_Distribution_Setup_20251125_181531"
+  },
+  {
+    "name": "Bell State Generator using SPDC",
+    "rating": 7,
+    "rating_label": "GOOD",
+    "key_insight": "Simulation correctly validates Bell state manipulation and measurement, but cannot verify whether the experimental setup would actually produce the required entangled state.",
+    "conclusion": "\u2705 Simulation successfully captured the design's intended physics.",
+    "has_simulation_limitations": true,
+    "category": "Entanglement",
+    "directory": "Bell_State_Generator_using_SPDC_20251123_132334"
+  },
+  {
+    "name": "Bell State Generator using Spontaneous Parametric Down-Conversion",
+    "rating": 7,
+    "rating_label": "GOOD",
+    "key_insight": "Polarization entanglement is well-captured by discrete Hilbert spaces, but spatial and temporal aspects of SPDC require more sophisticated modeling.",
+    "conclusion": "\u2705 Simulation successfully captured the design's intended physics.",
+    "has_simulation_limitations": true,
+    "category": "Entanglement",
+    "directory": "Bell_State_Generator_using_Spontaneous_Parametric_Down-Conversion_20251124_184403"
+  },
+  {
+    "name": "Continuous-Variable Quantum Teleportation with Squeezed States",
+    "rating": 2,
+    "rating_label": "POOR",
+    "key_insight": "The simulation attempts CV teleportation but implements wrong measurement operators and uses classical sampling instead of quantum conditional states, resulting in fidelity 17% (worse than classical 50%) when it should exceed 95% for these parameters.",
+    "conclusion": "\u26a0\ufe0f Simulation could not fully capture the design's intended physics.",
+    "has_simulation_limitations": true,
+    "category": "Quantum Communication",
+    "directory": "Continuous-Variable_Quantum_Teleportation_with_Squeezed_States_20251125_193302"
+  },
+  {
+    "name": "Continuous-Variable Quantum Teleportation with Squeezed States",
+    "rating": 2,
+    "rating_label": "POOR",
+    "key_insight": "The simulation attempts CV teleportation but implements wrong measurement operators and uses classical sampling instead of quantum conditional states, resulting in fidelity 17% (worse than classical 50%) when it should exceed 95% for these parameters.",
+    "conclusion": "\u26a0\ufe0f Simulation could not fully capture the design's intended physics.",
+    "has_simulation_limitations": true,
+    "category": "Quantum Communication",
+    "directory": "Continuous-Variable_Quantum_Teleportation_with_Squeezed_States_20251125_202705"
+  },
+  {
+    "name": "Delayed Choice Quantum Eraser Experiment",
+    "rating": 7,
+    "rating_label": "GOOD",
+    "key_insight": "The simulation correctly models quantum erasure correlations but cannot capture the temporal 'delayed choice' aspect that makes this experiment philosophically significant.",
+    "conclusion": "\u2705 Simulation successfully captured the design's intended physics.",
+    "has_simulation_limitations": true,
+    "category": "Other",
+    "directory": "Delayed_Choice_Quantum_Eraser_Experiment_20251124_191248"
+  },
+  {
+    "name": "Electromagnetically Induced Transparency (EIT) in Warm Rubidium Vapor",
+    "rating": 4,
+    "rating_label": "FAIR",
+    "key_insight": "Simulation uses correct quantum optics formalism for EIT but catastrophic parameter errors (atomic density 10^6\u00d7 too low) make the medium transparent without EIT, rendering validation meaningless despite sound theoretical framework.",
+    "conclusion": "\u26a0\ufe0f Simulation could not fully capture the design's intended physics.",
+    "has_simulation_limitations": true,
+    "category": "Atomic Physics",
+    "directory": "Electromagnetically_Induced_Transparency_(EIT)_in_Warm_Rubidium_Vapor_20251126_124851"
+  },
+  {
+    "name": "Franson Interferometer for Time-Bin Entanglement",
+    "rating": 2,
+    "rating_label": "POOR",
+    "key_insight": "Fock states can model spatial interference but fundamentally cannot capture time-bin entanglement - you cannot simulate temporal correlations without temporal degrees of freedom in your quantum state representation.",
+    "conclusion": "\u26a0\ufe0f Simulation could not fully capture the design's intended physics.",
+    "has_simulation_limitations": true,
+    "category": "Interferometry",
+    "directory": "Franson_Interferometer_for_Time-Bin_Entanglement_20251125_161034"
+  },
+  {
+    "name": "Hong-Ou-Mandel Interference Experiment",
+    "rating": 7,
+    "rating_label": "GOOD",
+    "key_insight": "Simulation correctly predicts ideal HOM interference results but cannot validate the experimental parameters needed to achieve photon indistinguishability.",
+    "conclusion": "\u2705 Simulation successfully captured the design's intended physics.",
+    "has_simulation_limitations": true,
+    "category": "Quantum Interference",
+    "directory": "Hong-Ou-Mandel_Interference_Experiment_20251122_160227"
+  },
+  {
+    "name": "Hong-Ou-Mandel Interference Setup",
+    "rating": 4,
+    "rating_label": "FAIR",
+    "key_insight": "The simulation shows idealized HOM results but cannot validate the critical temporal synchronization that determines real experimental success.",
+    "conclusion": "\u26a0\ufe0f Simulation could not fully capture the design's intended physics.",
+    "has_simulation_limitations": true,
+    "category": "Quantum Interference",
+    "directory": "Hong-Ou-Mandel_Interference_Setup_20251124_182846"
+  },
+  {
+    "name": "Hyperentangled Photon Source with Polarization and Time-Bin Entanglement",
+    "rating": 2,
+    "rating_label": "POOR",
+    "key_insight": "Time-bin entanglement requires temporal wavepacket formalism that Fock states fundamentally cannot provide - treating 'early' and 'late' as discrete modes completely misses the physics of temporal indistinguishability.",
+    "conclusion": "\u26a0\ufe0f Simulation could not fully capture the design's intended physics.",
+    "has_simulation_limitations": true,
+    "category": "Entanglement",
+    "directory": "Hyperentangled_Photon_Source_with_Polarization_and_Time-Bin_Entanglement_20251126_112153"
+  },
+  {
+    "name": "Mach-Zehnder Interferometer",
+    "rating": 7,
+    "rating_label": "GOOD",
+    "key_insight": "Fock state basis successfully captures coherent light interference in Mach-Zehnder geometry, validating the core quantum optics despite some numerical implementation issues.",
+    "conclusion": "\u2705 Simulation successfully captured the design's intended physics.",
+    "has_simulation_limitations": true,
+    "category": "Interferometry",
+    "directory": "Mach-Zehnder_Interferometer_20251124_180921"
+  },
+  {
+    "name": "Michelson Interferometer",
+    "rating": 9,
+    "rating_label": "EXCELLENT",
+    "key_insight": "This simulation excellently captures Michelson interferometer physics in the quantum regime, correctly modeling coherent state interference with proper beam splitter reciprocity.",
+    "conclusion": "\u2705 Simulation successfully captured the design's intended physics.",
+    "has_simulation_limitations": true,
+    "category": "Interferometry",
+    "directory": "Michelson_Interferometer_20251124_190302"
+  },
+  {
+    "name": "Quantum Frequency Converter: Telecom to Visible (Corrected)",
+    "rating": 4,
+    "rating_label": "FAIR",
+    "key_insight": "The simulation shows SFG can transfer photon number between modes while conserving energy, but lacks the temporal, spectral, and spatial mode physics needed to validate whether this specific PPLN design preserves single-photon quantum states.",
+    "conclusion": "\u26a0\ufe0f Simulation could not fully capture the design's intended physics.",
+    "has_simulation_limitations": true,
+    "category": "Quantum Conversion",
+    "directory": "Quantum_Frequency_Converter__Telecom_to_Visible_(Corrected)_20251126_132215"
+  },
+  {
+    "name": "Quantum Teleportation Experiment",
+    "rating": 2,
+    "rating_label": "POOR",
+    "key_insight": "Teleportation simulations require proper Bell state preparation and cannot be validated using instantaneous Fock state operations without temporal dynamics.",
+    "conclusion": "\u26a0\ufe0f Simulation could not fully capture the design's intended physics.",
+    "has_simulation_limitations": true,
+    "category": "Quantum Communication",
+    "directory": "Quantum_Teleportation_Experiment_20251125_155500"
+  },
+  {
+    "name": "Squeezed Light Source via Optical Parametric Oscillation (Refined)",
+    "rating": 2,
+    "rating_label": "POOR",
+    "key_insight": "Fock state simulation correctly generates squeezed vacuum but catastrophically fails at homodyne detection due to LO photon number error (factor 10\u2076) and missing temporal mode physics, producing impossible 68 dB squeezing that violates uncertainty principle.",
+    "conclusion": "\u26a0\ufe0f Simulation could not fully capture the design's intended physics.",
+    "has_simulation_limitations": true,
+    "category": "Nonlinear Optics",
+    "directory": "Squeezed_Light_Source_via_Optical_Parametric_Oscillation_(Refined)_20251125_175035"
+  },
+  {
+    "name": "Unbalanced Mach-Zehnder Interferometer with Path Length Control",
+    "rating": 2,
+    "rating_label": "POOR",
+    "key_insight": "The simulation applies quantum phase shifts to photon number states rather than classical optical path length phases, fundamentally misrepresenting interferometer physics.",
+    "conclusion": "\u26a0\ufe0f Simulation could not fully capture the design's intended physics.",
+    "has_simulation_limitations": true,
+    "category": "Interferometry",
+    "directory": "Unbalanced_Mach-Zehnder_Interferometer_with_Path_Length_Control_20251122_143822"
+  }
+]

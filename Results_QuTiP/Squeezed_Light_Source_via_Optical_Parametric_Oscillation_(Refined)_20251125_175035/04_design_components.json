@@ -1,0 +1,596 @@
+{
+  "title": "Squeezed Light Source via Optical Parametric Oscillation (Refined)",
+  "description": "Generates quadrature-squeezed vacuum states using a sub-threshold optical parametric oscillator with impedance-matched cavity, PDH locking, and phase-coherent local oscillator",
+  "components": [
+    {
+      "type": "laser",
+      "name": "Seed Laser (1064nm)",
+      "x": 0.5,
+      "y": 0.5,
+      "angle": 0,
+      "parameters": {
+        "wavelength": 1064,
+        "power": 10,
+        "linewidth": 1,
+        "description": "Ultra-stable 1064nm seed laser - frequency-doubled to create pump, ensuring phase coherence"
+      }
+    },
+    {
+      "type": "lens",
+      "name": "SHG Input Lens",
+      "x": 1.0,
+      "y": 0.5,
+      "angle": 0,
+      "parameters": {
+        "focal_length": 50,
+        "diameter": 25,
+        "description": "Focuses 1064nm light into SHG crystal"
+      }
+    },
+    {
+      "type": "ppln_crystal",
+      "name": "SHG Crystal",
+      "x": 1.5,
+      "y": 0.5,
+      "angle": 0,
+      "parameters": {
+        "type": "PPLN",
+        "interaction": "SHG",
+        "length": 10,
+        "poling_period": 6.92,
+        "phase_matching": "type-0",
+        "temperature": 50,
+        "description": "Second-harmonic generation: 1064nm \u2192 532nm, ensuring pump is phase-coherent with LO"
+      }
+    },
+    {
+      "type": "dichroic_mirror",
+      "name": "SHG Separator",
+      "x": 2.2,
+      "y": 0.5,
+      "angle": 45,
+      "parameters": {
+        "transmittance_532nm": 0.95,
+        "reflectivity_1064nm": 0.99,
+        "description": "Separates 532nm pump (transmitted up) from residual 1064nm (reflected right to LO path)"
+      }
+    },
+    {
+      "type": "mirror",
+      "name": "Pump Steering Mirror",
+      "x": 2.2,
+      "y": 1.5,
+      "angle": 45,
+      "parameters": {
+        "reflectivity": 0.99,
+        "wavelength": 532,
+        "description": "Directs 532nm pump beam upward to OPO cavity input"
+      }
+    },
+    {
+      "type": "mirror",
+      "name": "Pump Turning Mirror",
+      "x": 2.2,
+      "y": 2.5,
+      "angle": 45,
+      "parameters": {
+        "reflectivity": 0.99,
+        "wavelength": 532,
+        "description": "Turns pump beam horizontally toward phase modulator"
+      }
+    },
+    {
+      "type": "eom",
+      "name": "Phase Modulator",
+      "x": 3.0,
+      "y": 2.5,
+      "angle": 0,
+      "parameters": {
+        "frequency": 20,
+        "voltage": 10,
+        "type": "EOM",
+        "description": "Provides phase modulation sidebands for PDH locking"
+      }
+    },
+    {
+      "type": "optical_isolator",
+      "name": "Isolator",
+      "x": 3.5,
+      "y": 2.5,
+      "angle": 0,
+      "parameters": {
+        "isolation": 30,
+        "wavelength": 532,
+        "description": "Prevents back-reflections from destabilizing pump"
+      }
+    },
+    {
+      "type": "half_wave_plate",
+      "name": "HWP1",
+      "x": 4.0,
+      "y": 2.5,
+      "angle": 0,
+      "parameters": {
+        "order": "zero-order",
+        "wavelength": 532,
+        "description": "Adjusts pump polarization for optimal PPLN coupling"
+      }
+    },
+    {
+      "type": "lens",
+      "name": "Mode-Matching Lens 1",
+      "x": 4.5,
+      "y": 2.5,
+      "angle": 0,
+      "parameters": {
+        "focal_length": 100,
+        "diameter": 25,
+        "description": "First lens of telescope to match pump beam to OPO cavity mode"
+      }
+    },
+    {
+      "type": "lens",
+      "name": "Mode-Matching Lens 2",
+      "x": 5.0,
+      "y": 2.5,
+      "angle": 0,
+      "parameters": {
+        "focal_length": 75,
+        "diameter": 25,
+        "description": "Second lens completes mode-matching telescope"
+      }
+    },
+    {
+      "type": "mirror",
+      "name": "Pump Injection Mirror",
+      "x": 5.5,
+      "y": 2.5,
+      "angle": 45,
+      "parameters": {
+        "reflectivity": 0.99,
+        "wavelength": 532,
+        "description": "Directs pump upward to OPO cavity input coupler"
+      }
+    },
+    {
+      "type": "piezo_mirror",
+      "name": "Input Coupler",
+      "x": 5.5,
+      "y": 3.0,
+      "angle": 90,
+      "parameters": {
+        "transmittance_532nm": 0.95,
+        "reflectivity_1064nm": 0.998,
+        "piezo_range": 10,
+        "description": "HR@1064nm (99.8%), HT@532nm - impedance-matched to cavity losses, mounted on piezo for PDH locking"
+      }
+    },
+    {
+      "type": "ppln_crystal",
+      "name": "PPLN Crystal",
+      "x": 6.5,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "type": "PPLN",
+        "interaction": "OPO",
+        "length": 10,
+        "poling_period": 6.92,
+        "phase_matching": "type-0",
+        "temperature": 50,
+        "description": "Periodically-poled lithium niobate for degenerate OPO at 1064nm"
+      }
+    },
+    {
+      "type": "concave_mirror",
+      "name": "Curved Mirror M1",
+      "x": 7.5,
+      "y": 3.0,
+      "angle": 180,
+      "parameters": {
+        "radius_of_curvature": 50,
+        "reflectivity": 0.998,
+        "wavelength": 1064,
+        "description": "High-reflector end mirror (99.8%) defining OPO cavity geometry"
+      }
+    },
+    {
+      "type": "photodiode",
+      "name": "Reflection Monitor",
+      "x": 5.5,
+      "y": 3.8,
+      "angle": 0,
+      "parameters": {
+        "type": "fast photodiode",
+        "bandwidth": 50,
+        "description": "Detects reflected pump for PDH error signal generation"
+      }
+    },
+    {
+      "type": "dichroic_mirror",
+      "name": "Pump Separator",
+      "x": 5.5,
+      "y": 2.2,
+      "angle": 45,
+      "parameters": {
+        "transmittance_1064nm": 0.95,
+        "reflectivity_532nm": 0.99,
+        "description": "Separates residual 532nm pump from 1064nm squeezed output"
+      }
+    },
+    {
+      "type": "beam_dump",
+      "name": "Pump Dump",
+      "x": 4.7,
+      "y": 2.2,
+      "angle": 0,
+      "parameters": {
+        "description": "Absorbs residual 532nm pump light"
+      }
+    },
+    {
+      "type": "lens",
+      "name": "Output Mode-Matching Lens 1",
+      "x": 5.5,
+      "y": 1.8,
+      "angle": 0,
+      "parameters": {
+        "focal_length": 50,
+        "diameter": 25,
+        "description": "First lens to match squeezed beam mode to LO mode at homodyne BS"
+      }
+    },
+    {
+      "type": "lens",
+      "name": "Output Mode-Matching Lens 2",
+      "x": 5.9,
+      "y": 1.8,
+      "angle": 0,
+      "parameters": {
+        "focal_length": 50,
+        "diameter": 25,
+        "description": "Second lens completes mode-matching to homodyne detector"
+      }
+    },
+    {
+      "type": "dichroic_mirror",
+      "name": "Green Filter",
+      "x": 6.2,
+      "y": 1.8,
+      "angle": 0,
+      "parameters": {
+        "transmittance_1064nm": 0.98,
+        "reflectivity_532nm": 0.9999,
+        "description": "HR@532nm, HT@1064nm - ensures no residual pump reaches homodyne detector photodiodes"
+      }
+    },
+    {
+      "type": "half_wave_plate",
+      "name": "HWP2",
+      "x": 6.5,
+      "y": 1.8,
+      "angle": 0,
+      "parameters": {
+        "order": "zero-order",
+        "wavelength": 1064,
+        "description": "Adjusts squeezed quadrature angle relative to LO"
+      }
+    },
+    {
+      "type": "beam_splitter",
+      "name": "Homodyne BS",
+      "x": 7.0,
+      "y": 1.8,
+      "angle": 45,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "cube",
+        "wavelength": 1064,
+        "description": "50:50 beam splitter combining squeezed vacuum with local oscillator"
+      }
+    },
+    {
+      "type": "mirror",
+      "name": "LO Steering Mirror 1",
+      "x": 3.0,
+      "y": 0.5,
+      "angle": 0,
+      "parameters": {
+        "reflectivity": 0.99,
+        "wavelength": 1064,
+        "description": "Directs 1064nm LO beam toward piezo mirror"
+      }
+    },
+    {
+      "type": "piezo_mirror",
+      "name": "LO Piezo Mirror",
+      "x": 5.0,
+      "y": 0.5,
+      "angle": 90,
+      "parameters": {
+        "range": 5,
+        "wavelength": 1064,
+        "description": "Fine phase control of LO for homodyne detection quadrature selection"
+      }
+    },
+    {
+      "type": "mirror",
+      "name": "LO Steering Mirror 2",
+      "x": 7.0,
+      "y": 0.5,
+      "angle": 45,
+      "parameters": {
+        "reflectivity": 0.99,
+        "wavelength": 1064,
+        "description": "Directs LO beam upward to homodyne BS"
+      }
+    },
+    {
+      "type": "homodyne_detector",
+      "name": "Homodyne Detector",
+      "x": 8.0,
+      "y": 1.8,
+      "angle": 0,
+      "parameters": {
+        "type": "balanced homodyne",
+        "efficiency": 95,
+        "quantum_efficiency": 0.98,
+        "clearance": 80,
+        "bandwidth": 100,
+        "description": "Balanced photodetector measuring quadrature noise of squeezed vacuum"
+      }
+    },
+    {
+      "type": "custom_spectrum_analyzer",
+      "name": "Spectrum Analyzer",
+      "x": 9.0,
+      "y": 1.8,
+      "angle": 0,
+      "parameters": {
+        "description": "RF spectrum analyzer measuring noise power spectral density to verify squeezing below shot-noise level",
+        "frequency_range": "DC-100MHz",
+        "resolution": "1kHz"
+      }
+    },
+    {
+      "type": "custom_temperature_controller",
+      "name": "PPLN Temperature Controller",
+      "x": 6.5,
+      "y": 3.8,
+      "angle": 0,
+      "parameters": {
+        "description": "Precision temperature controller maintaining PPLN at 50\u00b0C \u00b1 0.01\u00b0C for phase-matching stability (critical: \u0394\u03bb ~ 0.1nm/\u00b0C)",
+        "stability": "0.01\u00b0C",
+        "setpoint": "50\u00b0C",
+        "connected_to": "PPLN Crystal"
+      }
+    },
+    {
+      "type": "custom_cavity_lock",
+      "name": "PDH Lock Electronics",
+      "x": 6.5,
+      "y": 4.8,
+      "angle": 0,
+      "parameters": {
+        "description": "Pound-Drever-Hall servo electronics generating error signal from reflection monitor and feeding back to Input Coupler piezo actuator",
+        "technique": "PDH",
+        "bandwidth": "100kHz",
+        "connected_to": "Input Coupler piezo, Reflection Monitor"
+      }
+    }
+  ],
+  "beam_path": [
+    [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        1.0,
+        0.5
+      ],
+      [
+        1.5,
+        0.5
+      ],
+      [
+        2.2,
+        0.5
+      ],
+      [
+        2.2,
+        1.5
+      ],
+      [
+        2.2,
+        2.5
+      ],
+      [
+        3.0,
+        2.5
+      ],
+      [
+        3.5,
+        2.5
+      ],
+      [
+        4.0,
+        2.5
+      ],
+      [
+        4.5,
+        2.5
+      ],
+      [
+        5.0,
+        2.5
+      ],
+      [
+        5.5,
+        2.5
+      ],
+      [
+        5.5,
+        3.0
+      ],
+      [
+        6.5,
+        3.0
+      ],
+      [
+        7.5,
+        3.0
+      ],
+      [
+        6.5,
+        3.0
+      ],
+      [
+        5.5,
+        3.0
+      ],
+      [
+        5.5,
+        2.2
+      ],
+      [
+        5.5,
+        1.8
+      ],
+      [
+        5.9,
+        1.8
+      ],
+      [
+        6.2,
+        1.8
+      ],
+      [
+        6.5,
+        1.8
+      ],
+      [
+        7.0,
+        1.8
+      ],
+      [
+        8.0,
+        1.8
+      ],
+      [
+        9.0,
+        1.8
+      ]
+    ],
+    [
+      [
+        2.2,
+        0.5
+      ],
+      [
+        3.0,
+        0.5
+      ],
+      [
+        5.0,
+        0.5
+      ],
+      [
+        7.0,
+        0.5
+      ],
+      [
+        7.0,
+        1.8
+      ],
+      [
+        8.0,
+        1.8
+      ]
+    ],
+    [
+      [
+        5.5,
+        3.0
+      ],
+      [
+        5.5,
+        3.8
+      ]
+    ],
+    [
+      [
+        5.5,
+        2.2
+      ],
+      [
+        4.7,
+        2.2
+      ]
+    ],
+    [
+      [
+        6.5,
+        3.0
+      ],
+      [
+        6.5,
+        3.8
+      ]
+    ],
+    [
+      [
+        5.5,
+        3.8
+      ],
+      [
+        6.5,
+        4.8
+      ]
+    ],
+    [
+      [
+        5.5,
+        3.0
+      ],
+      [
+        6.5,
+        4.8
+      ]
+    ]
+  ],
+  "physics_explanation": "A 1064nm seed laser is frequency-doubled to 532nm pump, ensuring phase coherence between pump and local oscillator. The pump drives a sub-threshold PPLN-based OPO cavity (impedance-matched with Input Coupler R=99.8% matched to M1 R=99.8% + losses). Degenerate parametric down-conversion generates squeezed vacuum at 1064nm with reduced quantum noise in one quadrature. The phase-coherent LO interferes with squeezed output at a 50:50 beam splitter, and balanced homodyne detection measures quadrature noise below the shot-noise limit. PDH locking stabilizes the OPO cavity resonance, while precision temperature control maintains PPLN phase-matching.",
+  "component_justifications": {
+    "Seed Laser (1064nm)": "Ultra-stable 1064nm laser serving dual purpose: frequency-doubled to create pump AND used directly as LO, ensuring phase coherence and eliminating independent phase noise",
+    "SHG Input Lens": "Focuses 1064nm seed into SHG crystal for efficient second-harmonic generation",
+    "SHG Crystal": "PPLN crystal for second-harmonic generation (1064nm \u2192 532nm), creating pump that is inherently phase-locked to LO",
+    "SHG Separator": "Dichroic mirror separating frequency-doubled 532nm pump from residual 1064nm (which becomes LO)",
+    "Pump Steering Mirror": "Directs 532nm pump upward from SHG path to OPO input path",
+    "Pump Turning Mirror": "Turns pump beam horizontally toward phase modulator and OPO cavity",
+    "Phase Modulator": "EOM at 20MHz provides phase modulation sidebands for Pound-Drever-Hall locking of OPO cavity",
+    "Isolator": "Prevents back-reflections from OPO cavity from destabilizing the pump",
+    "HWP1": "Rotates pump polarization to match PPLN crystal acceptance for type-0 phase-matching",
+    "Mode-Matching Lens 1": "First element of telescope matching pump beam waist to OPO cavity eigenmode",
+    "Mode-Matching Lens 2": "Completes mode-matching telescope for optimal pump-cavity coupling",
+    "Pump Injection Mirror": "Directs pump upward into OPO cavity through input coupler",
+    "Input Coupler": "Piezo-mounted dichroic mirror (R=99.8% @ 1064nm, T=95% @ 532nm) - impedance-matched to cavity losses for optimal squeezing, actuated by PDH servo",
+    "PPLN Crystal": "Nonlinear medium for degenerate optical parametric oscillation (532nm \u2192 1064nm + 1064nm), generating squeezed vacuum states",
+    "Curved Mirror M1": "High-reflector (R=99.8%) end mirror with 50mm radius of curvature defining stable OPO cavity geometry",
+    "Reflection Monitor": "Fast photodiode detecting reflected pump light for PDH error signal generation",
+    "Pump Separator": "Dichroic mirror separating residual 532nm pump from 1064nm squeezed output",
+    "Pump Dump": "Absorbs waste 532nm light to prevent stray reflections",
+    "Output Mode-Matching Lens 1": "First lens matching squeezed beam spatial mode to local oscillator mode at homodyne detector",
+    "Output Mode-Matching Lens 2": "Second lens completing mode-matching telescope for optimal homodyne visibility",
+    "Green Filter": "Additional dichroic filter (HR@532nm, HT@1064nm) ensuring no residual pump contaminates homodyne detector",
+    "HWP2": "Rotates squeezed state quadrature angle relative to LO to select measured quadrature (amplitude or phase)",
+    "Homodyne BS": "50:50 beam splitter interfering squeezed vacuum with bright local oscillator for balanced homodyne detection",
+    "LO Steering Mirror 1": "Directs residual 1064nm (LO) from SHG separator toward piezo mirror",
+    "LO Piezo Mirror": "Piezo-actuated mirror providing fine phase control of LO for homodyne quadrature selection",
+    "LO Steering Mirror 2": "Directs LO beam upward to combine with squeezed output at homodyne BS",
+    "Homodyne Detector": "Balanced photodetector with 98% quantum efficiency measuring photocurrent difference to extract quadrature noise",
+    "Spectrum Analyzer": "RF spectrum analyzer measuring noise power spectral density to verify squeezing below shot-noise level",
+    "PPLN Temperature Controller": "Precision controller maintaining PPLN crystal at 50\u00b0C \u00b1 0.01\u00b0C for stable phase-matching (critical: \u0394\u03bb ~ 0.1nm/\u00b0C)",
+    "PDH Lock Electronics": "Servo system generating error signal from reflection monitor and controlling Input Coupler piezo to lock cavity resonance"
+  },
+  "expected_outcome": "Spectrum analyzer shows noise power reduced 3-10 dB below shot-noise level in the squeezed quadrature (typically amplitude-squeezed), while orthogonal quadrature shows corresponding anti-squeezing. Squeezing bandwidth ~10-100 MHz limited by cavity linewidth. Rotating HWP2 by 45\u00b0 exchanges squeezed and anti-squeezed quadratures. Temperature drift of PPLN causes loss of squeezing, demonstrating need for active stabilization. PDH lock maintains cavity resonance with <1 Hz linewidth."
+}

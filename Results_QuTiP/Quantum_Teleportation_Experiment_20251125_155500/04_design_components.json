@@ -1,0 +1,452 @@
+{
+  "title": "Quantum Teleportation Experiment",
+  "description": "Demonstrates quantum teleportation by transferring an unknown quantum state from one photon to another using entanglement and classical communication.",
+  "components": [
+    {
+      "type": "laser",
+      "name": "State Preparation Laser",
+      "x": 0.5,
+      "y": 5.0,
+      "angle": 0,
+      "parameters": {
+        "wavelength": 810,
+        "power": 1
+      }
+    },
+    {
+      "type": "polarizer",
+      "name": "Initial Polarizer",
+      "x": 1.5,
+      "y": 5.0,
+      "angle": 0,
+      "parameters": {
+        "angle": 0
+      }
+    },
+    {
+      "type": "quarter_wave_plate",
+      "name": "State Preparation QWP",
+      "x": 2.5,
+      "y": 5.0,
+      "angle": 0,
+      "parameters": {
+        "wavelength": 810,
+        "angle": 22.5
+      }
+    },
+    {
+      "type": "laser",
+      "name": "Entanglement Pump Laser",
+      "x": 0.5,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "wavelength": 405,
+        "power": 50
+      }
+    },
+    {
+      "type": "crystal",
+      "name": "Entanglement BBO Crystal",
+      "x": 2.0,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "type": "BBO",
+        "interaction": "SPDC",
+        "phase_matching": "type-II",
+        "length": 2
+      }
+    },
+    {
+      "type": "mirror",
+      "name": "Idler Steering Mirror",
+      "x": 3.0,
+      "y": 2.0,
+      "angle": 45,
+      "parameters": {}
+    },
+    {
+      "type": "mirror",
+      "name": "Signal Steering Mirror",
+      "x": 3.0,
+      "y": 4.0,
+      "angle": -45,
+      "parameters": {}
+    },
+    {
+      "type": "mirror",
+      "name": "State Redirection Mirror",
+      "x": 3.5,
+      "y": 5.0,
+      "angle": -90,
+      "parameters": {}
+    },
+    {
+      "type": "half_wave_plate",
+      "name": "BSA HWP",
+      "x": 3.5,
+      "y": 4.5,
+      "angle": 0,
+      "parameters": {
+        "wavelength": 810,
+        "angle": 22.5
+      }
+    },
+    {
+      "type": "polarizing_beam_splitter",
+      "name": "Bell State Analyzer PBS",
+      "x": 4.5,
+      "y": 4.5,
+      "angle": 0,
+      "parameters": {
+        "transmittance": 0.5
+      }
+    },
+    {
+      "type": "detector",
+      "name": "BSA Detector H",
+      "x": 5.5,
+      "y": 4.5,
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 0.6,
+        "timing_resolution": 50
+      }
+    },
+    {
+      "type": "detector",
+      "name": "BSA Detector V",
+      "x": 4.5,
+      "y": 5.5,
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 0.6,
+        "timing_resolution": 50
+      }
+    },
+    {
+      "type": "mirror",
+      "name": "Teleportation Mirror 1",
+      "x": 4.0,
+      "y": 2.0,
+      "angle": 0,
+      "parameters": {}
+    },
+    {
+      "type": "mirror",
+      "name": "Teleportation Mirror 2",
+      "x": 5.5,
+      "y": 2.0,
+      "angle": 0,
+      "parameters": {}
+    },
+    {
+      "type": "half_wave_plate",
+      "name": "Correction HWP",
+      "x": 6.5,
+      "y": 2.0,
+      "angle": 0,
+      "parameters": {
+        "wavelength": 810,
+        "angle": 0
+      }
+    },
+    {
+      "type": "quarter_wave_plate",
+      "name": "Correction QWP",
+      "x": 7.0,
+      "y": 2.0,
+      "angle": 0,
+      "parameters": {
+        "wavelength": 810,
+        "angle": 0
+      }
+    },
+    {
+      "type": "polarizer",
+      "name": "Analysis Polarizer",
+      "x": 7.5,
+      "y": 2.0,
+      "angle": 0,
+      "parameters": {
+        "angle": 0
+      }
+    },
+    {
+      "type": "detector",
+      "name": "Teleportation Detector",
+      "x": 8.0,
+      "y": 2.0,
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 0.6,
+        "timing_resolution": 50
+      }
+    },
+    {
+      "type": "custom_coincidence_counter",
+      "name": "3-Fold Coincidence Unit",
+      "x": 6.0,
+      "y": 3.5,
+      "angle": 0,
+      "parameters": {
+        "description": "Electronic unit that processes signals from all three detectors to identify valid teleportation events within a coincidence window",
+        "channels": 3,
+        "timing_resolution": "1ns",
+        "coincidence_window": "2ns"
+      }
+    },
+    {
+      "type": "custom_classical_channel",
+      "name": "Classical Communication",
+      "x": 6.0,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "description": "Classical communication channel that transmits Bell measurement results to control the unitary correction operations on the correction wave plates",
+        "latency": "10ns",
+        "channels": 2
+      }
+    }
+  ],
+  "beam_path": [
+    [
+      [
+        0.5,
+        5.0
+      ],
+      [
+        1.5,
+        5.0
+      ],
+      [
+        2.5,
+        5.0
+      ],
+      [
+        3.5,
+        5.0
+      ],
+      [
+        3.5,
+        4.5
+      ],
+      [
+        4.5,
+        4.5
+      ],
+      [
+        5.5,
+        4.5
+      ]
+    ],
+    [
+      [
+        0.5,
+        5.0
+      ],
+      [
+        1.5,
+        5.0
+      ],
+      [
+        2.5,
+        5.0
+      ],
+      [
+        3.5,
+        5.0
+      ],
+      [
+        3.5,
+        4.5
+      ],
+      [
+        4.5,
+        4.5
+      ],
+      [
+        4.5,
+        5.5
+      ]
+    ],
+    [
+      [
+        0.5,
+        3.0
+      ],
+      [
+        2.0,
+        3.0
+      ],
+      [
+        3.0,
+        4.0
+      ],
+      [
+        3.5,
+        4.5
+      ],
+      [
+        4.5,
+        4.5
+      ],
+      [
+        5.5,
+        4.5
+      ]
+    ],
+    [
+      [
+        0.5,
+        3.0
+      ],
+      [
+        2.0,
+        3.0
+      ],
+      [
+        3.0,
+        4.0
+      ],
+      [
+        3.5,
+        4.5
+      ],
+      [
+        4.5,
+        4.5
+      ],
+      [
+        4.5,
+        5.5
+      ]
+    ],
+    [
+      [
+        0.5,
+        3.0
+      ],
+      [
+        2.0,
+        3.0
+      ],
+      [
+        3.0,
+        2.0
+      ],
+      [
+        4.0,
+        2.0
+      ],
+      [
+        5.5,
+        2.0
+      ],
+      [
+        6.5,
+        2.0
+      ],
+      [
+        7.0,
+        2.0
+      ],
+      [
+        7.5,
+        2.0
+      ],
+      [
+        8.0,
+        2.0
+      ]
+    ],
+    [
+      [
+        5.5,
+        4.5
+      ],
+      [
+        6.0,
+        3.5
+      ]
+    ],
+    [
+      [
+        4.5,
+        5.5
+      ],
+      [
+        6.0,
+        3.5
+      ]
+    ],
+    [
+      [
+        8.0,
+        2.0
+      ],
+      [
+        6.0,
+        3.5
+      ]
+    ],
+    [
+      [
+        6.0,
+        3.5
+      ],
+      [
+        6.0,
+        3.0
+      ]
+    ],
+    [
+      [
+        6.0,
+        3.0
+      ],
+      [
+        6.5,
+        2.0
+      ]
+    ],
+    [
+      [
+        6.0,
+        3.0
+      ],
+      [
+        7.0,
+        2.0
+      ]
+    ]
+  ],
+  "physics_explanation": "An unknown quantum state |\u03c8\u27e9 = \u03b1|H\u27e9 + \u03b2|V\u27e9 is prepared on photon A using the state preparation laser and wave plate. Simultaneously, entangled photons B and C are created via SPDC in the |\u03a6+\u27e9 = (|HH\u27e9 + |VV\u27e9)/\u221a2 Bell state. A Bell state measurement on photons A and B at the polarizing beam splitter projects their joint state, which instantaneously transforms photon C into the original state |\u03c8\u27e9 up to a known Pauli operation. Classical communication of the Bell measurement outcome enables real-time correction of photon C using programmable wave plates, completing the faithful teleportation of the unknown quantum state.",
+  "component_justifications": {
+    "State Preparation Laser": "Creates photon A in a well-defined polarization state that will be transformed into the unknown state to be teleported",
+    "Initial Polarizer": "Establishes a horizontal polarization reference state for subsequent manipulation",
+    "State Preparation QWP": "Converts the horizontal state into an arbitrary superposition |\u03c8\u27e9 = \u03b1|H\u27e9 + \u03b2|V\u27e9 representing the unknown quantum state",
+    "Entanglement Pump Laser": "405nm pump laser provides the energy for SPDC to generate the entangled photon pair B and C",
+    "Entanglement BBO Crystal": "Type-II SPDC source creating maximally entangled Bell state |\u03a6+\u27e9 = (|HH\u27e9 + |VV\u27e9)/\u221a2 between photons B and C",
+    "Idler Steering Mirror": "Directs idler photon C toward the teleportation output path for final state analysis",
+    "Signal Steering Mirror": "Directs signal photon B toward the Bell state measurement region",
+    "State Redirection Mirror": "Redirects photon A from the state preparation path to interfere with photon B at the Bell state analyzer",
+    "BSA HWP": "Half-wave plate that enables complete Bell state discrimination by rotating polarization basis before the PBS",
+    "Bell State Analyzer PBS": "Polarizing beam splitter that performs the crucial Bell state measurement on photons A and B by separating H and V polarizations",
+    "BSA Detector H": "SPAD detector measuring horizontally polarized photons from the Bell state analyzer",
+    "BSA Detector V": "SPAD detector measuring vertically polarized photons, completing the Bell measurement to identify which Bell state was projected",
+    "Teleportation Mirror 1": "Steers teleported photon C toward the correction optics for Pauli gate application",
+    "Teleportation Mirror 2": "Final steering of photon C to align with the correction wave plates",
+    "Correction HWP": "Programmable half-wave plate that applies \u03c3x or \u03c3z Pauli corrections based on Bell measurement outcome",
+    "Correction QWP": "Programmable quarter-wave plate that applies \u03c3y Pauli correction when combined with HWP rotations",
+    "Analysis Polarizer": "Analyzes the final polarization state of the corrected teleported photon to verify successful state transfer",
+    "Teleportation Detector": "SPAD detector that measures the successfully teleported and corrected quantum state",
+    "3-Fold Coincidence Unit": "Electronic system that identifies valid teleportation events by detecting three-fold coincidences between both Bell detectors and the teleportation detector",
+    "Classical Communication": "Real-time communication system that transmits Bell measurement results to control the correction wave plate orientations within the coherence time"
+  },
+  "expected_outcome": "Triple coincidence events between the Bell state detectors and teleportation detector will demonstrate quantum teleportation with fidelity exceeding the classical limit of 2/3. The correction operations ensure that regardless of which Bell state was measured, the teleported photon C faithfully reproduces the original unknown state |\u03c8\u27e9, confirming genuine quantum state transfer without classical information about the original state."
+}

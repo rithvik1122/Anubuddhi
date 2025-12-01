@@ -1,0 +1,350 @@
+{
+  "title": "Hyperentangled Photon Source with Polarization and OAM via Cascaded SPDC",
+  "description": "Generates photon pairs hyperentangled in both polarization and orbital angular momentum using cascaded Type-I SPDC crystals with spatial mode conversion",
+  "components": [
+    {
+      "type": "laser",
+      "description": "Pump Laser",
+      "position": [
+        0.5,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "wavelength": 405,
+        "power": 300,
+        "linewidth": 1
+      },
+      "component_number": 1
+    },
+    {
+      "type": "lens",
+      "description": "Pump Collimator",
+      "position": [
+        1.2,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "focal_length": 50,
+        "diameter": 25
+      },
+      "component_number": 2
+    },
+    {
+      "type": "half_wave_plate",
+      "description": "HWP 45\u00b0",
+      "position": [
+        1.8,
+        3.0
+      ],
+      "angle": 45,
+      "parameters": {
+        "order": "zero-order",
+        "wavelength": 405
+      },
+      "component_number": 3
+    },
+    {
+      "type": "polarizing_beam_splitter",
+      "description": "PBS Pump Split",
+      "position": [
+        2.4,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "transmittance": 1.0,
+        "type": "polarizing"
+      },
+      "component_number": 4
+    },
+    {
+      "type": "mirror",
+      "description": "Mirror Upper Pump",
+      "position": [
+        2.4,
+        4.5
+      ],
+      "angle": 0,
+      "parameters": {},
+      "component_number": 5
+    },
+    {
+      "type": "bbo_crystal",
+      "description": "BBO Crystal H",
+      "position": [
+        3.5,
+        4.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "BBO",
+        "interaction": "SPDC",
+        "phase_matching": "type-I",
+        "length": 2,
+        "wavelength": 810
+      },
+      "component_number": 6
+    },
+    {
+      "type": "bbo_crystal",
+      "description": "BBO Crystal V",
+      "position": [
+        3.5,
+        1.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "BBO",
+        "interaction": "SPDC",
+        "phase_matching": "type-I",
+        "length": 2,
+        "wavelength": 810
+      },
+      "component_number": 7
+    },
+    {
+      "type": "dichroic_mirror",
+      "description": "Dichroic Upper",
+      "position": [
+        4.3,
+        4.5
+      ],
+      "angle": 45,
+      "parameters": {
+        "wavelength": 405,
+        "type": "reflective"
+      },
+      "component_number": 8
+    },
+    {
+      "type": "dichroic_mirror",
+      "description": "Dichroic Lower",
+      "position": [
+        4.3,
+        1.5
+      ],
+      "angle": 45,
+      "parameters": {
+        "wavelength": 405,
+        "type": "reflective"
+      },
+      "component_number": 9
+    },
+    {
+      "type": "beam_dump",
+      "description": "Dump Upper",
+      "position": [
+        4.8,
+        5.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "power_rating": 500
+      },
+      "component_number": 10
+    },
+    {
+      "type": "beam_dump",
+      "description": "Dump Lower",
+      "position": [
+        4.8,
+        1.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "power_rating": 500
+      },
+      "component_number": 11
+    },
+    {
+      "type": "spatial_light_modulator",
+      "description": "SLM Upper",
+      "position": [
+        5.2,
+        4.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "phase-only",
+        "resolution": "1920x1080",
+        "phase_levels": 256,
+        "mode": "LG superposition +\u2113 and -\u2113"
+      },
+      "component_number": 12
+    },
+    {
+      "type": "spatial_light_modulator",
+      "description": "SLM Lower",
+      "position": [
+        5.2,
+        1.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "phase-only",
+        "resolution": "1920x1080",
+        "phase_levels": 256,
+        "mode": "LG superposition +\u2113 and -\u2113"
+      },
+      "component_number": 13
+    },
+    {
+      "type": "beam_splitter",
+      "description": "BS Recombine",
+      "position": [
+        6.2,
+        3.0
+      ],
+      "angle": 45,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "non-polarizing"
+      },
+      "component_number": 14
+    },
+    {
+      "type": "lens",
+      "description": "Collection Lens",
+      "position": [
+        7.0,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "focal_length": 100,
+        "diameter": 50
+      },
+      "component_number": 15
+    },
+    {
+      "type": "polarizing_beam_splitter",
+      "description": "PBS Analysis",
+      "position": [
+        7.8,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "transmittance": 1.0,
+        "type": "polarizing"
+      },
+      "component_number": 16
+    },
+    {
+      "type": "custom_oam_sorter",
+      "description": "OAM Sorter H",
+      "position": [
+        8.6,
+        4.2
+      ],
+      "angle": 0,
+      "parameters": {
+        "description": "Phase mask and mode converter that spatially separates photons by OAM charge into +\u2113 and -\u2113 output ports using geometric phase elements",
+        "oam_modes": "\u00b1\u2113",
+        "efficiency": 85
+      },
+      "component_number": 17
+    },
+    {
+      "type": "custom_oam_sorter",
+      "description": "OAM Sorter V",
+      "position": [
+        8.6,
+        1.8
+      ],
+      "angle": 0,
+      "parameters": {
+        "description": "Phase mask and mode converter that spatially separates photons by OAM charge into +\u2113 and -\u2113 output ports using geometric phase elements",
+        "oam_modes": "\u00b1\u2113",
+        "efficiency": 85
+      },
+      "component_number": 18
+    },
+    {
+      "type": "spad",
+      "description": "SPAD H+\u2113",
+      "position": [
+        9.5,
+        4.8
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 70,
+        "dark_count_rate": 100,
+        "timing_resolution": 50
+      },
+      "component_number": 19
+    },
+    {
+      "type": "spad",
+      "description": "SPAD H-\u2113",
+      "position": [
+        9.5,
+        3.6
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 70,
+        "dark_count_rate": 100,
+        "timing_resolution": 50
+      },
+      "component_number": 20
+    },
+    {
+      "type": "spad",
+      "description": "SPAD V+\u2113",
+      "position": [
+        9.5,
+        2.4
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 70,
+        "dark_count_rate": 100,
+        "timing_resolution": 50
+      },
+      "component_number": 21
+    },
+    {
+      "type": "spad",
+      "description": "SPAD V-\u2113",
+      "position": [
+        9.5,
+        1.2
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 70,
+        "dark_count_rate": 100,
+        "timing_resolution": 50
+      },
+      "component_number": 22
+    },
+    {
+      "type": "custom_coincidence_counter",
+      "description": "4-Fold Coincidence",
+      "position": [
+        9.8,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "description": "Four-channel coincidence counter processing all SPAD outputs to identify hyperentangled correlations in both polarization and OAM bases with 500ps timing window for Bell inequality tests",
+        "channels": 4,
+        "timing_resolution": "500ps",
+        "measurement_type": "hyperentanglement verification"
+      },
+      "component_number": 23
+    }
+  ],
+  "beam_paths": [],
+  "physics_explanation": "A 405nm pump laser with diagonal polarization is split by PBS into H-polarized (upper path) and V-polarized (lower path) components. Each path contains a Type-I BBO crystal generating degenerate photon pairs at 810nm with identical polarization (HH pairs in upper crystal, VV pairs in lower crystal). The SLMs on each path encode spatial superposition states (|LG+\u2113\u27e9+|LG-\u2113\u27e9)/\u221a2 onto both photons in each pair before the paths recombine at the non-polarizing beam splitter. This creates the hyperentangled state |\u03a8\u27e9 = (|HH\u27e9+|VV\u27e9)/\u221a2 \u2297 (|+\u2113,+\u2113\u27e9+|-\u2113,-\u2113\u27e9)/\u221a2, where polarization entanglement arises from path indistinguishability after recombination and OAM entanglement from correlated spatial mode encoding. The PBS Analysis and OAM sorters enable independent measurement of both degrees of freedom.",
+  "expected_outcome": "Four-fold coincidence measurements reveal true hyperentanglement in both degrees of freedom. In polarization basis, strong correlations show HH and VV pair generation with >90% visibility. In OAM basis, correlated detection shows both photons have same OAM charge (+\u2113,+\u2113 or -\u2113,-\u2113). Joint measurements in both bases simultaneously demonstrate the tensor product structure |\u03a8\u27e9 = (|HH\u27e9+|VV\u27e9)/\u221a2 \u2297 (|+\u2113,+\u2113\u27e9+|-\u2113,-\u2113\u27e9)/\u221a2 with Schmidt number of 4, violating generalized Bell inequalities and confirming genuine hyperentanglement. Typical coincidence rates of 10^4 counts/second enable high-dimensional quantum information protocols with enhanced channel capacity.",
+  "note": "Component numbers match the labels shown in 07_optical_setup.png (1-indexed)"
+}

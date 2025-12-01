@@ -1,0 +1,315 @@
+{
+  "title": "Delayed Choice Quantum Eraser Experiment",
+  "description": "Demonstrates retroactive erasure of which-path information using entangled photons where the choice to measure or erase path information occurs after detection of the signal photon.",
+  "components": [
+    {
+      "type": "laser",
+      "description": "405nm Pump Laser",
+      "position": [
+        0.5,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "wavelength": 405,
+        "power": 100,
+        "linewidth": 1000
+      },
+      "component_number": 1
+    },
+    {
+      "type": "lens",
+      "description": "Pump Lens",
+      "position": [
+        1.2,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "focal_length": 50,
+        "diameter": 25
+      },
+      "component_number": 2
+    },
+    {
+      "type": "bbo_crystal",
+      "description": "Type-II BBO",
+      "position": [
+        2.0,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "BBO",
+        "interaction": "SPDC",
+        "phase_matching": "type-II",
+        "length": 2
+      },
+      "component_number": 3
+    },
+    {
+      "type": "lens",
+      "description": "Signal Collimator",
+      "position": [
+        3.0,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "focal_length": 100,
+        "diameter": 25
+      },
+      "component_number": 4
+    },
+    {
+      "type": "double_slit",
+      "description": "Double Slit",
+      "position": [
+        4.5,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "spacing": 500,
+        "width": 50
+      },
+      "component_number": 5
+    },
+    {
+      "type": "lens",
+      "description": "Imaging Lens",
+      "position": [
+        5.5,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "focal_length": 200,
+        "diameter": 50
+      },
+      "component_number": 6
+    },
+    {
+      "type": "detector",
+      "description": "D0 Signal Detector",
+      "position": [
+        7.0,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 65,
+        "dark_count_rate": 25,
+        "timing_resolution": 50
+      },
+      "component_number": 7
+    },
+    {
+      "type": "lens",
+      "description": "Idler Lens A",
+      "position": [
+        3.0,
+        4.2
+      ],
+      "angle": 0,
+      "parameters": {
+        "focal_length": 100,
+        "diameter": 25
+      },
+      "component_number": 8
+    },
+    {
+      "type": "lens",
+      "description": "Idler Lens B",
+      "position": [
+        3.0,
+        1.8
+      ],
+      "angle": 0,
+      "parameters": {
+        "focal_length": 100,
+        "diameter": 25
+      },
+      "component_number": 9
+    },
+    {
+      "type": "mirror",
+      "description": "Mirror A1",
+      "position": [
+        4.5,
+        4.2
+      ],
+      "angle": 315,
+      "parameters": {
+        "reflectivity": 0.99
+      },
+      "component_number": 10
+    },
+    {
+      "type": "mirror",
+      "description": "Mirror B1",
+      "position": [
+        4.5,
+        1.8
+      ],
+      "angle": 45,
+      "parameters": {
+        "reflectivity": 0.99
+      },
+      "component_number": 11
+    },
+    {
+      "type": "beam_splitter",
+      "description": "BS_A",
+      "position": [
+        5.5,
+        4.8
+      ],
+      "angle": 45,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "cube"
+      },
+      "component_number": 12
+    },
+    {
+      "type": "beam_splitter",
+      "description": "BS_B",
+      "position": [
+        5.5,
+        1.2
+      ],
+      "angle": 45,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "cube"
+      },
+      "component_number": 13
+    },
+    {
+      "type": "mirror",
+      "description": "Mirror A2",
+      "position": [
+        6.2,
+        5.5
+      ],
+      "angle": 315,
+      "parameters": {
+        "reflectivity": 0.99
+      },
+      "component_number": 14
+    },
+    {
+      "type": "mirror",
+      "description": "Mirror B2",
+      "position": [
+        6.2,
+        0.5
+      ],
+      "angle": 45,
+      "parameters": {
+        "reflectivity": 0.99
+      },
+      "component_number": 15
+    },
+    {
+      "type": "beam_splitter",
+      "description": "BS_Eraser",
+      "position": [
+        7.5,
+        4.8
+      ],
+      "angle": 45,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "cube"
+      },
+      "component_number": 16
+    },
+    {
+      "type": "detector",
+      "description": "D1 Which-Path A",
+      "position": [
+        6.5,
+        4.8
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 65,
+        "dark_count_rate": 25,
+        "timing_resolution": 50
+      },
+      "component_number": 17
+    },
+    {
+      "type": "detector",
+      "description": "D2 Which-Path B",
+      "position": [
+        5.5,
+        0.2
+      ],
+      "angle": 270,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 65,
+        "dark_count_rate": 25,
+        "timing_resolution": 50
+      },
+      "component_number": 18
+    },
+    {
+      "type": "detector",
+      "description": "D3 Erased",
+      "position": [
+        8.5,
+        4.8
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 65,
+        "dark_count_rate": 25,
+        "timing_resolution": 50
+      },
+      "component_number": 19
+    },
+    {
+      "type": "detector",
+      "description": "D4 Erased",
+      "position": [
+        7.5,
+        5.8
+      ],
+      "angle": 90,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 65,
+        "dark_count_rate": 25,
+        "timing_resolution": 50
+      },
+      "component_number": 20
+    },
+    {
+      "type": "custom_coincidence_counter",
+      "description": "5-Channel Coincidence",
+      "position": [
+        8.5,
+        1.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "description": "Electronic coincidence counter processing timing signals from all 5 SPADs (D0, D1, D2, D3, D4) to correlate signal photon positions with idler photon measurements within 2ns timing window",
+        "channels": 5,
+        "timing_resolution": "350ps",
+        "window": "2ns"
+      },
+      "component_number": 21
+    }
+  ],
+  "beam_paths": [],
+  "physics_explanation": "Type-II SPDC creates momentum-entangled signal-idler photon pairs. Signal photons pass through a double slit creating spatial superposition, while idler photons propagate along two distinct paths (A or B) correlated with which slit the signal photon passed through due to momentum conservation. Each idler path encounters a beam splitter: BS_A and BS_B allow direct transmission to D1 and D2 (preserving which-path information), or reflection toward BS_Eraser where paths A and B interfere quantum mechanically before detection at D3 or D4 (erasing which-path information). Coincidence counting between D0 and idler detectors retroactively determines whether interference appears at D0, demonstrating complementarity and delayed choice since the erasure decision occurs after signal detection.",
+  "expected_outcome": "The raw D0 detector data shows no interference pattern (all fringes wash out). However, post-selection based on coincidence counting reveals: (1) D0-D1 and D0-D2 coincidences show no interference fringes, confirming particle-like behavior when which-path information is preserved by detecting idler at D1 or D2; (2) D0-D3 and D0-D4 coincidences show complementary interference patterns with high visibility, confirming wave-like behavior when which-path information is erased by idler path interference at BS_Eraser; (3) The choice to measure at D1/D2 versus D3/D4 occurs after the signal photon has already been detected at D0 (due to longer optical path through mirrors to BS_Eraser), demonstrating the delayed choice nature and confirming that complementarity is enforced by quantum correlations, not retrocausal influence.",
+  "note": "Component numbers match the labels shown in 07_optical_setup.png (1-indexed)"
+}

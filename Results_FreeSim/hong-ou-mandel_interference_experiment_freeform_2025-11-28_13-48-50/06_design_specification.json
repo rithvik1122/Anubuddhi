@@ -1,0 +1,302 @@
+{
+  "title": "Hong-Ou-Mandel Interference Experiment",
+  "description": "Demonstrates two-photon quantum interference where indistinguishable photons bunch at a beam splitter, creating a characteristic dip in coincidence counts",
+  "components": [
+    {
+      "type": "laser",
+      "description": "Pump Laser",
+      "position": [
+        0.5,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "wavelength": 405,
+        "power": 100,
+        "linewidth": 1000
+      },
+      "component_number": 1
+    },
+    {
+      "type": "lens",
+      "description": "Focusing Lens",
+      "position": [
+        1.5,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "focal_length": 50,
+        "diameter": 25
+      },
+      "component_number": 2
+    },
+    {
+      "type": "crystal",
+      "description": "BBO Crystal",
+      "position": [
+        2.5,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "BBO",
+        "interaction": "SPDC",
+        "phase_matching": "type-II",
+        "length": 2
+      },
+      "component_number": 3
+    },
+    {
+      "type": "polarizing_beam_splitter",
+      "description": "PBS Separator",
+      "position": [
+        3.5,
+        3.0
+      ],
+      "angle": 45,
+      "parameters": {
+        "type": "polarizing cube"
+      },
+      "component_number": 4
+    },
+    {
+      "type": "filter",
+      "description": "Pump Block Filter 1",
+      "position": [
+        4.2,
+        4.2
+      ],
+      "angle": 0,
+      "parameters": {
+        "wavelength": 405,
+        "bandwidth": 10,
+        "optical_depth": 6
+      },
+      "component_number": 5
+    },
+    {
+      "type": "filter",
+      "description": "Pump Block Filter 2",
+      "position": [
+        4.2,
+        1.8
+      ],
+      "angle": 0,
+      "parameters": {
+        "wavelength": 405,
+        "bandwidth": 10,
+        "optical_depth": 6
+      },
+      "component_number": 6
+    },
+    {
+      "type": "half_wave_plate",
+      "description": "HWP 1",
+      "position": [
+        4.7,
+        4.2
+      ],
+      "angle": 0,
+      "parameters": {
+        "order": "zero-order",
+        "wavelength": 810
+      },
+      "component_number": 7
+    },
+    {
+      "type": "half_wave_plate",
+      "description": "HWP 2",
+      "position": [
+        4.7,
+        1.8
+      ],
+      "angle": 0,
+      "parameters": {
+        "order": "zero-order",
+        "wavelength": 810
+      },
+      "component_number": 8
+    },
+    {
+      "type": "mirror",
+      "description": "Mirror 1",
+      "position": [
+        5.5,
+        4.2
+      ],
+      "angle": 270,
+      "parameters": {},
+      "component_number": 9
+    },
+    {
+      "type": "mirror",
+      "description": "Mirror 2",
+      "position": [
+        5.5,
+        1.8
+      ],
+      "angle": 90,
+      "parameters": {},
+      "component_number": 10
+    },
+    {
+      "type": "delay_stage",
+      "description": "Delay Stage",
+      "position": [
+        6.5,
+        4.2
+      ],
+      "angle": 0,
+      "parameters": {
+        "range": "100mm",
+        "resolution": "0.1\u03bcm"
+      },
+      "component_number": 11
+    },
+    {
+      "type": "mirror",
+      "description": "Mirror 3",
+      "position": [
+        7.5,
+        4.2
+      ],
+      "angle": 180,
+      "parameters": {},
+      "component_number": 12
+    },
+    {
+      "type": "mirror",
+      "description": "Mirror 4",
+      "position": [
+        7.5,
+        1.8
+      ],
+      "angle": 0,
+      "parameters": {},
+      "component_number": 13
+    },
+    {
+      "type": "beam_splitter",
+      "description": "50:50 BS",
+      "position": [
+        8.0,
+        3.0
+      ],
+      "angle": 45,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "non-polarizing cube"
+      },
+      "component_number": 14
+    },
+    {
+      "type": "filter",
+      "description": "IF Filter 1",
+      "position": [
+        8.7,
+        3.7
+      ],
+      "angle": 0,
+      "parameters": {
+        "wavelength": 810,
+        "bandwidth": 3
+      },
+      "component_number": 15
+    },
+    {
+      "type": "filter",
+      "description": "IF Filter 2",
+      "position": [
+        8.7,
+        2.3
+      ],
+      "angle": 0,
+      "parameters": {
+        "wavelength": 810,
+        "bandwidth": 3
+      },
+      "component_number": 16
+    },
+    {
+      "type": "lens",
+      "description": "Coupling Lens 1",
+      "position": [
+        9.2,
+        3.7
+      ],
+      "angle": 0,
+      "parameters": {
+        "focal_length": 11,
+        "diameter": 10
+      },
+      "component_number": 17
+    },
+    {
+      "type": "lens",
+      "description": "Coupling Lens 2",
+      "position": [
+        9.2,
+        2.3
+      ],
+      "angle": 0,
+      "parameters": {
+        "focal_length": 11,
+        "diameter": 10
+      },
+      "component_number": 18
+    },
+    {
+      "type": "detector",
+      "description": "SPAD 1",
+      "position": [
+        9.8,
+        3.7
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 65,
+        "dark_count_rate": 25,
+        "timing_resolution": 50
+      },
+      "component_number": 19
+    },
+    {
+      "type": "detector",
+      "description": "SPAD 2",
+      "position": [
+        9.8,
+        2.3
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 65,
+        "dark_count_rate": 25,
+        "timing_resolution": 50
+      },
+      "component_number": 20
+    },
+    {
+      "type": "custom_coincidence_counter",
+      "description": "Coincidence Counter",
+      "position": [
+        9.8,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "description": "Time-to-digital converter electronically processing outputs from SPAD 1 and SPAD 2 to measure coincidence events within 1ns timing window as delay stage is scanned",
+        "channels": 2,
+        "timing_resolution": "50ps",
+        "coincidence_window": "1ns"
+      },
+      "component_number": 21
+    }
+  ],
+  "beam_paths": [],
+  "physics_explanation": "Type-II SPDC in BBO crystal generates orthogonally polarized photon pairs at 810nm from 405nm pump photons. The PBS spatially separates signal (H-polarized) and idler (V-polarized) photons into upper and lower arms. Half-wave plates rotate both polarizations to the same state, making photons indistinguishable. When path lengths are matched at the 50:50 beam splitter, quantum interference causes both photons to bunch and exit through the same port due to bosonic statistics, creating a characteristic dip in coincidence counts. The delay stage scans the relative arrival time, revealing the two-photon interference pattern with visibility determined by photon indistinguishability.",
+  "expected_outcome": "As the delay stage is scanned, coincidence counts between SPAD 1 and SPAD 2 will show a characteristic dip (the Hong-Ou-Mandel dip) when the path lengths are matched. At zero delay, coincidences drop to near zero (ideally 50% reduction for perfect visibility) because indistinguishable photons bunch together and exit the same output port due to quantum interference. The dip width (typically 100-200 femtoseconds FWHM) is inversely proportional to the photon bandwidth, and visibility greater than 90% indicates high photon indistinguishability. This demonstrates the purely quantum nature of two-photon interference, as classical waves would show no such effect.",
+  "note": "Component numbers match the labels shown in 07_optical_setup.png (1-indexed)"
+}

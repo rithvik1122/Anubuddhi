@@ -1,0 +1,252 @@
+{
+  "title": "Three-Photon GHZ State Generator via Type-II SPDC and Photon Fusion",
+  "description": "Generates three-photon Greenberger-Horne-Zeilinger entangled states using dual SPDC sources with polarization-preserving photon fusion",
+  "components": [
+    {
+      "type": "laser",
+      "description": "Pump Laser 1",
+      "position": [
+        1.0,
+        4.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "wavelength": 405,
+        "power": 150,
+        "linewidth": 1000
+      },
+      "component_number": 1
+    },
+    {
+      "type": "laser",
+      "description": "Pump Laser 2",
+      "position": [
+        1.0,
+        1.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "wavelength": 405,
+        "power": 150,
+        "linewidth": 1000
+      },
+      "component_number": 2
+    },
+    {
+      "type": "lens",
+      "description": "Focusing Lens 1",
+      "position": [
+        1.8,
+        4.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "focal_length": 75,
+        "diameter": 25
+      },
+      "component_number": 3
+    },
+    {
+      "type": "lens",
+      "description": "Focusing Lens 2",
+      "position": [
+        1.8,
+        1.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "focal_length": 75,
+        "diameter": 25
+      },
+      "component_number": 4
+    },
+    {
+      "type": "crystal",
+      "description": "BBO Crystal 1",
+      "position": [
+        2.5,
+        4.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "BBO",
+        "interaction": "SPDC",
+        "phase_matching": "type-II",
+        "length": 2
+      },
+      "component_number": 5
+    },
+    {
+      "type": "crystal",
+      "description": "BBO Crystal 2",
+      "position": [
+        2.5,
+        1.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "BBO",
+        "interaction": "SPDC",
+        "phase_matching": "type-II",
+        "length": 2
+      },
+      "component_number": 6
+    },
+    {
+      "type": "filter",
+      "description": "Filter 810nm Upper",
+      "position": [
+        3.3,
+        4.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "wavelength": 810,
+        "bandwidth": 3
+      },
+      "component_number": 7
+    },
+    {
+      "type": "filter",
+      "description": "Filter 810nm Lower",
+      "position": [
+        3.3,
+        1.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "wavelength": 810,
+        "bandwidth": 3
+      },
+      "component_number": 8
+    },
+    {
+      "type": "polarizing_beam_splitter",
+      "description": "PBS 1",
+      "position": [
+        4.2,
+        4.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "cube"
+      },
+      "component_number": 9
+    },
+    {
+      "type": "polarizing_beam_splitter",
+      "description": "PBS 2",
+      "position": [
+        4.2,
+        1.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "cube"
+      },
+      "component_number": 10
+    },
+    {
+      "type": "mirror",
+      "description": "Mirror 1",
+      "position": [
+        5.0,
+        5.2
+      ],
+      "angle": -135,
+      "parameters": {},
+      "component_number": 11
+    },
+    {
+      "type": "mirror",
+      "description": "Mirror 2",
+      "position": [
+        5.0,
+        0.8
+      ],
+      "angle": 135,
+      "parameters": {},
+      "component_number": 12
+    },
+    {
+      "type": "polarizing_beam_splitter",
+      "description": "Fusion PBS",
+      "position": [
+        5.0,
+        3.0
+      ],
+      "angle": 45,
+      "parameters": {
+        "type": "cube"
+      },
+      "component_number": 13
+    },
+    {
+      "type": "detector",
+      "description": "SPAD A",
+      "position": [
+        5.8,
+        4.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 70,
+        "dark_count_rate": 100,
+        "timing_resolution": 50
+      },
+      "component_number": 14
+    },
+    {
+      "type": "detector",
+      "description": "SPAD B",
+      "position": [
+        5.8,
+        1.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 70,
+        "dark_count_rate": 100,
+        "timing_resolution": 50
+      },
+      "component_number": 15
+    },
+    {
+      "type": "detector",
+      "description": "SPAD C",
+      "position": [
+        6.0,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 70,
+        "dark_count_rate": 100,
+        "timing_resolution": 50
+      },
+      "component_number": 16
+    },
+    {
+      "type": "custom_coincidence_counter",
+      "description": "3-Fold Coincidence",
+      "position": [
+        7.0,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "description": "Electronic coincidence logic unit that processes timing signals from SPAD A, B, and C to identify triple coincidence events within 1ns timing window for GHZ state verification",
+        "channels": 3,
+        "timing_resolution": "1ns"
+      },
+      "component_number": 17
+    }
+  ],
+  "beam_paths": [],
+  "physics_explanation": "Two independent Type-II SPDC sources each produce entangled pairs in state (|HV\u27e9 + |VH\u27e9)/\u221a2. The H-polarized photons from both sources are directed to a polarizing beam splitter (fusion PBS) where they undergo Hong-Ou-Mandel interference. When both H photons exit together to detector C (post-selected event), the V-polarized photons at detectors A and B become entangled with the fused photon, creating the three-photon GHZ state |GHZ\u27e9 = (|VVH\u27e9 + |HHV\u27e9)/\u221a2 through entanglement swapping and quantum interference.",
+  "expected_outcome": "Triple coincidence measurements between detectors A, B, and C reveal GHZ state correlations. In the HV basis, measurements show correlated outcomes with two V-polarized and one H-polarized photon. Measurements in rotated bases (diagonal/anti-diagonal or circular) will violate the Mermin inequality, demonstrating genuine three-photon entanglement that exceeds classical bounds. The post-selected coincidence rate is reduced due to fusion gate success probability, but detected triple events exhibit maximal three-party entanglement characteristic of the GHZ state with fidelity limited by spectral distinguishability and detector efficiency.",
+  "note": "Component numbers match the labels shown in 07_optical_setup.png (1-indexed)"
+}

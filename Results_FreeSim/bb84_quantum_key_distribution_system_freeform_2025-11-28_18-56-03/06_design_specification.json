@@ -1,0 +1,311 @@
+{
+  "title": "BB84 Quantum Key Distribution System",
+  "description": "Implements the BB84 protocol for secure quantum key distribution using polarization-encoded single photons transmitted between Alice and Bob",
+  "components": [
+    {
+      "type": "laser",
+      "description": "Single-Photon Source",
+      "position": [
+        0.5,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "wavelength": 850,
+        "power": 0.001,
+        "description": "Attenuated laser producing single photons"
+      },
+      "component_number": 1
+    },
+    {
+      "type": "attenuator",
+      "description": "Attenuator",
+      "position": [
+        1.2,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "attenuation": "0.1 photons/pulse",
+        "description": "Reduces intensity to single-photon level"
+      },
+      "component_number": 2
+    },
+    {
+      "type": "custom_active_polarization_encoder",
+      "description": "Alice Encoder",
+      "position": [
+        2.5,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "description": "Active polarization encoder using Pockels cells or liquid crystal modulators to randomly prepare photons in H, V, +45, or -45 polarization states based on random basis and bit selection",
+        "states": "H, V, +45deg, -45deg",
+        "switching_time": "1us",
+        "control": "random number generator"
+      },
+      "component_number": 3
+    },
+    {
+      "type": "fiber_coupler",
+      "description": "Quantum Channel",
+      "position": [
+        3.5,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "fiber_type": "polarization-maintaining single-mode",
+        "length": "10km",
+        "loss": "0.2 dB/km",
+        "description": "Quantum channel transmitting photons from Alice to Bob"
+      },
+      "component_number": 4
+    },
+    {
+      "type": "beam_splitter",
+      "description": "Bob Basis Selector BS",
+      "position": [
+        5.0,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "50:50 beam splitter",
+        "description": "Randomly routes photons to rectilinear or diagonal measurement paths with 50% probability each, implementing Bob's random basis choice"
+      },
+      "component_number": 5
+    },
+    {
+      "type": "mirror",
+      "description": "Mirror to Rectilinear",
+      "position": [
+        5.5,
+        4.0
+      ],
+      "angle": 45,
+      "parameters": {
+        "reflectivity": 0.99,
+        "description": "Redirects transmitted photons upward to rectilinear measurement path"
+      },
+      "component_number": 6
+    },
+    {
+      "type": "mirror",
+      "description": "Mirror to Diagonal",
+      "position": [
+        5.5,
+        2.0
+      ],
+      "angle": -45,
+      "parameters": {
+        "reflectivity": 0.99,
+        "description": "Redirects reflected photons downward to diagonal measurement path"
+      },
+      "component_number": 7
+    },
+    {
+      "type": "polarizing_beam_splitter",
+      "description": "PBS Rectilinear",
+      "position": [
+        6.5,
+        4.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "description": "Measures in H/V basis for rectilinear path"
+      },
+      "component_number": 8
+    },
+    {
+      "type": "half_wave_plate",
+      "description": "HWP 22.5deg",
+      "position": [
+        6.0,
+        1.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "order": "zero-order",
+        "wavelength": 850,
+        "description": "Rotates diagonal basis by 45 degrees to align with PBS axes"
+      },
+      "component_number": 9
+    },
+    {
+      "type": "polarizing_beam_splitter",
+      "description": "PBS Diagonal",
+      "position": [
+        6.5,
+        1.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "description": "Measures rotated diagonal basis states as H/V"
+      },
+      "component_number": 10
+    },
+    {
+      "type": "mirror",
+      "description": "Mirror H",
+      "position": [
+        7.2,
+        5.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "reflectivity": 0.99,
+        "description": "Redirects H-polarized photons to detector"
+      },
+      "component_number": 11
+    },
+    {
+      "type": "mirror",
+      "description": "Mirror V",
+      "position": [
+        7.2,
+        4.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "reflectivity": 0.99,
+        "description": "Redirects V-polarized photons to detector"
+      },
+      "component_number": 12
+    },
+    {
+      "type": "mirror",
+      "description": "Mirror +45",
+      "position": [
+        7.2,
+        2.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "reflectivity": 0.99,
+        "description": "Redirects +45-polarized photons to detector"
+      },
+      "component_number": 13
+    },
+    {
+      "type": "mirror",
+      "description": "Mirror -45",
+      "position": [
+        7.2,
+        1.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "reflectivity": 0.99,
+        "description": "Redirects -45-polarized photons to detector"
+      },
+      "component_number": 14
+    },
+    {
+      "type": "spad",
+      "description": "SPAD H",
+      "position": [
+        8.0,
+        5.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 70,
+        "dark_count_rate": 100,
+        "timing_resolution": 50,
+        "description": "Detects horizontal polarization"
+      },
+      "component_number": 15
+    },
+    {
+      "type": "spad",
+      "description": "SPAD V",
+      "position": [
+        8.0,
+        4.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 70,
+        "dark_count_rate": 100,
+        "timing_resolution": 50,
+        "description": "Detects vertical polarization"
+      },
+      "component_number": 16
+    },
+    {
+      "type": "spad",
+      "description": "SPAD +45",
+      "position": [
+        8.0,
+        2.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 70,
+        "dark_count_rate": 100,
+        "timing_resolution": 50,
+        "description": "Detects +45deg polarization"
+      },
+      "component_number": 17
+    },
+    {
+      "type": "spad",
+      "description": "SPAD -45",
+      "position": [
+        8.0,
+        1.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 70,
+        "dark_count_rate": 100,
+        "timing_resolution": 50,
+        "description": "Detects -45deg polarization"
+      },
+      "component_number": 18
+    },
+    {
+      "type": "custom_timing_electronics",
+      "description": "Timing & Sifting Unit",
+      "position": [
+        9.0,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "description": "Electronic system that timestamps all detector events, performs basis reconciliation via classical channel, calculates QBER for eavesdropping detection, and executes error correction and privacy amplification to generate final secure key",
+        "channels": 4,
+        "timing_resolution": "50ps",
+        "functions": "timestamping, basis sifting, QBER calculation, error correction, privacy amplification"
+      },
+      "component_number": 19
+    },
+    {
+      "type": "custom_classical_channel",
+      "description": "Classical Channel",
+      "position": [
+        4.5,
+        0.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "description": "Public authenticated classical communication channel connecting Alice and Bob for basis reconciliation, error estimation, and privacy amplification - does not transmit key material",
+        "bandwidth": "1 Mbps",
+        "security": "authenticated but not encrypted",
+        "protocol": "TCP/IP with authentication"
+      },
+      "component_number": 20
+    }
+  ],
+  "beam_paths": [],
+  "physics_explanation": "Alice's encoder prepares single photons in one of four polarization states (H, V, +45\u00b0, -45\u00b0) by randomly selecting basis (rectilinear or diagonal) and bit value (0 or 1). The 50:50 beam splitter at Bob's side randomly routes photons to either rectilinear measurement (PBS measuring H/V directly) or diagonal measurement (HWP rotation followed by PBS). After transmission, Alice and Bob use the classical channel to publicly compare basis choices and retain only matching-basis events (basis sifting). Security relies on quantum no-cloning theorem: any eavesdropper measuring the photons introduces detectable errors (increased QBER) due to measurement-induced disturbance, as measuring in the wrong basis projects the state randomly and destroys the original information.",
+  "expected_outcome": "When Alice and Bob randomly select matching bases (occurs ~50% of time due to 50:50 beam splitter), they obtain perfectly correlated measurement outcomes. Basis sifting via classical channel retains only these matching-basis events. In absence of eavesdropping, quantum bit error rate (QBER) should be <1-2% (limited by detector dark counts, channel loss, and imperfect state preparation). Any eavesdropper attempting to measure photons causes QBER to increase toward 25% due to quantum measurement disturbance in mismatched basis cases. After error correction and privacy amplification, the system generates secure cryptographic keys at rates of 1-10 kbps over 10km fiber, with information-theoretic security guaranteed by fundamental quantum mechanics (no-cloning theorem and measurement disturbance). Security analysis based on QBER allows detection of eavesdropping and determination of secure key extraction rate.",
+  "note": "Component numbers match the labels shown in 07_optical_setup.png (1-indexed)"
+}

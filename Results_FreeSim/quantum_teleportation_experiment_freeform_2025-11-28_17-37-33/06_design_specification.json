@@ -1,0 +1,398 @@
+{
+  "title": "Quantum Teleportation Experiment",
+  "description": "Demonstrates quantum teleportation by transferring an unknown quantum state from Alice to Bob using entanglement and classical communication",
+  "components": [
+    {
+      "type": "laser",
+      "description": "Entanglement Pump",
+      "position": [
+        1.0,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "wavelength": 405,
+        "power": 100,
+        "linewidth": 1000
+      },
+      "component_number": 1
+    },
+    {
+      "type": "bbo_crystal",
+      "description": "Entanglement Source",
+      "position": [
+        2.0,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "BBO",
+        "interaction": "SPDC",
+        "phase_matching": "type-II",
+        "length": 2
+      },
+      "component_number": 2
+    },
+    {
+      "type": "mirror",
+      "description": "Photon 2 Up Mirror",
+      "position": [
+        2.5,
+        3.0
+      ],
+      "angle": 45,
+      "parameters": {
+        "reflectivity": 0.99
+      },
+      "component_number": 3
+    },
+    {
+      "type": "mirror",
+      "description": "Photon 2 Right Mirror",
+      "position": [
+        2.5,
+        4.2
+      ],
+      "angle": 315,
+      "parameters": {
+        "reflectivity": 0.99
+      },
+      "component_number": 4
+    },
+    {
+      "type": "mirror",
+      "description": "Photon 3 Down Mirror",
+      "position": [
+        2.5,
+        3.0
+      ],
+      "angle": 135,
+      "parameters": {
+        "reflectivity": 0.99
+      },
+      "component_number": 5
+    },
+    {
+      "type": "mirror",
+      "description": "Photon 3 Right Mirror",
+      "position": [
+        2.5,
+        1.5
+      ],
+      "angle": 45,
+      "parameters": {
+        "reflectivity": 0.99
+      },
+      "component_number": 6
+    },
+    {
+      "type": "laser",
+      "description": "State Preparation Laser",
+      "position": [
+        1.0,
+        5.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "wavelength": 810,
+        "power": 1,
+        "linewidth": 100
+      },
+      "component_number": 7
+    },
+    {
+      "type": "attenuator",
+      "description": "Single Photon Attenuator",
+      "position": [
+        2.0,
+        5.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "optical_depth": 10,
+        "transmission": 0.01
+      },
+      "component_number": 8
+    },
+    {
+      "type": "half_wave_plate",
+      "description": "State Encoder HWP",
+      "position": [
+        2.8,
+        5.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "wavelength": 810,
+        "order": "zero-order"
+      },
+      "component_number": 9
+    },
+    {
+      "type": "quarter_wave_plate",
+      "description": "State Encoder QWP",
+      "position": [
+        3.3,
+        5.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "wavelength": 810,
+        "order": "zero-order"
+      },
+      "component_number": 10
+    },
+    {
+      "type": "mirror",
+      "description": "Photon 1 Down Mirror",
+      "position": [
+        3.8,
+        5.0
+      ],
+      "angle": 135,
+      "parameters": {
+        "reflectivity": 0.99
+      },
+      "component_number": 11
+    },
+    {
+      "type": "mirror",
+      "description": "Photon 1 to BSA Mirror",
+      "position": [
+        3.8,
+        4.2
+      ],
+      "angle": 0,
+      "parameters": {
+        "reflectivity": 0.99
+      },
+      "component_number": 12
+    },
+    {
+      "type": "beam_splitter",
+      "description": "Bell State Analyzer BS",
+      "position": [
+        4.5,
+        4.2
+      ],
+      "angle": 45,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "non-polarizing"
+      },
+      "component_number": 13
+    },
+    {
+      "type": "polarizing_beam_splitter",
+      "description": "Alice PBS Upper",
+      "position": [
+        5.2,
+        4.8
+      ],
+      "angle": 0,
+      "parameters": {
+        "extinction_ratio": 1000
+      },
+      "component_number": 14
+    },
+    {
+      "type": "polarizing_beam_splitter",
+      "description": "Alice PBS Lower",
+      "position": [
+        5.2,
+        3.6
+      ],
+      "angle": 0,
+      "parameters": {
+        "extinction_ratio": 1000
+      },
+      "component_number": 15
+    },
+    {
+      "type": "spad",
+      "description": "Alice Detector D1",
+      "position": [
+        6.0,
+        4.8
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 70,
+        "dark_count_rate": 100,
+        "timing_resolution": 50
+      },
+      "component_number": 16
+    },
+    {
+      "type": "spad",
+      "description": "Alice Detector D2",
+      "position": [
+        5.2,
+        5.4
+      ],
+      "angle": 90,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 70,
+        "dark_count_rate": 100,
+        "timing_resolution": 50
+      },
+      "component_number": 17
+    },
+    {
+      "type": "spad",
+      "description": "Alice Detector D3",
+      "position": [
+        6.0,
+        3.6
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 70,
+        "dark_count_rate": 100,
+        "timing_resolution": 50
+      },
+      "component_number": 18
+    },
+    {
+      "type": "spad",
+      "description": "Alice Detector D4",
+      "position": [
+        5.2,
+        3.0
+      ],
+      "angle": 90,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 70,
+        "dark_count_rate": 100,
+        "timing_resolution": 50
+      },
+      "component_number": 19
+    },
+    {
+      "type": "delay_stage",
+      "description": "Bob Delay Stage",
+      "position": [
+        3.5,
+        1.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "range": 100,
+        "resolution": 0.1
+      },
+      "component_number": 20
+    },
+    {
+      "type": "half_wave_plate",
+      "description": "Bob Correction HWP",
+      "position": [
+        4.5,
+        1.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "wavelength": 810,
+        "order": "zero-order"
+      },
+      "component_number": 21
+    },
+    {
+      "type": "quarter_wave_plate",
+      "description": "Bob Correction QWP",
+      "position": [
+        5.2,
+        1.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "wavelength": 810,
+        "order": "zero-order"
+      },
+      "component_number": 22
+    },
+    {
+      "type": "polarizing_beam_splitter",
+      "description": "Bob Analysis PBS",
+      "position": [
+        6.2,
+        1.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "extinction_ratio": 1000
+      },
+      "component_number": 23
+    },
+    {
+      "type": "spad",
+      "description": "Bob Detector H",
+      "position": [
+        7.2,
+        1.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 70,
+        "dark_count_rate": 100,
+        "timing_resolution": 50
+      },
+      "component_number": 24
+    },
+    {
+      "type": "spad",
+      "description": "Bob Detector V",
+      "position": [
+        6.2,
+        0.8
+      ],
+      "angle": 90,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 70,
+        "dark_count_rate": 100,
+        "timing_resolution": 50
+      },
+      "component_number": 25
+    },
+    {
+      "type": "custom_coincidence_counter",
+      "description": "6-Channel Coincidence Logic",
+      "position": [
+        8.0,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "description": "Electronic coincidence counter processing all 6 SPAD outputs (4 from Alice, 2 from Bob) to identify triple coincidences between Alice's Bell state measurement and Bob's state verification within 1ns timing window",
+        "channels": 6,
+        "timing_resolution": "1ns",
+        "coincidence_types": "triple"
+      },
+      "component_number": 26
+    },
+    {
+      "type": "custom_classical_channel",
+      "description": "Classical Communication",
+      "position": [
+        7.0,
+        4.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "description": "Classical channel transmitting Alice's Bell measurement results (which of 4 detectors fired) to Bob to determine correct unitary correction operations on his photon",
+        "bandwidth": "1 MHz",
+        "latency": "100 ns"
+      },
+      "component_number": 27
+    }
+  ],
+  "beam_paths": [],
+  "physics_explanation": "The experiment implements quantum teleportation using three photons: photon 1 (unknown state prepared by Alice at 810nm), and photons 2 and 3 (entangled Bell pair from SPDC at 810nm). Alice performs a Bell state measurement on photons 1 and 2 using a non-polarizing 50:50 beam splitter for Hong-Ou-Mandel interference, followed by polarizing beam splitters and four detectors that project onto Bell states. This measurement collapses Bob's photon 3 into a state related to the original photon 1 by a known unitary transformation. Alice sends her measurement result (which detector fired) via classical channel to Bob, who applies the corresponding correction using motorized waveplates to recover the exact original state. The protocol demonstrates that quantum information can be transferred without physically sending the quantum particle, using entanglement as a resource and classical communication to complete the transfer.",
+  "expected_outcome": "When Alice measures photons 1 and 2 in a Bell state (one of 4 detector combinations fires), Bob's photon 3 instantaneously collapses into a state related to the original photon 1. After receiving Alice's classical message and applying the correct unitary transformation (HWP/QWP rotation), Bob's photon matches the original state with fidelity >90%. Triple coincidence measurements between Alice's detectors and Bob's detectors verify the correlation. By varying the input state (HWP/QWP angles) and measuring Bob's output, quantum process tomography confirms faithful state transfer. The experiment demonstrates that quantum information is transferred without the quantum particle traveling from Alice to Bob, and that classical communication is necessary to complete the protocol.",
+  "note": "Component numbers match the labels shown in 07_optical_setup.png (1-indexed)"
+}

@@ -1,0 +1,400 @@
+{
+  "title": "4-Photon Boson Sampling Experiment",
+  "description": "Demonstrates quantum computational advantage by interfering 4 indistinguishable photons through a 5-mode linear optical network and measuring output statistics that are classically hard to simulate.",
+  "components": [
+    {
+      "type": "laser",
+      "description": "Pump Laser",
+      "position": [
+        0.5,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "wavelength": 405,
+        "power": 200,
+        "linewidth": 1
+      },
+      "component_number": 1
+    },
+    {
+      "type": "beam_splitter",
+      "description": "Pump BS",
+      "position": [
+        1.5,
+        3.0
+      ],
+      "angle": 45,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "pellicle"
+      },
+      "component_number": 2
+    },
+    {
+      "type": "mirror",
+      "description": "Pump Mirror 1",
+      "position": [
+        2.0,
+        4.0
+      ],
+      "angle": 0,
+      "parameters": {},
+      "component_number": 3
+    },
+    {
+      "type": "mirror",
+      "description": "Pump Mirror 2",
+      "position": [
+        2.0,
+        2.0
+      ],
+      "angle": 0,
+      "parameters": {},
+      "component_number": 4
+    },
+    {
+      "type": "crystal",
+      "description": "SPDC Crystal 1",
+      "position": [
+        3.0,
+        4.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "BBO",
+        "interaction": "SPDC",
+        "phase_matching": "type-II",
+        "length": 2
+      },
+      "component_number": 5
+    },
+    {
+      "type": "crystal",
+      "description": "SPDC Crystal 2",
+      "position": [
+        3.0,
+        2.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "BBO",
+        "interaction": "SPDC",
+        "phase_matching": "type-II",
+        "length": 2
+      },
+      "component_number": 6
+    },
+    {
+      "type": "filter",
+      "description": "Filter 1",
+      "position": [
+        4.0,
+        4.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "wavelength": 810,
+        "bandwidth": 3
+      },
+      "component_number": 7
+    },
+    {
+      "type": "filter",
+      "description": "Filter 2",
+      "position": [
+        4.0,
+        2.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "wavelength": 810,
+        "bandwidth": 3
+      },
+      "component_number": 8
+    },
+    {
+      "type": "mirror",
+      "description": "Route Mirror 1",
+      "position": [
+        4.5,
+        4.5
+      ],
+      "angle": 315,
+      "parameters": {},
+      "component_number": 9
+    },
+    {
+      "type": "mirror",
+      "description": "Route Mirror 2",
+      "position": [
+        4.5,
+        3.5
+      ],
+      "angle": 45,
+      "parameters": {},
+      "component_number": 10
+    },
+    {
+      "type": "mirror",
+      "description": "Route Mirror 3",
+      "position": [
+        4.5,
+        2.5
+      ],
+      "angle": 315,
+      "parameters": {},
+      "component_number": 11
+    },
+    {
+      "type": "mirror",
+      "description": "Route Mirror 4",
+      "position": [
+        4.5,
+        1.5
+      ],
+      "angle": 45,
+      "parameters": {},
+      "component_number": 12
+    },
+    {
+      "type": "fiber_coupler",
+      "description": "Fiber Input 1",
+      "position": [
+        5.0,
+        5.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "single-mode",
+        "wavelength": 810
+      },
+      "component_number": 13
+    },
+    {
+      "type": "fiber_coupler",
+      "description": "Fiber Input 2",
+      "position": [
+        5.0,
+        4.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "single-mode",
+        "wavelength": 810
+      },
+      "component_number": 14
+    },
+    {
+      "type": "fiber_coupler",
+      "description": "Fiber Input 3",
+      "position": [
+        5.0,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "single-mode",
+        "wavelength": 810
+      },
+      "component_number": 15
+    },
+    {
+      "type": "fiber_coupler",
+      "description": "Fiber Input 4",
+      "position": [
+        5.0,
+        2.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "single-mode",
+        "wavelength": 810
+      },
+      "component_number": 16
+    },
+    {
+      "type": "custom_fiber_network",
+      "description": "5-Mode Interferometer",
+      "position": [
+        6.5,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "description": "Integrated photonic chip implementing programmable 5-mode unitary transformation using Reck decomposition: 8 tunable beam splitters arranged in 2 layers with 5 phase shifters between layers. Transmittances: BS1=0.67, BS2=0.5, BS3=0.33, BS4=0.5, BS5-8=0.5. Phase shifters provide 0-360 degree control for arbitrary unitary matrix implementation.",
+        "modes": 5,
+        "depth": 2,
+        "beam_splitters": 8,
+        "phase_shifters": 5,
+        "technology": "silica-on-silicon waveguide"
+      },
+      "component_number": 17
+    },
+    {
+      "type": "fiber_coupler",
+      "description": "Fiber Output 1",
+      "position": [
+        8.0,
+        5.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "single-mode",
+        "wavelength": 810
+      },
+      "component_number": 18
+    },
+    {
+      "type": "fiber_coupler",
+      "description": "Fiber Output 2",
+      "position": [
+        8.0,
+        4.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "single-mode",
+        "wavelength": 810
+      },
+      "component_number": 19
+    },
+    {
+      "type": "fiber_coupler",
+      "description": "Fiber Output 3",
+      "position": [
+        8.0,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "single-mode",
+        "wavelength": 810
+      },
+      "component_number": 20
+    },
+    {
+      "type": "fiber_coupler",
+      "description": "Fiber Output 4",
+      "position": [
+        8.0,
+        2.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "single-mode",
+        "wavelength": 810
+      },
+      "component_number": 21
+    },
+    {
+      "type": "fiber_coupler",
+      "description": "Fiber Output 5",
+      "position": [
+        8.0,
+        1.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "single-mode",
+        "wavelength": 810
+      },
+      "component_number": 22
+    },
+    {
+      "type": "spad",
+      "description": "SPAD 1",
+      "position": [
+        9.0,
+        5.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "efficiency": 70,
+        "dark_count_rate": 100,
+        "timing_resolution": 50
+      },
+      "component_number": 23
+    },
+    {
+      "type": "spad",
+      "description": "SPAD 2",
+      "position": [
+        9.0,
+        4.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "efficiency": 70,
+        "dark_count_rate": 100,
+        "timing_resolution": 50
+      },
+      "component_number": 24
+    },
+    {
+      "type": "spad",
+      "description": "SPAD 3",
+      "position": [
+        9.0,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "efficiency": 70,
+        "dark_count_rate": 100,
+        "timing_resolution": 50
+      },
+      "component_number": 25
+    },
+    {
+      "type": "spad",
+      "description": "SPAD 4",
+      "position": [
+        9.0,
+        2.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "efficiency": 70,
+        "dark_count_rate": 100,
+        "timing_resolution": 50
+      },
+      "component_number": 26
+    },
+    {
+      "type": "spad",
+      "description": "SPAD 5",
+      "position": [
+        9.0,
+        1.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "efficiency": 70,
+        "dark_count_rate": 100,
+        "timing_resolution": 50
+      },
+      "component_number": 27
+    },
+    {
+      "type": "custom_coincidence_counter",
+      "description": "4-Fold Coincidence Unit",
+      "position": [
+        10.0,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "description": "Multi-channel time-to-digital converter processing all 5 SPAD outputs to identify 4-fold coincidence events (exactly 4 photons detected simultaneously) within 500ps timing window. Records which combination of 4 modes out of 5 contained photons to build output distribution statistics for boson sampling validation.",
+        "channels": 5,
+        "timing_resolution": "50ps",
+        "coincidence_window": "500ps"
+      },
+      "component_number": 28
+    }
+  ],
+  "beam_paths": [],
+  "physics_explanation": "Four indistinguishable single photons from two SPDC sources are injected into modes 1-4 of a 5-mode linear optical network (mode 5 is vacuum). The photons undergo quantum interference according to the permanent of the unitary matrix describing the network, creating a multi-photon output distribution. The probability of measuring any specific output configuration is given by |Per(U_S)|\u00b2/(n!m!), where U_S is the submatrix corresponding to input/output modes - a calculation that is #P-hard and classically intractable. Measuring the output distribution with single-photon detectors and 4-fold coincidence counting demonstrates quantum computational advantage, as classical computers cannot efficiently sample from this distribution.",
+  "expected_outcome": "The experiment records the probability distribution of finding the 4 photons across the 5 output modes (e.g., modes {1,2,3,4} or {1,2,3,5}, etc., with 5 total possible configurations). The measured distribution matches the quantum prediction |Per(U)|\u00b2 but differs significantly from classical distinguishable particle predictions. The output statistics cannot be efficiently simulated classically, demonstrating quantum computational advantage. Typical signatures include bunching events (multiple photons in same output mode) with probabilities that violate classical expectations, and suppression of certain output configurations due to destructive quantum interference. Statistical validation involves comparing measured distribution to quantum prediction and showing distance from uniform classical distribution.",
+  "note": "Component numbers match the labels shown in 07_optical_setup.png (1-indexed)"
+}

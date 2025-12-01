@@ -1,0 +1,290 @@
+{
+  "title": "Bell State Generator using Spontaneous Parametric Down-Conversion",
+  "description": "Generates maximally entangled photon pairs in Bell states using Type-II SPDC in a BBO crystal with proper beam separation and polarization analysis.",
+  "components": [
+    {
+      "type": "laser",
+      "name": "405nm Pump Laser",
+      "x": 0.5,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "wavelength": 405,
+        "power": 50,
+        "linewidth": 1000
+      }
+    },
+    {
+      "type": "lens",
+      "name": "Focusing Lens",
+      "x": 1.5,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "focal_length": 100,
+        "diameter": 25
+      }
+    },
+    {
+      "type": "crystal",
+      "name": "BBO Crystal",
+      "x": 3.0,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "type": "BBO",
+        "interaction": "SPDC",
+        "length": 2,
+        "phase_matching": "type-II"
+      }
+    },
+    {
+      "type": "filter",
+      "name": "Pump Block Filter",
+      "x": 3.8,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "wavelength": 810,
+        "bandwidth": 50,
+        "optical_depth": 6
+      }
+    },
+    {
+      "type": "mirror",
+      "name": "Mirror 1",
+      "x": 4.5,
+      "y": 3.5,
+      "angle": 45,
+      "parameters": {}
+    },
+    {
+      "type": "mirror",
+      "name": "Mirror 2",
+      "x": 4.5,
+      "y": 2.5,
+      "angle": -45,
+      "parameters": {}
+    },
+    {
+      "type": "lens",
+      "name": "Collection Lens 1",
+      "x": 5.5,
+      "y": 4.5,
+      "angle": 0,
+      "parameters": {
+        "focal_length": 50,
+        "diameter": 25
+      }
+    },
+    {
+      "type": "lens",
+      "name": "Collection Lens 2",
+      "x": 5.5,
+      "y": 1.5,
+      "angle": 0,
+      "parameters": {
+        "focal_length": 50,
+        "diameter": 25
+      }
+    },
+    {
+      "type": "polarizer",
+      "name": "Polarizer A",
+      "x": 6.5,
+      "y": 4.5,
+      "angle": 45,
+      "parameters": {
+        "wavelength": 810
+      }
+    },
+    {
+      "type": "polarizer",
+      "name": "Polarizer B",
+      "x": 6.5,
+      "y": 1.5,
+      "angle": 45,
+      "parameters": {
+        "wavelength": 810
+      }
+    },
+    {
+      "type": "filter",
+      "name": "Bandpass Filter A",
+      "x": 7.5,
+      "y": 4.5,
+      "angle": 0,
+      "parameters": {
+        "wavelength": 810,
+        "bandwidth": 10,
+        "optical_depth": 6
+      }
+    },
+    {
+      "type": "filter",
+      "name": "Bandpass Filter B",
+      "x": 7.5,
+      "y": 1.5,
+      "angle": 0,
+      "parameters": {
+        "wavelength": 810,
+        "bandwidth": 10,
+        "optical_depth": 6
+      }
+    },
+    {
+      "type": "lens",
+      "name": "Coupling Lens A",
+      "x": 8.5,
+      "y": 4.5,
+      "angle": 0,
+      "parameters": {
+        "focal_length": 25,
+        "diameter": 15
+      }
+    },
+    {
+      "type": "lens",
+      "name": "Coupling Lens B",
+      "x": 8.5,
+      "y": 1.5,
+      "angle": 0,
+      "parameters": {
+        "focal_length": 25,
+        "diameter": 15
+      }
+    },
+    {
+      "type": "detector",
+      "name": "SPAD Detector A",
+      "x": 9.5,
+      "y": 4.5,
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 65,
+        "dark_count_rate": 100,
+        "timing_resolution": 50
+      }
+    },
+    {
+      "type": "detector",
+      "name": "SPAD Detector B",
+      "x": 9.5,
+      "y": 1.5,
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 65,
+        "dark_count_rate": 100,
+        "timing_resolution": 50
+      }
+    }
+  ],
+  "beam_path": [
+    [
+      [
+        0.5,
+        3.0
+      ],
+      [
+        1.5,
+        3.0
+      ],
+      [
+        3.0,
+        3.0
+      ],
+      [
+        3.8,
+        3.0
+      ],
+      [
+        4.5,
+        3.5
+      ],
+      [
+        5.5,
+        4.5
+      ],
+      [
+        6.5,
+        4.5
+      ],
+      [
+        7.5,
+        4.5
+      ],
+      [
+        8.5,
+        4.5
+      ],
+      [
+        9.5,
+        4.5
+      ]
+    ],
+    [
+      [
+        0.5,
+        3.0
+      ],
+      [
+        1.5,
+        3.0
+      ],
+      [
+        3.0,
+        3.0
+      ],
+      [
+        3.8,
+        3.0
+      ],
+      [
+        4.5,
+        2.5
+      ],
+      [
+        5.5,
+        1.5
+      ],
+      [
+        6.5,
+        1.5
+      ],
+      [
+        7.5,
+        1.5
+      ],
+      [
+        8.5,
+        1.5
+      ],
+      [
+        9.5,
+        1.5
+      ]
+    ]
+  ],
+  "physics_explanation": "A 405nm pump laser undergoes Type-II SPDC in a BBO crystal, generating entangled photon pairs at 810nm where one photon has horizontal polarization and the other vertical. The crystal creates the Bell state |\u03c8\u27e9 = (|H\u27e9A|V\u27e9B + |V\u27e9A|H\u27e9B)/\u221a2 due to conservation laws. Mirrors separate the SPDC cone into distinct spatial paths, and polarizers at 45\u00b0 project both photons onto the same diagonal basis, enabling violation of Bell inequalities through coincidence measurements.",
+  "component_justifications": {
+    "405nm Pump Laser": "Provides blue pump photons with sufficient energy to generate two 810nm photons through energy conservation in SPDC process",
+    "Focusing Lens": "Focuses pump beam into BBO crystal to increase interaction strength and SPDC conversion efficiency",
+    "BBO Crystal": "Type-II Beta Barium Borate crystal generates entangled photon pairs where signal and idler have orthogonal polarizations",
+    "Pump Block Filter": "Removes residual 405nm pump light immediately after crystal to prevent it from reaching detectors",
+    "Mirror 1": "Redirects the upper cone of SPDC photons to create spatial separation between signal and idler beams",
+    "Mirror 2": "Redirects the lower cone of SPDC photons to create the second distinct beam path for the idler photon",
+    "Collection Lens 1": "Collects and collimates the signal photon in the upper path after mirror reflection",
+    "Collection Lens 2": "Collects and collimates the idler photon in the lower path after mirror reflection",
+    "Polarizer A": "Set at 45\u00b0 to project photon A onto diagonal polarization basis for Bell state measurement",
+    "Polarizer B": "Set at 45\u00b0 to project photon B onto diagonal polarization basis for Bell state measurement",
+    "Bandpass Filter A": "Narrow bandpass filter to select 810nm SPDC photons and eliminate background noise",
+    "Bandpass Filter B": "Narrow bandpass filter to select 810nm SPDC photons and eliminate background noise",
+    "Coupling Lens A": "Focuses photons onto the active area of SPAD detector A for efficient detection",
+    "Coupling Lens B": "Focuses photons onto the active area of SPAD detector B for efficient detection",
+    "SPAD Detector A": "Single-photon avalanche photodiode with precise timing for coincidence detection of entangled photons",
+    "SPAD Detector B": "Second SPAD detector enabling coincidence counting to verify quantum correlations and Bell inequality violation"
+  },
+  "expected_outcome": "Coincidence detection rates will show strong correlations violating classical limits, with visibility >70% confirming Bell state entanglement when polarizers are rotated through different angles for Bell inequality tests."
+}

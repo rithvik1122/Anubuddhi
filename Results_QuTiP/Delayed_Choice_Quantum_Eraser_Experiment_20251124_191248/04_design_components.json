@@ -1,0 +1,305 @@
+{
+  "title": "Delayed Choice Quantum Eraser Experiment",
+  "description": "Demonstrates retroactive erasure of which-path information using entangled photons and delayed measurement choices.",
+  "components": [
+    {
+      "type": "laser",
+      "name": "Pump Laser",
+      "x": 0.5,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "wavelength": 405,
+        "power": 50
+      }
+    },
+    {
+      "type": "crystal",
+      "name": "BBO Crystal",
+      "x": 1.5,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "type": "type-II",
+        "interaction": "SPDC",
+        "length": 2
+      }
+    },
+    {
+      "type": "mirror",
+      "name": "Signal Mirror",
+      "x": 2.5,
+      "y": 4.5,
+      "angle": 225,
+      "parameters": {}
+    },
+    {
+      "type": "mirror",
+      "name": "Idler Mirror",
+      "x": 2.5,
+      "y": 1.5,
+      "angle": 135,
+      "parameters": {}
+    },
+    {
+      "type": "double_slit",
+      "name": "Double Slit",
+      "x": 4.0,
+      "y": 4.5,
+      "angle": 0,
+      "parameters": {
+        "spacing": 100,
+        "width": 20
+      }
+    },
+    {
+      "type": "polarizer",
+      "name": "Upper Slit Polarizer",
+      "x": 4.5,
+      "y": 4.7,
+      "angle": 0,
+      "parameters": {
+        "angle": 0
+      }
+    },
+    {
+      "type": "polarizer",
+      "name": "Lower Slit Polarizer",
+      "x": 4.5,
+      "y": 4.3,
+      "angle": 0,
+      "parameters": {
+        "angle": 90
+      }
+    },
+    {
+      "type": "lens",
+      "name": "Imaging Lens",
+      "x": 6.0,
+      "y": 4.5,
+      "angle": 0,
+      "parameters": {
+        "focal_length": 200,
+        "diameter": 25
+      }
+    },
+    {
+      "type": "detector",
+      "name": "Signal Detector",
+      "x": 7.5,
+      "y": 4.5,
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 85,
+        "timing_resolution": 50
+      }
+    },
+    {
+      "type": "delay_stage",
+      "name": "Long Delay Line",
+      "x": 4.0,
+      "y": 1.5,
+      "angle": 0,
+      "parameters": {
+        "delay_range": 20
+      }
+    },
+    {
+      "type": "beam_splitter",
+      "name": "Eraser BS",
+      "x": 5.5,
+      "y": 1.5,
+      "angle": 45,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "cube"
+      }
+    },
+    {
+      "type": "polarizer",
+      "name": "Eraser Polarizer 1",
+      "x": 6.5,
+      "y": 2.5,
+      "angle": 0,
+      "parameters": {
+        "angle": 45
+      }
+    },
+    {
+      "type": "polarizer",
+      "name": "Eraser Polarizer 2",
+      "x": 6.5,
+      "y": 0.5,
+      "angle": 0,
+      "parameters": {
+        "angle": 135
+      }
+    },
+    {
+      "type": "detector",
+      "name": "Eraser Detector 1",
+      "x": 8.0,
+      "y": 2.5,
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 85,
+        "timing_resolution": 50
+      }
+    },
+    {
+      "type": "detector",
+      "name": "Eraser Detector 2",
+      "x": 8.0,
+      "y": 0.5,
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 85,
+        "timing_resolution": 50
+      }
+    }
+  ],
+  "beam_path": [
+    [
+      [
+        0.5,
+        3.0
+      ],
+      [
+        1.5,
+        3.0
+      ],
+      [
+        2.5,
+        4.5
+      ],
+      [
+        4.0,
+        4.5
+      ],
+      [
+        4.5,
+        4.7
+      ],
+      [
+        6.0,
+        4.5
+      ],
+      [
+        7.5,
+        4.5
+      ]
+    ],
+    [
+      [
+        0.5,
+        3.0
+      ],
+      [
+        1.5,
+        3.0
+      ],
+      [
+        2.5,
+        4.5
+      ],
+      [
+        4.0,
+        4.5
+      ],
+      [
+        4.5,
+        4.3
+      ],
+      [
+        6.0,
+        4.5
+      ],
+      [
+        7.5,
+        4.5
+      ]
+    ],
+    [
+      [
+        0.5,
+        3.0
+      ],
+      [
+        1.5,
+        3.0
+      ],
+      [
+        2.5,
+        1.5
+      ],
+      [
+        4.0,
+        1.5
+      ],
+      [
+        5.5,
+        1.5
+      ],
+      [
+        6.5,
+        2.5
+      ],
+      [
+        8.0,
+        2.5
+      ]
+    ],
+    [
+      [
+        0.5,
+        3.0
+      ],
+      [
+        1.5,
+        3.0
+      ],
+      [
+        2.5,
+        1.5
+      ],
+      [
+        4.0,
+        1.5
+      ],
+      [
+        5.5,
+        1.5
+      ],
+      [
+        6.5,
+        0.5
+      ],
+      [
+        8.0,
+        0.5
+      ]
+    ]
+  ],
+  "physics_explanation": "Type-II SPDC creates entangled photon pairs with orthogonal polarizations. Signal photons pass through a double-slit with polarizers positioned after each slit aperture that create which-path information by marking photons with distinct polarizations, destroying interference. Idler photons travel through a long delay line to ensure their measurement occurs after signal detection. The delayed choice measurement on the idler photon either preserves path information or erases it using diagonal polarizers that cannot distinguish the original H/V markings, retroactively determining whether interference fringes appear in the signal beam coincidence data.",
+  "component_justifications": {
+    "Pump Laser": "405nm laser provides pump photons for SPDC process to generate entangled pairs",
+    "BBO Crystal": "Type-II SPDC crystal creates entangled photon pairs with orthogonal polarizations (H,V)",
+    "Signal Mirror": "Directs signal photons toward the double-slit interference setup",
+    "Idler Mirror": "Directs idler photons toward the delayed eraser measurement path",
+    "Double Slit": "Creates potential for interference pattern in signal photons",
+    "Upper Slit Polarizer": "Positioned after upper slit aperture to mark path with horizontal polarization",
+    "Lower Slit Polarizer": "Positioned after lower slit aperture to mark path with vertical polarization",
+    "Imaging Lens": "Focuses the double-slit pattern onto the signal detector screen",
+    "Signal Detector": "Records signal photon arrivals with precise timing for coincidence analysis",
+    "Long Delay Line": "Ensures idler measurement occurs after signal photon detection (delayed choice)",
+    "Eraser BS": "Splits idler beam to create choice between different measurement bases",
+    "Eraser Polarizer 1": "45\u00b0 polarizer erases which-path information by measuring in diagonal basis",
+    "Eraser Polarizer 2": "135\u00b0 polarizer also erases which-path information in complementary diagonal basis",
+    "Eraser Detector 1": "Detects idler photons after path-erasing measurement",
+    "Eraser Detector 2": "Detects idler photons after complementary path-erasing measurement"
+  },
+  "expected_outcome": "Coincidence counts between signal detector and either eraser detector will show interference fringes because both eraser measurements use diagonal polarizers that cannot distinguish between the original H/V path markings, effectively erasing the which-path information. The delayed choice of measuring the idler photon in the diagonal basis retroactively restores the interference pattern that was destroyed by the polarizers after the double slit."
+}

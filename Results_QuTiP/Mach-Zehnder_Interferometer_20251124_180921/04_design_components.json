@@ -1,0 +1,150 @@
+{
+  "title": "Mach-Zehnder Interferometer",
+  "description": "Demonstrates quantum superposition and interference by splitting coherent light into two paths and recombining them to create interference fringes.",
+  "components": [
+    {
+      "type": "laser",
+      "name": "Coherent Laser",
+      "x": 1.0,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "wavelength": 632.8,
+        "power": 5,
+        "linewidth": 1000
+      }
+    },
+    {
+      "type": "beam_splitter",
+      "name": "Input BS",
+      "x": 3.0,
+      "y": 3.0,
+      "angle": 45,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "cube"
+      }
+    },
+    {
+      "type": "mirror",
+      "name": "Upper Mirror",
+      "x": 6.0,
+      "y": 5.0,
+      "angle": 135,
+      "parameters": {}
+    },
+    {
+      "type": "mirror",
+      "name": "Lower Mirror",
+      "x": 6.0,
+      "y": 1.0,
+      "angle": 45,
+      "parameters": {}
+    },
+    {
+      "type": "phase_shifter",
+      "name": "Phase Control",
+      "x": 4.5,
+      "y": 5.0,
+      "angle": 0,
+      "parameters": {
+        "phase_range": 6.28
+      }
+    },
+    {
+      "type": "beam_splitter",
+      "name": "Output BS",
+      "x": 8.0,
+      "y": 3.0,
+      "angle": 45,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "cube"
+      }
+    },
+    {
+      "type": "detector",
+      "name": "Detector 1",
+      "x": 9.5,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "type": "photodiode",
+        "efficiency": 85
+      }
+    },
+    {
+      "type": "detector",
+      "name": "Detector 2",
+      "x": 8.0,
+      "y": 1.5,
+      "angle": 0,
+      "parameters": {
+        "type": "photodiode",
+        "efficiency": 85
+      }
+    }
+  ],
+  "beam_path": [
+    [
+      [
+        1.0,
+        3.0
+      ],
+      [
+        3.0,
+        3.0
+      ],
+      [
+        4.5,
+        5.0
+      ],
+      [
+        6.0,
+        5.0
+      ],
+      [
+        8.0,
+        3.0
+      ],
+      [
+        9.5,
+        3.0
+      ]
+    ],
+    [
+      [
+        1.0,
+        3.0
+      ],
+      [
+        3.0,
+        3.0
+      ],
+      [
+        6.0,
+        1.0
+      ],
+      [
+        8.0,
+        3.0
+      ],
+      [
+        8.0,
+        1.5
+      ]
+    ]
+  ],
+  "physics_explanation": "Coherent laser light is split into two paths by the input beam splitter, creating quantum superposition |\u03c8\u27e9 = (|upper\u27e9 + |lower\u27e9)/\u221a2. The phase shifter introduces controllable phase difference \u03c6 between paths. At the output beam splitter, the paths recombine and interfere, producing intensity oscillations I \u221d 1 + cos(\u03c6) that demonstrate wave-particle duality and quantum interference.",
+  "component_justifications": {
+    "Coherent Laser": "HeNe laser at 632.8nm provides stable, coherent light source necessary for high-visibility interference - coherence length must exceed path difference",
+    "Input BS": "50:50 beam splitter creates equal amplitude superposition of photon being in upper and lower arms simultaneously",
+    "Upper Mirror": "Redirects upper arm beam back toward output beam splitter while maintaining beam alignment and optical path",
+    "Lower Mirror": "Redirects lower arm beam back toward output beam splitter, completing the interferometer geometry",
+    "Phase Control": "Adjustable phase shifter (piezo mirror or glass plate) enables scanning of relative phase between arms to observe interference fringes",
+    "Output BS": "Second 50:50 beam splitter recombines the two arms, enabling quantum interference between the superposed paths",
+    "Detector 1": "Photodiode measures transmitted output intensity, showing constructive/destructive interference as phase is varied",
+    "Detector 2": "Second photodiode at reflected output port demonstrates complementary interference pattern - when Det1 is bright, Det2 is dark"
+  },
+  "expected_outcome": "Sinusoidal interference fringes as phase is scanned, with 100% visibility for perfect coherence. Detectors show complementary oscillations: when one detector sees maximum intensity, the other sees minimum, demonstrating energy conservation and quantum interference."
+}

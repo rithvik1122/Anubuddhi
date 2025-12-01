@@ -1,0 +1,121 @@
+{
+  "title": "Mach-Zehnder Interferometer",
+  "description": "Two-path interferometer that splits a coherent beam into two arms and recombines them to create interference fringes sensitive to phase differences",
+  "components": [
+    {
+      "type": "laser",
+      "description": "Coherent Laser",
+      "position": [
+        1.0,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "wavelength": 632.8,
+        "power": 5,
+        "linewidth": 1
+      },
+      "component_number": 1
+    },
+    {
+      "type": "beam_splitter",
+      "description": "BS1",
+      "position": [
+        3.0,
+        3.0
+      ],
+      "angle": 45,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "cube"
+      },
+      "component_number": 2
+    },
+    {
+      "type": "mirror",
+      "description": "Mirror Upper",
+      "position": [
+        5.0,
+        5.0
+      ],
+      "angle": 135,
+      "parameters": {
+        "reflectivity": 0.99
+      },
+      "component_number": 3
+    },
+    {
+      "type": "mirror",
+      "description": "Mirror Lower",
+      "position": [
+        5.0,
+        1.0
+      ],
+      "angle": 45,
+      "parameters": {
+        "reflectivity": 0.99
+      },
+      "component_number": 4
+    },
+    {
+      "type": "phase_shifter",
+      "description": "Phase Shifter",
+      "position": [
+        6.5,
+        5.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "range": "0-2\u03c0",
+        "type": "piezo"
+      },
+      "component_number": 5
+    },
+    {
+      "type": "beam_splitter",
+      "description": "BS2",
+      "position": [
+        8.0,
+        3.0
+      ],
+      "angle": 45,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "cube"
+      },
+      "component_number": 6
+    },
+    {
+      "type": "detector",
+      "description": "Detector 1",
+      "position": [
+        9.5,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "photodiode",
+        "efficiency": 0.85
+      },
+      "component_number": 7
+    },
+    {
+      "type": "detector",
+      "description": "Detector 2",
+      "position": [
+        8.0,
+        4.5
+      ],
+      "angle": 90,
+      "parameters": {
+        "type": "photodiode",
+        "efficiency": 0.85
+      },
+      "component_number": 8
+    }
+  ],
+  "beam_paths": [],
+  "physics_explanation": "A coherent laser beam is split into two paths by BS1, creating a superposition state |\u03c8\u27e9 = (|upper\u27e9 + |lower\u27e9)/\u221a2. The upper arm includes a phase shifter that introduces a relative phase \u03c6 between the arms. At BS2, the paths recombine and interfere, with the output intensities at the two detectors varying as I\u2081 \u221d (1 + cos \u03c6) and I\u2082 \u221d (1 - cos \u03c6), demonstrating complementary interference patterns. This setup is fundamental for testing quantum coherence, measuring refractive indices, and implementing quantum gates.",
+  "expected_outcome": "As the phase shifter is varied, Detector 1 and Detector 2 show complementary sinusoidal intensity variations with high visibility. When \u03c6 = 0, maximum intensity appears at Detector 1; when \u03c6 = \u03c0, maximum intensity appears at Detector 2. The sum of both detector signals remains constant (energy conservation), while individual outputs oscillate, confirming quantum interference. This allows measurement of optical path length changes down to sub-wavelength precision.",
+  "note": "Component numbers match the labels shown in 07_optical_setup.png (1-indexed)"
+}

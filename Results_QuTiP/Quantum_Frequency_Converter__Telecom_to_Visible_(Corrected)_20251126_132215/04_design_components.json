@@ -1,0 +1,288 @@
+{
+  "title": "Quantum Frequency Converter: Telecom to Visible (Corrected)",
+  "description": "Converts single photons from telecom wavelength (1550nm) to visible wavelength (600.4nm) via sum-frequency generation while preserving quantum properties",
+  "components": [
+    {
+      "type": "source",
+      "name": "Telecom Photon Source",
+      "x": 0.5,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "wavelength": 1550,
+        "type": "single-photon",
+        "description": "Heralded single photons at telecom wavelength"
+      }
+    },
+    {
+      "type": "fiber_coupler",
+      "name": "Fiber Input Coupler",
+      "x": 1.5,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "wavelength": 1550,
+        "efficiency": 0.85,
+        "mode": "single-mode"
+      }
+    },
+    {
+      "type": "collimator",
+      "name": "Telecom Collimator",
+      "x": 2.5,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "wavelength": 1550,
+        "beam_diameter": 2.0
+      }
+    },
+    {
+      "type": "lens",
+      "name": "Signal Focusing Lens",
+      "x": 3.5,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "focal_length": 100,
+        "diameter": 25
+      }
+    },
+    {
+      "type": "laser",
+      "name": "Pump Laser",
+      "x": 4.5,
+      "y": 5.0,
+      "angle": 0,
+      "parameters": {
+        "wavelength": 980,
+        "power": 500,
+        "linewidth": 1000,
+        "description": "Strong classical pump for SFG"
+      }
+    },
+    {
+      "type": "lens",
+      "name": "Pump Focusing Lens",
+      "x": 4.5,
+      "y": 4.0,
+      "angle": 0,
+      "parameters": {
+        "focal_length": 100,
+        "diameter": 25
+      }
+    },
+    {
+      "type": "dichroic_mirror",
+      "name": "Dichroic Combiner",
+      "x": 4.5,
+      "y": 3.0,
+      "angle": 45,
+      "parameters": {
+        "reflection_wavelength": 980,
+        "transmission_wavelength": 1550,
+        "description": "Combines pump and telecom beams"
+      }
+    },
+    {
+      "type": "crystal",
+      "name": "PPLN Crystal",
+      "x": 5.5,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "type": "PPLN",
+        "interaction": "SFG",
+        "length": 20,
+        "poling_period": 19.2,
+        "phase_matching": "quasi-phase-matched",
+        "temperature": 95,
+        "description": "Periodically-poled lithium niobate for 1550nm+980nm\u2192600.4nm conversion (energy conservation: 1/1550 + 1/980 = 1/600.4)"
+      }
+    },
+    {
+      "type": "lens",
+      "name": "Output Collimation Lens",
+      "x": 6.5,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "focal_length": 75,
+        "diameter": 25
+      }
+    },
+    {
+      "type": "dichroic_mirror",
+      "name": "Dichroic Separator",
+      "x": 7.5,
+      "y": 3.0,
+      "angle": 45,
+      "parameters": {
+        "reflection_wavelength": 600,
+        "transmission_wavelength": 980,
+        "description": "Reflects converted visible light (600.4nm) upward, transmits pump and unconverted signal"
+      }
+    },
+    {
+      "type": "beam_dump",
+      "name": "Pump Beam Dump",
+      "x": 8.5,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "description": "Absorbs residual pump and unconverted telecom light"
+      }
+    },
+    {
+      "type": "filter",
+      "name": "Bandpass Filter",
+      "x": 7.5,
+      "y": 4.0,
+      "angle": 0,
+      "parameters": {
+        "wavelength": 600,
+        "bandwidth": 10,
+        "optical_depth": 6,
+        "description": "Narrow bandpass centered at 600nm to eliminate residual pump and unconverted signal"
+      }
+    },
+    {
+      "type": "lens",
+      "name": "Coupling Lens",
+      "x": 8.5,
+      "y": 4.0,
+      "angle": 0,
+      "parameters": {
+        "focal_length": 50,
+        "diameter": 25
+      }
+    },
+    {
+      "type": "fiber_coupler",
+      "name": "Visible Fiber Coupler",
+      "x": 9.0,
+      "y": 4.0,
+      "angle": 0,
+      "parameters": {
+        "wavelength": 600,
+        "efficiency": 0.75,
+        "mode": "single-mode"
+      }
+    },
+    {
+      "type": "detector",
+      "name": "Silicon APD",
+      "x": 9.8,
+      "y": 4.0,
+      "angle": 0,
+      "parameters": {
+        "type": "APD",
+        "efficiency": 0.75,
+        "dark_count_rate": 100,
+        "timing_resolution": 350,
+        "description": "Silicon avalanche photodiode for visible photon detection at 600nm"
+      }
+    }
+  ],
+  "beam_path": [
+    [
+      [
+        0.5,
+        3.0
+      ],
+      [
+        1.5,
+        3.0
+      ],
+      [
+        2.5,
+        3.0
+      ],
+      [
+        3.5,
+        3.0
+      ],
+      [
+        4.5,
+        3.0
+      ],
+      [
+        5.5,
+        3.0
+      ],
+      [
+        6.5,
+        3.0
+      ],
+      [
+        7.5,
+        3.0
+      ],
+      [
+        7.5,
+        4.0
+      ],
+      [
+        8.5,
+        4.0
+      ],
+      [
+        9.0,
+        4.0
+      ],
+      [
+        9.8,
+        4.0
+      ]
+    ],
+    [
+      [
+        4.5,
+        5.0
+      ],
+      [
+        4.5,
+        4.0
+      ],
+      [
+        4.5,
+        3.0
+      ],
+      [
+        5.5,
+        3.0
+      ],
+      [
+        6.5,
+        3.0
+      ],
+      [
+        7.5,
+        3.0
+      ],
+      [
+        8.5,
+        3.0
+      ]
+    ]
+  ],
+  "physics_explanation": "Single telecom photons at 1550nm are combined with a strong 980nm pump laser in a PPLN crystal where sum-frequency generation occurs. Energy conservation dictates that the output wavelength must be 600.4nm (1/\u03bb_out = 1/1550 + 1/980). The nonlinear interaction preserves quantum coherence and photon statistics while upconverting to a wavelength where silicon detectors have high efficiency. Quasi-phase-matching in PPLN with appropriate poling period (~19.2\u03bcm) and temperature control ensures efficient conversion.",
+  "component_justifications": {
+    "Telecom Photon Source": "Generates heralded single photons at 1550nm, the standard telecom wavelength for quantum communication applications",
+    "Fiber Input Coupler": "Couples single photons from fiber into free-space optics with high efficiency (85%) while maintaining single-mode operation",
+    "Telecom Collimator": "Collimates the telecom beam to 2mm diameter for optimal mode-matching in the nonlinear crystal",
+    "Signal Focusing Lens": "Focuses the 1550nm signal beam into the PPLN crystal to maximize nonlinear interaction strength",
+    "Pump Laser": "Provides strong 980nm classical pump field (500mW) required for efficient sum-frequency generation without adding excessive noise",
+    "Pump Focusing Lens": "Focuses pump beam to match the signal beam waist in the crystal for optimal spatial mode overlap",
+    "Dichroic Combiner": "Combines the 1550nm signal and 980nm pump beams collinearly by reflecting 980nm and transmitting 1550nm",
+    "PPLN Crystal": "Periodically-poled lithium niobate crystal with 19.2\u03bcm poling period provides quasi-phase-matched SFG for 1550nm+980nm\u2192600.4nm conversion (corrected to satisfy energy conservation)",
+    "Output Collimation Lens": "Recollimates the output beams after the crystal for efficient separation and filtering",
+    "Dichroic Separator": "Separates the converted 600.4nm photons from residual pump and unconverted signal by reflecting visible light upward",
+    "Pump Beam Dump": "Safely absorbs the high-power residual pump and any unconverted telecom photons to prevent detector saturation",
+    "Bandpass Filter": "Narrow 10nm bandpass filter centered at 600nm with OD6 rejection eliminates any remaining pump or signal photons",
+    "Coupling Lens": "Focuses the converted 600.4nm photons into single-mode fiber for delivery to detector",
+    "Visible Fiber Coupler": "Couples visible photons into single-mode fiber with 75% efficiency while providing spatial filtering",
+    "Silicon APD": "Silicon avalanche photodiode provides 75% detection efficiency at 600nm with low dark counts and 350ps timing resolution for single-photon detection"
+  },
+  "expected_outcome": "Single telecom photons are efficiently converted to 600.4nm orange-light photons with conversion efficiency of 30-60% while preserving quantum statistics (sub-Poissonian photon number distribution, g^(2)(0) < 1). The APD will detect single photons with high signal-to-noise ratio, enabling quantum communication protocols with visible-wavelength detectors. Coincidence measurements between heralding detector and APD will confirm preservation of quantum correlations through the frequency conversion process."
+}

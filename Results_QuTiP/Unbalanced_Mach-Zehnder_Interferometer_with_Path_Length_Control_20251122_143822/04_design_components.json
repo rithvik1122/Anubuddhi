@@ -1,0 +1,164 @@
+{
+  "title": "Unbalanced Mach-Zehnder Interferometer with Path Length Control",
+  "description": "Demonstrates quantum interference using asymmetric arm lengths and variable delay for fringe visibility control.",
+  "components": [
+    {
+      "type": "laser",
+      "name": "HeNe Laser",
+      "x": 1.0,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "wavelength": 632.8,
+        "power": 5,
+        "linewidth": 1000
+      }
+    },
+    {
+      "type": "beam_splitter",
+      "name": "Input BS",
+      "x": 3.0,
+      "y": 3.0,
+      "angle": 45,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "cube"
+      }
+    },
+    {
+      "type": "mirror",
+      "name": "Upper Mirror",
+      "x": 5.0,
+      "y": 5.0,
+      "angle": 135,
+      "parameters": {}
+    },
+    {
+      "type": "delay_stage",
+      "name": "Delay Stage",
+      "x": 7.0,
+      "y": 5.0,
+      "angle": 0,
+      "parameters": {
+        "range": 100,
+        "resolution": 0.1
+      }
+    },
+    {
+      "type": "mirror",
+      "name": "Lower Mirror 1",
+      "x": 4.5,
+      "y": 1.0,
+      "angle": 45,
+      "parameters": {}
+    },
+    {
+      "type": "mirror",
+      "name": "Lower Mirror 2",
+      "x": 6.5,
+      "y": 1.0,
+      "angle": 135,
+      "parameters": {}
+    },
+    {
+      "type": "beam_splitter",
+      "name": "Output BS",
+      "x": 8.5,
+      "y": 3.0,
+      "angle": 45,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "cube"
+      }
+    },
+    {
+      "type": "detector",
+      "name": "Detector 1",
+      "x": 9.5,
+      "y": 4.0,
+      "angle": 0,
+      "parameters": {
+        "type": "photodiode",
+        "efficiency": 0.85
+      }
+    },
+    {
+      "type": "detector",
+      "name": "Detector 2",
+      "x": 8.5,
+      "y": 1.5,
+      "angle": 270,
+      "parameters": {
+        "type": "photodiode",
+        "efficiency": 0.85
+      }
+    }
+  ],
+  "beam_path": [
+    [
+      [
+        1.0,
+        3.0
+      ],
+      [
+        3.0,
+        3.0
+      ],
+      [
+        5.0,
+        5.0
+      ],
+      [
+        7.0,
+        5.0
+      ],
+      [
+        8.5,
+        3.0
+      ],
+      [
+        9.5,
+        4.0
+      ]
+    ],
+    [
+      [
+        1.0,
+        3.0
+      ],
+      [
+        3.0,
+        3.0
+      ],
+      [
+        4.5,
+        1.0
+      ],
+      [
+        6.5,
+        1.0
+      ],
+      [
+        8.5,
+        3.0
+      ],
+      [
+        8.5,
+        1.5
+      ]
+    ]
+  ],
+  "physics_explanation": "Coherent laser light splits into superposition state at input beam splitter, creating |\u03c8\u27e9 = (|upper\u27e9 + |lower\u27e9)/\u221a2. The asymmetric path design with longer lower arm and variable delay stage allows precise control of relative phase \u03c6 between arms. At recombination, interference produces output intensities I\u2081,\u2082 = I\u2080(1 \u00b1 cos(\u03c6))/2, demonstrating wave-particle duality and phase-dependent quantum interference.",
+  "component_justifications": {
+    "HeNe Laser": "Provides stable, coherent 632.8nm light with sufficient coherence length for the unequal arm lengths in this asymmetric design",
+    "Input BS": "50:50 cube beam splitter creates equal amplitude superposition of photon being in upper and lower interferometer arms",
+    "Upper Mirror": "Redirects upper arm beam toward delay stage, creating the shorter interferometer path",
+    "Delay Stage": "Motorized translation stage provides precise control of optical path difference between arms for phase tuning and fringe scanning",
+    "Lower Mirror 1": "First mirror in extended lower arm path, creating the longer baseline for increased sensitivity",
+    "Lower Mirror 2": "Second mirror completing the extended lower arm geometry before recombination",
+    "Output BS": "Recombines the two interferometer arms, enabling quantum interference between the path amplitudes",
+    "Detector 1": "Measures transmitted interference output, showing complementary fringes to reflected output",
+    "Detector 2": "Measures reflected interference output, demonstrating conservation of photon probability between ports"
+  },
+  "expected_outcome": "Sinusoidal interference fringes as delay stage scans, with complementary intensity oscillations at both detectors and fringe visibility approaching unity for good alignment."
+}

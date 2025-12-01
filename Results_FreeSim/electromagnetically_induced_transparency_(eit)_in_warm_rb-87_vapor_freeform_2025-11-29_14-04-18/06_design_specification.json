@@ -1,0 +1,273 @@
+{
+  "title": "Electromagnetically Induced Transparency (EIT) in Warm Rb-87 Vapor",
+  "description": "Demonstrates quantum interference effects in a three-level \u039b-system where a strong coupling laser renders the medium transparent to a weak probe laser at two-photon resonance",
+  "components": [
+    {
+      "type": "laser",
+      "description": "Probe Laser",
+      "position": [
+        0.5,
+        3.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "wavelength": 780,
+        "power": 0.5,
+        "linewidth": 100
+      },
+      "component_number": 1
+    },
+    {
+      "type": "laser",
+      "description": "Coupling Laser",
+      "position": [
+        0.5,
+        2.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "wavelength": 780,
+        "power": 50,
+        "linewidth": 100
+      },
+      "component_number": 2
+    },
+    {
+      "type": "attenuator",
+      "description": "Probe Attenuator",
+      "position": [
+        1.5,
+        3.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "attenuation": "variable",
+        "range": "0-40 dB"
+      },
+      "component_number": 3
+    },
+    {
+      "type": "polarizer",
+      "description": "Probe Polarizer",
+      "position": [
+        2.5,
+        3.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "linear",
+        "extinction_ratio": "100000:1"
+      },
+      "component_number": 4
+    },
+    {
+      "type": "polarizer",
+      "description": "Coupling Polarizer",
+      "position": [
+        1.5,
+        2.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "linear",
+        "extinction_ratio": "100000:1"
+      },
+      "component_number": 5
+    },
+    {
+      "type": "lens",
+      "description": "Probe Lens",
+      "position": [
+        3.5,
+        3.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "focal_length": 100,
+        "diameter": 25
+      },
+      "component_number": 6
+    },
+    {
+      "type": "lens",
+      "description": "Coupling Lens",
+      "position": [
+        2.5,
+        2.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "focal_length": 100,
+        "diameter": 25
+      },
+      "component_number": 7
+    },
+    {
+      "type": "mirror",
+      "description": "Coupling Mirror 1",
+      "position": [
+        3.5,
+        2.0
+      ],
+      "angle": 45,
+      "parameters": {
+        "reflectivity": 0.99,
+        "coating": "dielectric"
+      },
+      "component_number": 8
+    },
+    {
+      "type": "mirror",
+      "description": "Coupling Mirror 2",
+      "position": [
+        3.5,
+        2.8
+      ],
+      "angle": 45,
+      "parameters": {
+        "reflectivity": 0.99,
+        "coating": "dielectric"
+      },
+      "component_number": 9
+    },
+    {
+      "type": "mirror",
+      "description": "Beam Combiner",
+      "position": [
+        4.2,
+        3.5
+      ],
+      "angle": 45,
+      "parameters": {
+        "reflectivity": 0.5,
+        "coating": "partial reflector"
+      },
+      "component_number": 10
+    },
+    {
+      "type": "wave_plate",
+      "description": "Quarter-Wave Plate",
+      "position": [
+        5.0,
+        3.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "order": "zero-order",
+        "wavelength": 780,
+        "type": "achromatic"
+      },
+      "component_number": 11
+    },
+    {
+      "type": "vapor_cell",
+      "description": "Rb-87 Vapor Cell",
+      "position": [
+        6.0,
+        3.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "atomic_species": "Rb-87",
+        "temperature": 60,
+        "length": 75,
+        "buffer_gas": "none"
+      },
+      "component_number": 12
+    },
+    {
+      "type": "lens",
+      "description": "Collection Lens",
+      "position": [
+        7.0,
+        3.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "focal_length": 50,
+        "diameter": 25
+      },
+      "component_number": 13
+    },
+    {
+      "type": "filter",
+      "description": "Probe Filter",
+      "position": [
+        8.0,
+        3.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "wavelength": 780,
+        "bandwidth": 3,
+        "optical_depth": 4,
+        "type": "bandpass"
+      },
+      "component_number": 14
+    },
+    {
+      "type": "photodiode",
+      "description": "Probe Detector",
+      "position": [
+        9.0,
+        3.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "Si photodiode",
+        "active_area": "10 mm\u00b2",
+        "bandwidth": "DC-10 MHz"
+      },
+      "component_number": 15
+    },
+    {
+      "type": "custom_lock_in_amplifier",
+      "description": "Lock-In Amplifier",
+      "position": [
+        9.0,
+        2.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "description": "Phase-sensitive detector that measures probe transmission while coupling laser is modulated, extracting the EIT signal from background absorption",
+        "frequency_range": "1 Hz - 100 kHz",
+        "sensitivity": "1 nV"
+      },
+      "component_number": 16
+    },
+    {
+      "type": "custom_frequency_controller",
+      "description": "Laser Frequency Control",
+      "position": [
+        0.5,
+        5.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "description": "Dual-channel frequency stabilization and scanning system that locks probe laser to Rb D2 line 5S_1/2(F=1) to 5P_3/2 transition and coupling laser to 5S_1/2(F=2) to 5P_3/2 transition, creating a Lambda-system with both lasers coupling to the same excited state. Scans probe detuning across EIT resonance.",
+        "scan_range": "\u00b1500 MHz",
+        "stability": "100 kHz"
+      },
+      "component_number": 17
+    },
+    {
+      "type": "custom_temperature_controller",
+      "description": "Cell Heater",
+      "position": [
+        6.0,
+        1.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "description": "Precision temperature controller maintaining vapor cell at 60\u00b0C to achieve optimal atomic density (~10^11 atoms/cm\u00b3) for EIT observation. Heater wraps around vapor cell and maintains uniform temperature distribution.",
+        "stability": "\u00b10.1\u00b0C",
+        "range": "20-100\u00b0C"
+      },
+      "component_number": 18
+    }
+  ],
+  "beam_paths": [],
+  "physics_explanation": "The experiment creates a three-level \u039b-system in Rb-87 atoms where both the probe and coupling lasers (780nm D2 line) couple different ground state hyperfine levels 5S_1/2(F=1) and 5S_1/2(F=2) to the same excited state 5P_3/2. Quantum interference between the two excitation pathways creates a coherent dark state |D\u27e9 = (\u03a9c|F=1\u27e9 - \u03a9p|F=2\u27e9)/\u221a(|\u03a9c|\u00b2 + |\u03a9p|\u00b2) that cannot absorb probe photons. When both lasers satisfy the two-photon resonance condition (\u03b4_probe + \u03b4_coupling = 0), destructive interference eliminates absorption and the medium becomes transparent to the probe (EIT window), accompanied by steep dispersion causing dramatic group velocity reduction. The transparency width is determined by the coupling Rabi frequency \u03a9c, and the effect vanishes when the coupling laser is blocked, restoring normal absorption.",
+  "expected_outcome": "Without coupling laser: strong absorption dip in probe transmission at atomic resonance (5S_1/2 F=1 \u2192 5P_3/2) with ~90% absorption. With coupling laser on: narrow transparency window appears at two-photon resonance (when probe detuning + coupling detuning = hyperfine splitting of 6.8 GHz), with width \u0393_EIT \u2248 \u03a9c\u00b2/\u03b3 where \u03a9c is coupling Rabi frequency (~10 MHz for 50 mW) and \u03b3 is excited state decay rate (6 MHz). The EIT peak shows >80% transmission recovery. Scanning probe frequency reveals the characteristic EIT transparency window superimposed on the absorption profile. Group velocity measurements reveal light slowing by factor of 10^4-10^6, with group velocity v_g = c(\u03b3/\u03a9c)\u00b2 \u2248 100-1000 m/s. Modulating the coupling laser intensity shows dynamic control of transparency, demonstrating potential for optical switching and quantum memory applications.",
+  "note": "Component numbers match the labels shown in 07_optical_setup.png (1-indexed)"
+}

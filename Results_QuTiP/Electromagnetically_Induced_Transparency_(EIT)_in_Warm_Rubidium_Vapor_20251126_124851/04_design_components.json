@@ -1,0 +1,339 @@
+{
+  "title": "Electromagnetically Induced Transparency (EIT) in Warm Rubidium Vapor",
+  "description": "Demonstrates quantum interference effect where a strong coupling laser makes an opaque atomic vapor transparent to a weak probe laser through coherent population trapping",
+  "components": [
+    {
+      "type": "laser",
+      "name": "Probe Laser",
+      "x": 0.5,
+      "y": 4.0,
+      "angle": 0,
+      "parameters": {
+        "wavelength": 795,
+        "power": 0.5,
+        "linewidth": 1000
+      }
+    },
+    {
+      "type": "aom",
+      "name": "Probe AOM",
+      "x": 1.5,
+      "y": 4.0,
+      "angle": 0,
+      "parameters": {
+        "frequency": 80,
+        "type": "AOM"
+      }
+    },
+    {
+      "type": "half_wave_plate",
+      "name": "Probe HWP",
+      "x": 2.5,
+      "y": 4.0,
+      "angle": 0,
+      "parameters": {
+        "wavelength": 795,
+        "order": "zero-order"
+      }
+    },
+    {
+      "type": "polarizer",
+      "name": "Probe Polarizer",
+      "x": 3.5,
+      "y": 4.0,
+      "angle": 0,
+      "parameters": {
+        "extinction_ratio": 100000
+      }
+    },
+    {
+      "type": "lens",
+      "name": "Probe Collimator",
+      "x": 4.5,
+      "y": 4.0,
+      "angle": 0,
+      "parameters": {
+        "focal_length": 100,
+        "diameter": 25
+      }
+    },
+    {
+      "type": "laser",
+      "name": "Coupling Laser",
+      "x": 0.5,
+      "y": 2.0,
+      "angle": 0,
+      "parameters": {
+        "wavelength": 780,
+        "power": 50,
+        "linewidth": 1000
+      }
+    },
+    {
+      "type": "half_wave_plate",
+      "name": "Coupling HWP",
+      "x": 1.5,
+      "y": 2.0,
+      "angle": 0,
+      "parameters": {
+        "wavelength": 780,
+        "order": "zero-order"
+      }
+    },
+    {
+      "type": "polarizer",
+      "name": "Coupling Polarizer",
+      "x": 2.5,
+      "y": 2.0,
+      "angle": 0,
+      "parameters": {
+        "extinction_ratio": 100000
+      }
+    },
+    {
+      "type": "lens",
+      "name": "Coupling Collimator",
+      "x": 3.5,
+      "y": 2.0,
+      "angle": 0,
+      "parameters": {
+        "focal_length": 100,
+        "diameter": 25
+      }
+    },
+    {
+      "type": "dichroic_mirror",
+      "name": "Beam Combiner",
+      "x": 5.0,
+      "y": 3.0,
+      "angle": 45,
+      "parameters": {
+        "reflect_wavelength": 780,
+        "transmit_wavelength": 795
+      }
+    },
+    {
+      "type": "iris",
+      "name": "Alignment Iris",
+      "x": 5.8,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "diameter": 5
+      }
+    },
+    {
+      "type": "vapor_cell",
+      "name": "Rb-87 Vapor Cell",
+      "x": 7.0,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "atomic_species": "Rb-87",
+        "temperature": 50,
+        "length": 75
+      }
+    },
+    {
+      "type": "lens",
+      "name": "Collection Lens",
+      "x": 8.0,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "focal_length": 150,
+        "diameter": 25
+      }
+    },
+    {
+      "type": "filter",
+      "name": "Probe Filter",
+      "x": 8.8,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "wavelength": 795,
+        "bandwidth": 3,
+        "optical_depth": 4
+      }
+    },
+    {
+      "type": "photodiode",
+      "name": "Probe Detector",
+      "x": 9.5,
+      "y": 3.0,
+      "angle": 0,
+      "parameters": {
+        "type": "Si photodiode",
+        "active_area": 10,
+        "bandwidth": "DC-100kHz"
+      }
+    },
+    {
+      "type": "custom_lock_in_amplifier",
+      "name": "Lock-in Amplifier",
+      "x": 9.5,
+      "y": 1.5,
+      "angle": 0,
+      "parameters": {
+        "description": "Electronic signal processing unit for phase-sensitive detection of EIT signal from photodiode, improving signal-to-noise ratio",
+        "frequency_range": "1Hz-100kHz",
+        "sensitivity": "1nV"
+      }
+    },
+    {
+      "type": "custom_temperature_controller",
+      "name": "Cell Heater",
+      "x": 7.0,
+      "y": 1.5,
+      "angle": 0,
+      "parameters": {
+        "description": "Electronic temperature controller maintaining vapor cell at 40-60\u00b0C for optimal atomic density control",
+        "temperature_range": "20-80\u00b0C",
+        "stability": "0.1\u00b0C"
+      }
+    },
+    {
+      "type": "custom_rf_signal_generator",
+      "name": "RF Generator",
+      "x": 1.5,
+      "y": 5.0,
+      "angle": 0,
+      "parameters": {
+        "description": "RF source driving AOM at 80MHz to scan probe frequency across hyperfine resonance for EIT spectroscopy",
+        "frequency": "80MHz",
+        "power": "1W"
+      }
+    }
+  ],
+  "beam_path": [
+    [
+      [
+        0.5,
+        4.0
+      ],
+      [
+        1.5,
+        4.0
+      ],
+      [
+        2.5,
+        4.0
+      ],
+      [
+        3.5,
+        4.0
+      ],
+      [
+        4.5,
+        4.0
+      ],
+      [
+        5.0,
+        3.0
+      ],
+      [
+        5.8,
+        3.0
+      ],
+      [
+        7.0,
+        3.0
+      ],
+      [
+        8.0,
+        3.0
+      ],
+      [
+        8.8,
+        3.0
+      ],
+      [
+        9.5,
+        3.0
+      ]
+    ],
+    [
+      [
+        0.5,
+        2.0
+      ],
+      [
+        1.5,
+        2.0
+      ],
+      [
+        2.5,
+        2.0
+      ],
+      [
+        3.5,
+        2.0
+      ],
+      [
+        5.0,
+        3.0
+      ],
+      [
+        5.8,
+        3.0
+      ],
+      [
+        7.0,
+        3.0
+      ]
+    ],
+    [
+      [
+        1.5,
+        5.0
+      ],
+      [
+        1.5,
+        4.0
+      ]
+    ],
+    [
+      [
+        7.0,
+        1.5
+      ],
+      [
+        7.0,
+        3.0
+      ]
+    ],
+    [
+      [
+        9.5,
+        3.0
+      ],
+      [
+        9.5,
+        1.5
+      ]
+    ]
+  ],
+  "physics_explanation": "EIT occurs in a Lambda-type three-level system where two ground hyperfine states (|1\u27e9 and |2\u27e9) couple to an excited state (|3\u27e9) in Rb-87. The weak probe laser (795nm, |1\u27e9\u2192|3\u27e9 transition) is normally absorbed, but a strong coupling laser (780nm, |2\u27e9\u2192|3\u27e9 transition) creates quantum interference between excitation pathways, inducing coherent population trapping in a dark state |D\u27e9 = (\u03a9_c|1\u27e9 - \u03a9_p|2\u27e9)/\u221a(\u03a9_c\u00b2 + \u03a9_p\u00b2). When the two-photon resonance condition is satisfied (probe detuning plus coupling detuning equals ground state hyperfine splitting), destructive interference eliminates absorption, creating a narrow transparency window with steep dispersion that enables slow light propagation.",
+  "component_justifications": {
+    "Probe Laser": "Weak 795nm laser tuned to Rb-87 D1 line (5S1/2 F=2 \u2192 5P1/2) - scanned across resonance to observe EIT transparency window",
+    "Probe AOM": "Acousto-optic modulator allows scanning probe laser frequency across atomic resonance to map out EIT lineshape and locate two-photon resonance",
+    "Probe HWP": "Half-wave plate rotates probe polarization to optimize coupling to specific atomic transitions and ensure proper alignment with coupling beam polarization",
+    "Probe Polarizer": "Ensures clean linear polarization of probe beam for well-defined atomic transition selection and coherent interaction",
+    "Probe Collimator": "Expands and collimates probe beam to match coupling beam diameter ensuring uniform interaction region through vapor cell",
+    "Coupling Laser": "Strong 780nm laser on D2 line (5S1/2 F=1 \u2192 5P3/2) creates dressed states and induces transparency for probe beam through quantum interference",
+    "Coupling HWP": "Controls coupling beam polarization for proper atomic transition selection rules in co-propagating geometry with probe",
+    "Coupling Polarizer": "Purifies coupling beam polarization to maintain coherent interaction with atoms and prevent decoherence",
+    "Coupling Collimator": "Collimates coupling beam for extended interaction length through vapor cell and ensures spatial overlap with probe",
+    "Beam Combiner": "Dichroic mirror combines probe (795nm transmitted) and coupling (780nm reflected) beams collinearly - critical for EIT as beams must spatially overlap",
+    "Alignment Iris": "Ensures precise spatial overlap of probe and coupling beams through vapor cell for maximum EIT effect",
+    "Rb-87 Vapor Cell": "Contains warm rubidium-87 atoms providing Lambda-type three-level system with ground state hyperfine splitting of 6.8 GHz matching two-photon resonance condition",
+    "Collection Lens": "Focuses transmitted probe light onto detector for maximum signal collection efficiency",
+    "Probe Filter": "Narrowband filter centered at 795nm blocks scattered coupling light while transmitting probe, preventing detector saturation from strong coupling beam",
+    "Probe Detector": "Silicon photodiode measures probe beam transmission as function of detuning to observe narrow EIT transparency peak",
+    "Lock-in Amplifier": "Electronic readout providing sensitive phase-locked detection of probe transmission signal, improving signal-to-noise ratio for observing narrow EIT features",
+    "Cell Heater": "Electronic temperature controller regulates vapor cell at 40-60\u00b0C to control atomic vapor density - higher temperature increases atom number but also Doppler broadening",
+    "RF Generator": "Electronic RF source driving AOM at 80MHz to scan probe frequency and can provide modulation for lock-in detection of EIT signal"
+  },
+  "expected_outcome": "As probe frequency is scanned across the atomic resonance, transmission initially shows strong absorption (optical depth 2-4). When two-photon resonance condition is satisfied (probe-coupling detuning matches 6.8 GHz ground state hyperfine splitting), a narrow transparency window appears with transmission increasing to 60-90% of incident probe power. The EIT linewidth is typically 1-10 MHz (much narrower than natural linewidth of 6 MHz), determined by coupling laser Rabi frequency \u03a9_c and decoherence rates. The transparency window is accompanied by steep normal dispersion, reducing group velocity to ~1000 m/s or less. Varying coupling laser power shows EIT width scales as \u221a(I_coupling), confirming Autler-Townes splitting interpretation and demonstrating quantum coherence and interference in atomic systems."
+}

@@ -1,0 +1,303 @@
+{
+  "title": "Squeezed Light Source via Optical Parametric Oscillation",
+  "description": "Generates quadrature-squeezed vacuum states using a sub-threshold optical parametric oscillator with balanced homodyne detection for squeezing verification",
+  "components": [
+    {
+      "type": "laser",
+      "description": "Pump Laser",
+      "position": [
+        0.5,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "wavelength": 532,
+        "power": 500,
+        "linewidth": 10
+      },
+      "component_number": 1
+    },
+    {
+      "type": "optical_isolator",
+      "description": "Isolator",
+      "position": [
+        1.2,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "isolation": 30,
+        "wavelength": 532
+      },
+      "component_number": 2
+    },
+    {
+      "type": "eom",
+      "description": "Phase Modulator",
+      "position": [
+        1.9,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "frequency": 15,
+        "voltage": 100,
+        "type": "EOM"
+      },
+      "component_number": 3
+    },
+    {
+      "type": "lens",
+      "description": "Mode Matching Lens 1",
+      "position": [
+        2.6,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "focal_length": 100,
+        "diameter": 25
+      },
+      "component_number": 4
+    },
+    {
+      "type": "lens",
+      "description": "Mode Matching Lens 2",
+      "position": [
+        3.3,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "focal_length": 75,
+        "diameter": 25
+      },
+      "component_number": 5
+    },
+    {
+      "type": "polarizing_beam_splitter",
+      "description": "PDH Pickoff PBS",
+      "position": [
+        4.0,
+        3.0
+      ],
+      "angle": 45,
+      "parameters": {
+        "type": "polarizing cube"
+      },
+      "component_number": 6
+    },
+    {
+      "type": "quarter_wave_plate",
+      "description": "QWP",
+      "position": [
+        4.5,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "wavelength": 532,
+        "order": "zero-order"
+      },
+      "component_number": 7
+    },
+    {
+      "type": "piezo_mirror",
+      "description": "Input Coupler",
+      "position": [
+        5.2,
+        3.0
+      ],
+      "angle": 45,
+      "parameters": {
+        "reflectivity": 0.95,
+        "wavelength": 1064,
+        "piezo_range": 10
+      },
+      "component_number": 8
+    },
+    {
+      "type": "crystal",
+      "description": "PPLN Crystal",
+      "position": [
+        6.2,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "PPLN",
+        "interaction": "OPO",
+        "length": 10,
+        "poling_period": 6.8,
+        "phase_matching": "type-I",
+        "temperature": 50
+      },
+      "component_number": 9
+    },
+    {
+      "type": "mirror",
+      "description": "Output Coupler",
+      "position": [
+        7.2,
+        3.0
+      ],
+      "angle": 135,
+      "parameters": {
+        "reflectivity": 0.98,
+        "wavelength": 1064
+      },
+      "component_number": 10
+    },
+    {
+      "type": "photodiode",
+      "description": "PDH Detector",
+      "position": [
+        4.0,
+        4.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "fast photodiode",
+        "bandwidth": 100,
+        "efficiency": 90
+      },
+      "component_number": 11
+    },
+    {
+      "type": "custom_pdh_lock",
+      "description": "PDH Lock Box",
+      "position": [
+        3.0,
+        4.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "description": "Pound-Drever-Hall frequency locking electronics that processes reflected pump light from PDH Detector and generates error signal to stabilize cavity resonance via piezo feedback to Input Coupler",
+        "modulation_frequency": "15 MHz",
+        "servo_bandwidth": "100 kHz"
+      },
+      "component_number": 12
+    },
+    {
+      "type": "dichroic_mirror",
+      "description": "Pump Filter",
+      "position": [
+        7.8,
+        3.0
+      ],
+      "angle": 45,
+      "parameters": {
+        "reflection_wavelength": 532,
+        "transmission_wavelength": 1064
+      },
+      "component_number": 13
+    },
+    {
+      "type": "beam_dump",
+      "description": "Pump Dump",
+      "position": [
+        7.8,
+        3.8
+      ],
+      "angle": 0,
+      "parameters": {
+        "power_rating": 1000
+      },
+      "component_number": 14
+    },
+    {
+      "type": "laser",
+      "description": "Local Oscillator",
+      "position": [
+        8.8,
+        0.5
+      ],
+      "angle": 90,
+      "parameters": {
+        "wavelength": 1064,
+        "power": 10,
+        "linewidth": 10
+      },
+      "component_number": 15
+    },
+    {
+      "type": "phase_shifter",
+      "description": "LO Phase Control",
+      "position": [
+        8.8,
+        1.3
+      ],
+      "angle": 90,
+      "parameters": {
+        "range": 360,
+        "wavelength": 1064
+      },
+      "component_number": 16
+    },
+    {
+      "type": "beam_splitter",
+      "description": "Homodyne BS",
+      "position": [
+        8.8,
+        2.3
+      ],
+      "angle": 45,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "50:50"
+      },
+      "component_number": 17
+    },
+    {
+      "type": "photodiode",
+      "description": "Photodiode 1",
+      "position": [
+        9.5,
+        2.8
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "balanced detector",
+        "efficiency": 99,
+        "quantum_efficiency": 0.99,
+        "bandwidth": 100
+      },
+      "component_number": 18
+    },
+    {
+      "type": "photodiode",
+      "description": "Photodiode 2",
+      "position": [
+        9.5,
+        1.8
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "balanced detector",
+        "efficiency": 99,
+        "quantum_efficiency": 0.99,
+        "bandwidth": 100
+      },
+      "component_number": 19
+    },
+    {
+      "type": "custom_spectrum_analyzer",
+      "description": "RF Spectrum Analyzer",
+      "position": [
+        9.5,
+        0.8
+      ],
+      "angle": 0,
+      "parameters": {
+        "description": "Electronic spectrum analyzer measuring the difference photocurrent from balanced homodyne detector (Photodiode 1 minus Photodiode 2) to observe noise reduction below shot noise limit indicating squeezing",
+        "frequency_range": "0-100 MHz",
+        "resolution_bandwidth": "100 kHz"
+      },
+      "component_number": 20
+    }
+  ],
+  "beam_paths": [],
+  "physics_explanation": "A sub-threshold optical parametric oscillator (OPO) operating below threshold generates squeezed vacuum states through degenerate parametric down-conversion in a PPLN crystal. The 532nm pump creates correlated photon pairs at 1064nm within the doubly-resonant cavity, producing quantum noise reduction in one quadrature at the expense of increased noise in the conjugate quadrature. Balanced homodyne detection with a phase-controlled local oscillator measures the quadrature noise spectrum, revealing squeezing below the shot noise limit when the LO phase is optimized. The Pound-Drever-Hall lock maintains cavity resonance for stable squeezing generation using a polarization-based optical circulator scheme.",
+  "expected_outcome": "The RF spectrum analyzer will show noise power below the shot noise limit (0 dB reference) when the local oscillator phase is optimized for the squeezed quadrature, typically achieving 3-10 dB of squeezing depending on cavity parameters, losses, and pump power. Rotating the LO phase by 90\u00b0 will show anti-squeezing (noise above shot noise) in the conjugate quadrature, confirming the Heisenberg uncertainty relation. The squeezing bandwidth will be determined by the cavity linewidth (typically 1-50 MHz). The polarization-based circulator (PBS+QWP) enables proper PDH locking by separating incident and reflected pump beams without blocking the cavity reflection.",
+  "note": "Component numbers match the labels shown in 07_optical_setup.png (1-indexed)"
+}

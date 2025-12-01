@@ -1,0 +1,96 @@
+{
+  "title": "Michelson Interferometer",
+  "description": "Creates interference fringes by splitting a coherent beam into two perpendicular arms and recombining them to measure phase differences.",
+  "components": [
+    {
+      "type": "laser",
+      "description": "HeNe Laser",
+      "position": [
+        1.0,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "wavelength": 632.8,
+        "power": 5,
+        "linewidth": 1000
+      },
+      "component_number": 1
+    },
+    {
+      "type": "beam_expander",
+      "description": "Beam Expander",
+      "position": [
+        2.5,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "magnification": 3,
+        "input_diameter": 1
+      },
+      "component_number": 2
+    },
+    {
+      "type": "beam_splitter",
+      "description": "50:50 Beam Splitter",
+      "position": [
+        4.0,
+        3.0
+      ],
+      "angle": 45,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "cube"
+      },
+      "component_number": 3
+    },
+    {
+      "type": "mirror",
+      "description": "Fixed Mirror M1",
+      "position": [
+        7.0,
+        3.0
+      ],
+      "angle": 180,
+      "parameters": {
+        "reflectivity": 0.99,
+        "diameter": 25
+      },
+      "component_number": 4
+    },
+    {
+      "type": "piezo_mirror",
+      "description": "Movable Mirror M2",
+      "position": [
+        4.0,
+        5.5
+      ],
+      "angle": 270,
+      "parameters": {
+        "reflectivity": 0.99,
+        "diameter": 25,
+        "travel_range": 100
+      },
+      "component_number": 5
+    },
+    {
+      "type": "screen",
+      "description": "Interference Screen",
+      "position": [
+        4.0,
+        1.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "size": "50x50mm",
+        "type": "frosted_glass"
+      },
+      "component_number": 6
+    }
+  ],
+  "beam_paths": [],
+  "physics_explanation": "Coherent laser light is split into two perpendicular arms by a 50:50 beam splitter. Each beam reflects from a mirror and returns to the beam splitter where they interfere. The relative phase between the arms depends on the optical path difference, creating constructive or destructive interference patterns. Moving one mirror changes the path length and shifts the fringe pattern.",
+  "expected_outcome": "Circular or linear interference fringes appear on the screen, with fringe spacing \u03bb/2 per mirror displacement. Moving the piezo mirror causes fringes to shift, demonstrating phase sensitivity to path length changes on the order of the wavelength.",
+  "note": "Component numbers match the labels shown in 07_optical_setup.png (1-indexed)"
+}
