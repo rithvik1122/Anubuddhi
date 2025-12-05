@@ -398,7 +398,7 @@ If you use Aṇubuddhi in your research, please cite:
 
 ```bibtex
 @software{anubuddhi2025,
-  title={Aṇubuddhi: LLM-Powered Quantum Optics Experiment Designer},
+  title={Aṇubuddhi: Agentic AI for Quantum Experiment Design},
   author={Rithvik, S. K.},
   year={2025},
   url={https://github.com/rithvik1122/Anubuddhi},
