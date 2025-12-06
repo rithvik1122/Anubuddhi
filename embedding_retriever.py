@@ -195,9 +195,14 @@ class EmbeddingRetriever:
         Returns:
             List of composite IDs, sorted by relevance (and recency for ties)
         """
+        # Check if collection is empty
+        collection_count = self.composites_collection.count()
+        if collection_count == 0:
+            return []
+        
         results = self.composites_collection.query(
             query_texts=[query],
-            n_results=min(top_k * 2, self.composites_collection.count())  # Get extra to filter duplicates
+            n_results=min(top_k * 2, collection_count)  # Get extra to filter duplicates
         )
         
         if not results['ids'] or not results['ids'][0]:
