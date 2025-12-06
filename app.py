@@ -1208,32 +1208,17 @@ def main():
     
     # Setup global print capture for terminal display
     import builtins
-    import threading
-    
-    # Store original print globally to avoid session_state recursion
-    if not hasattr(builtins, '_original_print'):
-        builtins._original_print = builtins.print
-    
-    # Thread-local flag to prevent recursion
-    _print_in_progress = threading.local()
+    if 'original_print' not in st.session_state:
+        st.session_state.original_print = builtins.print
     
     def terminal_print(*args, **kwargs):
         """Capture all print statements to terminal logs."""
-        # Prevent recursion when accessing session_state
-        if getattr(_print_in_progress, 'active', False):
-            builtins._original_print(*args, **kwargs)
-            return
-        
-        _print_in_progress.active = True
-        try:
-            message = ' '.join(str(arg) for arg in args)
-            if 'terminal_logs' not in st.session_state:
-                st.session_state.terminal_logs = []
-            st.session_state.terminal_logs.append(message)
-            # Also print to original output
-            builtins._original_print(*args, **kwargs)
-        finally:
-            _print_in_progress.active = False
+        message = ' '.join(str(arg) for arg in args)
+        if 'terminal_logs' not in st.session_state:
+            st.session_state.terminal_logs = []
+        st.session_state.terminal_logs.append(message)
+        # Also print to original output
+        st.session_state.original_print(*args, **kwargs)
         
         # Force update terminal display if placeholder exists
         if 'terminal_placeholder' in st.session_state and st.session_state.terminal_placeholder is not None:
