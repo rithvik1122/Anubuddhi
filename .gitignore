@@ -3,6 +3,8 @@
 *.env
 .env.local
 .env.*.local
+apikey.txt
+*.key
 
 # Python
 __pycache__/
