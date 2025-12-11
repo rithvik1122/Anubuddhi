@@ -4,8 +4,8 @@
       "name": "PDH Lock Box",
       "description": "Pound-Drever-Hall frequency locking electronics that processes reflected pump light from PDH Detector and generates error signal to stabilize cavity resonance via piezo feedback to Output Coupler",
       "added_date": "2025-11-27T14:02:05.430898",
-      "last_used": "2025-11-28T18:41:38.713554",
-      "usage_count": 7,
+      "last_used": "2025-12-02T14:24:52.527759",
+      "usage_count": 8,
       "parameters": {
         "description": "Pound-Drever-Hall frequency locking electronics that processes reflected pump light from PDH Detector and generates error signal to stabilize cavity resonance via piezo feedback to Output Coupler",
         "servo_bandwidth": "100 kHz",
@@ -16,8 +16,8 @@
       "name": "RF Spectrum Analyzer",
       "description": "Electronic spectrum analyzer measuring the difference photocurrent from balanced homodyne detector (Photodiode 1 minus Photodiode 2) to observe noise reduction below shot noise limit indicating squeezing",
       "added_date": "2025-11-27T14:02:05.431104",
-      "last_used": "2025-11-28T19:33:10.643462",
-      "usage_count": 8,
+      "last_used": "2025-12-02T14:24:52.528504",
+      "usage_count": 9,
       "parameters": {
         "description": "Electronic spectrum analyzer measuring the difference photocurrent from balanced homodyne detector (Photodiode 1 minus Photodiode 2) to observe noise reduction below shot noise limit indicating squeezing",
         "frequency_range": "1-100 MHz",
@@ -41,8 +41,8 @@
       "name": "Classical Communication",
       "description": "Classical channel transmitting Alice's Bell measurement results (which of 4 detectors fired) to Bob to determine correct unitary correction operations on his photon",
       "added_date": "2025-11-28T17:23:23.605716",
-      "last_used": "2025-11-28T18:53:00.765003",
-      "usage_count": 2,
+      "last_used": "2025-12-02T13:42:31.497844",
+      "usage_count": 3,
       "parameters": {
         "description": "Classical channel transmitting Alice's Bell measurement results (which of 4 detectors fired) to Bob to determine correct unitary correction operations on his photon",
         "bandwidth": "1 MHz",
@@ -151,9 +151,24 @@
         "stability": "\u00b10.1\u00b0C",
         "range": "20-100\u00b0C"
       }
+    },
+    "custom_coincidence_logic": {
+      "name": "Coincidence Counter",
+      "description": "Electronic unit processing Alice's 4 SPAD outputs to identify two-photon coincidence events within 1ns window and determine Bell state measurement outcome. Electrically connected to detectors D1-D4 via coaxial cables. Outputs 2-bit classical result to Classical Channel unit.",
+      "added_date": "2025-12-02T13:42:31.488643",
+      "last_used": "2025-12-02T13:42:31.488654",
+      "usage_count": 1,
+      "parameters": {
+        "description": "Electronic unit processing Alice's 4 SPAD outputs to identify two-photon coincidence events within 1ns window and determine Bell state measurement outcome. Electrically connected to detectors D1-D4 via coaxial cables. Outputs 2-bit classical result to Classical Channel unit.",
+        "channels": 4,
+        "timing_resolution_ns": 1,
+        "coincidence_window_ns": 1,
+        "input_connections": "Alice D1, D2, D3, D4 via BNC cables",
+        "output_connections": "Classical Channel via digital I/O"
+      }
     }
   },
   "_description": "Custom components defined by LLM for specialized equipment not in standard library",
-  "_total_custom": 12,
-  "_last_updated": "2025-11-29T14:27:13.838189"
+  "_total_custom": 13,
+  "_last_updated": "2025-12-02T14:24:52.528512"
 }

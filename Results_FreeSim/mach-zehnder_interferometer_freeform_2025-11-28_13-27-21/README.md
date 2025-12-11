@@ -84,6 +84,6 @@ See `04_metrics_summary.md` for:
 If you use this in your research, please cite:
 
 ```
-AgenticQuantum: AI-Driven Quantum Experiment Design
+Anubuddhi: AI-Driven Quantum Experiment Design
 [Citation details to be added]
 ```

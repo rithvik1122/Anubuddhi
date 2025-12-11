@@ -1,0 +1,17 @@
+Tier,Experiment,Best_Sim,QuTiP_Rating,FreeSim_Alignment,FreeSim_Models_Design
+1,"Delayed Choice Quantum Eraser Experiment",FreeSim,7,9,True
+1,"Hong-Ou-Mandel Interference Experiment",FreeSim,7,9,True
+1,"Mach-Zehnder Interferometer",FreeSim,7,9,True
+1,"Michelson Interferometer",QuTiP,9,8,True
+1,"Bell State Generator using SPDC",FreeSim,7,8,True
+1,"Bell State Generator using Spontaneous Parametric Down-Conversion",QuTiP,7,3,False
+2,"Franson Interferometer for Time-Bin Entanglement",FreeSim,2,9,True
+2,"BB84 Quantum Key Distribution Setup",FreeSim,7,9,True
+2,"Hyperentangled Photon Source with Polarization and Time-Bin Entanglement",FreeSim,2,9,True
+2,"Squeezed Light Source via Optical Parametric Oscillation (Refined)",FreeSim,2,9,True
+2,"3-Photon GHZ State Generator via Sequential Entanglement Swapping",FreeSim,2,8,True
+2,"Continuous-Variable Quantum Teleportation with Squeezed States",FreeSim,2,4,False
+2,"Quantum Teleportation Experiment",FreeSim,2,3,False
+3,"4-Photon Boson Sampling Experiment",QuTiP,7,3,False
+3,"Electromagnetically Induced Transparency (EIT) in Warm Rubidium Vapor",FreeSim,4,3,False
+3,"Quantum Frequency Converter: Telecom to Visible (Corrected)",FreeSim,4,3,False

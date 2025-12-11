@@ -1,0 +1,328 @@
+{
+  "title": "Quantum Teleportation of Photonic Polarization States",
+  "description": "Teleports an unknown quantum polarization state from Alice to Bob using entangled photon pairs, Bell state measurement, and classical communication",
+  "components": [
+    {
+      "type": "laser",
+      "description": "Entanglement Pump",
+      "position": [
+        1.0,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "wavelength": 405,
+        "power": 100,
+        "linewidth": 1000
+      },
+      "component_number": 1
+    },
+    {
+      "type": "crystal",
+      "description": "SPDC Crystal",
+      "position": [
+        2.5,
+        3.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "BBO",
+        "interaction": "SPDC",
+        "phase_matching": "type-I",
+        "length": 2
+      },
+      "component_number": 2
+    },
+    {
+      "type": "lens",
+      "description": "Collection Lens Alice",
+      "position": [
+        3.5,
+        4.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "focal_length": 50,
+        "diameter": 25
+      },
+      "component_number": 3
+    },
+    {
+      "type": "lens",
+      "description": "Collection Lens Bob",
+      "position": [
+        3.5,
+        2.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "focal_length": 50,
+        "diameter": 25
+      },
+      "component_number": 4
+    },
+    {
+      "type": "laser",
+      "description": "State Preparation Laser",
+      "position": [
+        1.0,
+        5.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "wavelength": 810,
+        "power": 1,
+        "linewidth": 100
+      },
+      "component_number": 5
+    },
+    {
+      "type": "attenuator",
+      "description": "Single Photon Attenuator",
+      "position": [
+        2.0,
+        5.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "attenuation": 0.99999
+      },
+      "component_number": 6
+    },
+    {
+      "type": "polarizer",
+      "description": "State Encoder",
+      "position": [
+        3.0,
+        5.0
+      ],
+      "angle": 45,
+      "parameters": {
+        "angle": 45,
+        "extinction_ratio": 10000
+      },
+      "component_number": 7
+    },
+    {
+      "type": "beam_splitter",
+      "description": "Bell State BS",
+      "position": [
+        4.5,
+        4.5
+      ],
+      "angle": 45,
+      "parameters": {
+        "transmittance": 0.5,
+        "type": "non-polarizing"
+      },
+      "component_number": 8
+    },
+    {
+      "type": "polarizing_beam_splitter",
+      "description": "PBS Alice 1",
+      "position": [
+        5.5,
+        5.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "extinction_ratio": 10000
+      },
+      "component_number": 9
+    },
+    {
+      "type": "polarizing_beam_splitter",
+      "description": "PBS Alice 2",
+      "position": [
+        5.5,
+        4.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "extinction_ratio": 10000
+      },
+      "component_number": 10
+    },
+    {
+      "type": "detector",
+      "description": "Alice D1",
+      "position": [
+        6.5,
+        5.3
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 70,
+        "dark_count_rate": 100,
+        "timing_resolution": 50
+      },
+      "component_number": 11
+    },
+    {
+      "type": "detector",
+      "description": "Alice D2",
+      "position": [
+        6.5,
+        4.7
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 70,
+        "dark_count_rate": 100,
+        "timing_resolution": 50
+      },
+      "component_number": 12
+    },
+    {
+      "type": "detector",
+      "description": "Alice D3",
+      "position": [
+        6.5,
+        4.3
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 70,
+        "dark_count_rate": 100,
+        "timing_resolution": 50
+      },
+      "component_number": 13
+    },
+    {
+      "type": "detector",
+      "description": "Alice D4",
+      "position": [
+        6.5,
+        3.7
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 70,
+        "dark_count_rate": 100,
+        "timing_resolution": 50
+      },
+      "component_number": 14
+    },
+    {
+      "type": "custom_coincidence_logic",
+      "description": "Coincidence Counter",
+      "position": [
+        7.5,
+        4.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "description": "Electronic unit processing Alice's 4 SPAD outputs to identify two-photon coincidence events within 1ns window and determine Bell state measurement outcome. Electrically connected to detectors D1-D4 via coaxial cables. Outputs 2-bit classical result to Classical Channel unit.",
+        "channels": 4,
+        "timing_resolution_ns": 1,
+        "coincidence_window_ns": 1,
+        "input_connections": "Alice D1, D2, D3, D4 via BNC cables",
+        "output_connections": "Classical Channel via digital I/O"
+      },
+      "component_number": 15
+    },
+    {
+      "type": "custom_classical_channel",
+      "description": "Classical Channel",
+      "position": [
+        7.5,
+        2.5
+      ],
+      "angle": 0,
+      "parameters": {
+        "description": "Classical communication link transmitting Alice's Bell measurement result (2 bits) to Bob's station via RF or fiber link, triggering voltage control signals to Pockels cells for unitary correction. Receives input from Coincidence Counter and outputs control voltages to Bob Bit-Flip Gate and Bob Phase-Flip Gate.",
+        "latency_ns": 1000,
+        "bandwidth_MHz": 100,
+        "control_outputs": 2,
+        "input_connections": "Coincidence Counter via digital I/O",
+        "output_connections": "Bob Pockels cells via high-voltage drivers"
+      },
+      "component_number": 16
+    },
+    {
+      "type": "pockels_cell",
+      "description": "Bob Bit-Flip Gate",
+      "position": [
+        5.0,
+        2.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "voltage": 3400,
+        "aperture": 3,
+        "rise_time": 10,
+        "wavelength": 810
+      },
+      "component_number": 17
+    },
+    {
+      "type": "pockels_cell",
+      "description": "Bob Phase-Flip Gate",
+      "position": [
+        6.0,
+        2.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "voltage": 3400,
+        "aperture": 3,
+        "rise_time": 10,
+        "wavelength": 810
+      },
+      "component_number": 18
+    },
+    {
+      "type": "polarizing_beam_splitter",
+      "description": "Bob Analysis PBS",
+      "position": [
+        7.0,
+        2.0
+      ],
+      "angle": 0,
+      "parameters": {
+        "extinction_ratio": 10000
+      },
+      "component_number": 19
+    },
+    {
+      "type": "detector",
+      "description": "Bob D_H",
+      "position": [
+        8.0,
+        2.3
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 70,
+        "dark_count_rate": 100,
+        "timing_resolution": 50
+      },
+      "component_number": 20
+    },
+    {
+      "type": "detector",
+      "description": "Bob D_V",
+      "position": [
+        8.0,
+        1.7
+      ],
+      "angle": 0,
+      "parameters": {
+        "type": "SPAD",
+        "efficiency": 70,
+        "dark_count_rate": 100,
+        "timing_resolution": 50
+      },
+      "component_number": 21
+    }
+  ],
+  "beam_paths": [],
+  "physics_explanation": "Type-I SPDC generates entangled photon pairs in Bell state |\u03a6+\u27e9 = (|HH\u27e9 + |VV\u27e9)/\u221a2, with one photon sent to Alice and one to Bob. Alice prepares unknown state |\u03c8\u27e9 = \u03b1|H\u27e9 + \u03b2|V\u27e9 and performs Bell state measurement by interfering it with her entangled photon at a 50:50 non-polarizing beam splitter (enabling Hong-Ou-Mandel interference), followed by polarization analysis with two PBSs and four detectors. The two-photon coincidence pattern projects onto one of four Bell states, collapsing Bob's photon into a state related to |\u03c8\u27e9 by a known Pauli operator. Electronic coincidence logic identifies the Bell state and transmits classical bits via RF/fiber to Bob's station, triggering Pockels cells to apply the appropriate correction (identity, \u03c3_x, \u03c3_z, or \u03c3_x\u03c3_z), recovering the exact original state.",
+  "expected_outcome": "When Alice's coincidence counter registers a two-photon detection event (e.g., D1 and D3 fire simultaneously within 1ns), the Bell state is projected and Bob's photon collapses to a specific state. The Coincidence Counter identifies the Bell state from the detector pattern: (D1,D3)\u2192|\u03a6+\u27e9, (D1,D4)\u2192|\u03a6-\u27e9, (D2,D3)\u2192|\u03a8+\u27e9, (D2,D4)\u2192|\u03a8-\u27e9. The Classical Channel transmits this result electronically to Bob's station and triggers appropriate Pockels cell voltages: (D1,D3)\u2192identity (no correction), (D1,D4)\u2192\u03c3_z (phase flip), (D2,D3)\u2192\u03c3_x (bit flip), (D2,D4)\u2192\u03c3_x\u03c3_z (both flips). After correction, Bob's detectors measure the teleported state with fidelity >85-90%, confirming successful transfer of the quantum state |+\u27e9 = (|H\u27e9 + |V\u27e9)/\u221a2. Quantum state tomography over multiple runs verifies the teleported state matches the original, while the no-cloning theorem is preserved since Alice's photon is destroyed in the Bell measurement. The experiment demonstrates genuine quantum teleportation with classical communication completing the protocol.",
+  "note": "Component numbers match the labels shown in 07_optical_setup.png (1-indexed)"
+}
