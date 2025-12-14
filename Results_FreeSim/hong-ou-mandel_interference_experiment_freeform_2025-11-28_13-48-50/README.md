@@ -2,13 +2,13 @@
 
 **Experiment:** Hong-Ou-Mandel Interference Experiment
 **Generated:** 2025-11-28_13-48-50
-**Simulation Mode:** AI-Generated Free-Form Python
+**Simulation Mode:** Aṇubuddhi-Generated Free-Form Python
 
 ---
 
 ## Package Contents
 
-1. `01_freeform_simulation.py` - AI-generated Python simulation code
+1. `01_freeform_simulation.py` - Aṇubuddhi-generated Python simulation code
 2. `02_execution_output.txt` - Complete simulation output (text)
 3. `03_simulation_report.md` - Comprehensive analysis report
 4. `04_analysis_results.json` - Full analysis data (JSON format)

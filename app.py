@@ -2195,13 +2195,13 @@ def main():
 
 **Experiment:** {result.get('title', 'N/A')}
 **Generated:** {timestamp}
-**Simulation Mode:** AI-Generated Free-Form Python
+**Simulation Mode:** Aṇubuddhi-Generated Free-Form Python
 
 ---
 
 ## Package Contents
 
-1. `01_freeform_simulation.py` - AI-generated Python simulation code
+1. `01_freeform_simulation.py` - Aṇubuddhi-generated Python simulation code
 2. `02_execution_output.txt` - Complete simulation output (text)
 3. `03_simulation_report.md` - Comprehensive analysis report
 4. `04_analysis_results.json` - Full analysis data (JSON format)
@@ -2384,7 +2384,7 @@ This report combines the simulation results with AI-powered analysis to help you
                         
                         with tech_tab1:
                             code = freeform_results.get('code', 'No code available')
-                            st.caption("AI-generated Python simulation code")
+                            st.caption("Aṇubuddhi-generated Python simulation code")
                             st.code(code, language='python', line_numbers=True)
                             
                             # Download button
